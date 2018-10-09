@@ -82,7 +82,7 @@
       <div id="sidebar" class="nav-collapse">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
-          <li class="active">
+          <li class="">
             <a class="" href="index.html">
                           <i class="icon_house_alt"></i>
                           <span>Trang chủ</span>
@@ -107,7 +107,7 @@
                         </a>
           </li>
 
-          <li class="sub-menu">
+          <li class="sub-menu active">
             <a href="javascript:;" class="">
                           <i class="icon_adjust-vert"></i>
                           <span>Cấu hình</span>
@@ -115,7 +115,7 @@
                       </a>
             <ul class="sub">
               <li><a class="" href="setting_system.html">Hệ thống</a></li>
-              <li><a class="" href="setting_account.html">Tài khoản</a></li>
+              <li><a class="active" href="setting_account.html">Tài khoản</a></li>
               <li><a class="" href="setting_p1.html"><span>P#1</span></a></li>
               <li><a class="" href="setting_p2.html"><span>P#2</span></a></li>
               <li><a class="" href="setting_p3.html"><span>P#3</span></a></li>
@@ -145,65 +145,102 @@
             </ol>
           </div>
         </div>
+
+
+        
         <div class="row">
-          <div class="col-lg-12">            
+          <div class="col-lg-12">
             <section class="panel">
               <header class="panel-heading">
-                Thay đổi mật khẩu tài khoản hiện tại
+                Đổi mật khẩu tài khoản hiện tại
               </header>
               <div class="panel-body">
                 <form class="form-horizontal " method="get">
                   <div class="form-group">
-                    <label class="col-sm-2 control-label">Tài khoản</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control">
-                    </div>
-                  </div>
-                  <div class="form-group">
                     <label class="col-sm-2 control-label">Mật khẩu hiện tại</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control">                      
+                      <input type="text" class="form-control">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Mật khẩu mới</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control">                      
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Xác nhận mật khẩu mới</label>
                     <div class="col-sm-10">
                       <input type="text" class="form-control">
-                    </div>                 
+                    </div>
+                  </div>                                  
                 </form>
+                <div class="pull-right">
+                  <div><span>&nbsp;</span></div>
+                  <button type="button" class="btn btn-default btn-lg" onclick="onReset()">Đổi mật khẩu</button>
+                </div>
               </div>
-            </section> 
-
-            <section class="panel">
-            <header class="panel-heading">
-              Supper user
-            </header>
-            <div class="panel-body">
-              <form class="form-horizontal " method="get">
-                <div class="form-group">
-                  <label class="col-sm-2 control-label">Tài khoản</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control">
+              <header class="panel-heading">
+                Thêm tài khoản mới
+              </header>
+              <div class="panel-body">
+                <form class="form-horizontal " method="get">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Tên tài khoản</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control">
+                    </div>
                   </div>
-                </div>                                   
-              </form>
-            </div>
-          </section> 
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Mật khẩu</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control">                      
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Xác nhận Mật khẩu</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control">                      
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Loại tài khoản</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>                  
+                </form>
+                <div class="pull-right">
+                  <div><span>&nbsp;</span></div>
+                  <button type="button" class="btn btn-default btn-lg" onclick="onReset()">Thêm tài khoản</button>
+                </div>
+              </div> 
               
+              <header class="panel-heading">
+                  Reset mật khẩu/Xóa tài khoản
+                </header>
+                <div class="panel-body">
+                  <form class="form-horizontal " method="get">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Tên tài khoản</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control">
+                      </div>
+                    </div>                 
+                  </form>
+                </div>    
+
+                <section class="panel">
+                  <div class="pull-right">
+                      <div><span>&nbsp;</span></div>
+                      <button type="button" class="btn btn-default btn-lg" onclick="onReset()">Reset mật khẩu</button><span>&nbsp;</span>
+                      <button type="button" class="btn btn-default btn-lg" onclick="onReset()">Xóa tài khoản</button>
+                  </div>
+                </section>  
+
+          </section>               
         </section>
       </section>
-    <!--main content end-->
-    <div class="text-right">
-      <div class="credits">
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div>
-    </div>
   </section>
   <!-- container section end -->
   <!-- javascripts -->
