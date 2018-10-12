@@ -142,6 +142,7 @@
                 <li><i class="fa fa-home"></i><a href="index.html">Trang chủ</a></li>
                 <li><i class="icon_adjust-vert"></i>Cài đặt</li>              
                 <li><i class="icon_adjust-vert"></i>Tài khoản</li>
+                <!-- <li><i id="connecttion_status4"></i></li>  -->
             </ol>
           </div>
         </div>
@@ -159,19 +160,19 @@
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Mật khẩu hiện tại</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control">
+                      <input id="account_man_curr_password" type="password" class="form-control">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Mật khẩu mới</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control">                      
+                      <input id="account_man_new_password" type="password" class="form-control">                      
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Xác nhận mật khẩu mới</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control">
+                      <input id="account_man_conf_password" type="password" class="form-control">
                     </div>
                   </div>                                  
                 </form>
@@ -188,25 +189,25 @@
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Tên tài khoản</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control">
+                      <input id="account_add_username" type="text" class="form-control">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Mật khẩu</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control">                      
+                      <input id="account_add_password" type="text" class="form-control">                      
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Xác nhận Mật khẩu</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control">                      
+                      <input id="account_add_conf_password" type="text" class="form-control">                      
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Loại tài khoản</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control">
+                      <input id="account_add_role" type="text" class="form-control">
                     </div>
                   </div>                  
                 </form>
@@ -224,7 +225,7 @@
                     <div class="form-group">
                       <label class="col-sm-2 control-label">Tên tài khoản</label>
                       <div class="col-sm-10">
-                        <input type="text" class="form-control">
+                        <input id="account_reset_delelte" type="text" class="form-control">
                       </div>
                     </div>                 
                   </form>
@@ -276,6 +277,7 @@
   <script src="js/form-component.js"></script>
   <!-- custome script for all page -->
   <script src="js/scripts.js"></script>
+  <script src="js/app.js"></script>
 
 
 </body>
