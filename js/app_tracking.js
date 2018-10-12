@@ -35,7 +35,20 @@ function onMessage(event) {
     try {        
         msg = JSON.parse(event.data)        
         if(msg != undefined) {
-            console.log(msg)            
+            console.log(msg)
+            if(msg["type"] == "realtime_data") {
+                smsg =  msg["data"]
+                if(msg != undefined) {
+                    setDataRawRow(smsg[0], 1)
+                    setDataRawRow(smsg[1], 2)
+                    setDataRawRow(smsg[2], 3)
+                    setDataRawRow(smsg[3], 4)
+                    setDataRawRow(smsg[4], 5)
+                    setDataRawRow(smsg[5], 6)
+                    setDataRawRow(smsg[6], 7)
+                    setDataRawRow(smsg[7], 8)
+                }
+            }            
 
         }
     } catch(err) {        
@@ -74,7 +87,7 @@ function onReload(){
     if(SOCK == undefined) return
 
 
-    SOCK.send(JSON.stringify(msg))
+    // SOCK.send(JSON.stringify(msg))
 }
 
 function onReset(){
@@ -111,6 +124,13 @@ function setStatus(val, warn) {
     // }
 }
 
+
+function setDataRawRow(msg, row) {
+    document.getElementById("data_raw_sw_name_p" + row).innerHTML = '<span>' + msg["sw"] + "</span>"
+    document.getElementById("data_raw_value_p" + row).innerHTML = '<span>' + msg["raw"] + "</span>"
+    document.getElementById("data_raw_unit_p" + row).innerHTML = '<span>' + msg["unit"] + "</span>"
+    document.getElementById("data_raw_status_p" + row).innerHTML = '<span>' + msg["status"] + "</span>"    
+}
 
 
 
