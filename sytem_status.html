@@ -42,10 +42,14 @@
       </div>
 
       <!--logo start-->
-      <a class="logo"> <span class="lite">Hệ thống quan trắc</span></a>
-      <!--logo end-->
+      <a class="logo">                             
+        <!-- <span class="profile-widget"><img class="" alt="" src="img/logo.jpg"></span> -->
+        <span class="lite">Hệ thống quan trắc</span>        
+        <!-- <div class="lite" id="connecttion_status"></div> -->
+      </a>
+      <!--logo end-->      
 
-      <div class="top-nav notification-row">
+      <div class="top-nav notification-row">        
         <!-- notificatoin dropdown start-->
         <ul class="nav pull-right top-menu">          
           <!-- user login dropdown start-->
@@ -54,7 +58,7 @@
                             <span class="profile-ava">
                                 <img alt="" src="img/avatar1_small.jpg">
                             </span>
-                            <span class="username">Administrator</span>
+                            <span class="username" id="user_name"></span>
 
                             <b class="caret"></b>
                         </a>
@@ -82,7 +86,7 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
-          <li class="">
+          <li class="active">
             <a class="" href="sytem_status.html">
                           <i class="icon_house_alt"></i>
                           <span>Trang chủ</span>
@@ -107,7 +111,7 @@
                         </a>
           </li>
 
-          <li class="sub-menu active">
+          <li class="sub-menu">
             <a href="javascript:;" class="">
                           <i class="icon_adjust-vert"></i>
                           <span>Cấu hình</span>
@@ -121,7 +125,7 @@
               <li><a class="" href="setting_p3.html"><span>P#3</span></a></li>
               <li><a class="" href="setting_p4.html"><span>P#4</span></a></li>
               <li><a class="" href="setting_p5.html"><span>P#5</span></a></li>
-              <li><a class="active" href="setting_p6.html"><span>P#6</span></a></li>
+              <li><a class="" href="setting_p6.html"><span>P#6</span></a></li>
               <li><a class="" href="setting_p7.html"><span>P#7</span></a></li>
               <li><a class="" href="setting_p8.html"><span>P#8</span></a></li>
             </ul>
@@ -137,11 +141,11 @@
     <section id="main-content">
       <section class="wrapper">
         <div class="row">
-          <div class="col-lg-12">              
-              <ol class="breadcrumb">
-                <li><i class="fa fa-home"></i><a href="sytem_status.html">Trang chủ</a></li>
-                <li><i class="icon_adjust-vert"></i>Cài đặt</li>              
-                <li><i class="icon_adjust-vert"></i>P#6</li>        
+          <div class="col-lg-12">
+            <ol class="breadcrumb">
+              <li><i class="fa fa-home"></i><a href="index.html">Trang chủ</a></li>
+              <li><i class="icon_document_alt"></i>Trạng thái</li>
+              <li><i id="connecttion_status"></i></li>
             </ol>
           </div>
         </div>
@@ -156,44 +160,67 @@
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Tỉnh</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control">
+                      <input id="status_tinh" type="text" class="form-control">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Cơ sở</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control">                      
+                      <input id="status_coso" type="text" class="form-control">                      
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Trạm</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control">
+                      <input id="status_tram" type="text" class="form-control">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Địa chỉ IP</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control">
+                      <input id="status_ip" type="text" class="form-control">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Subnet Mask</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control">
+                      <input id="status_subnet" type="text" class="form-control">
                     </div>
                   </div>                  
                 </form>
               </div>
-            </section>                
+            </section>  
+            
+            <section class="panel">
+                <header class="panel-heading">
+                  Máy chủ FTP
+                </header>
+                <div class="panel-body">
+                  <form class="form-horizontal " method="get">
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Địa chỉ IP</label>
+                      <div class="col-sm-10">
+                        <input id="status_ftp_ip" type="text" class="form-control">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Tên truy cập</label>
+                      <div class="col-sm-10">
+                        <input id="status_ftp_username" type="text" class="form-control">                      
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Cổng truy cập</label>
+                      <div class="col-sm-10">
+                        <input id="status_ftp_port" type="text" class="form-control">
+                      </div>
+                    </div>                                    
+                  </form>
+                </div>
+              </section>
+
         </section>
       </section>
-    <!--main content end-->
-    <div class="text-right">
-      <div class="credits">
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div>
-    </div>
   </section>
   <!-- container section end -->
   <!-- javascripts -->
@@ -229,6 +256,7 @@
   <script src="js/form-component.js"></script>
   <!-- custome script for all page -->
   <script src="js/scripts.js"></script>
+  <script src="app/overview_status.js"></script>
 
 
 </body>
