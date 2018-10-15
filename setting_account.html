@@ -156,64 +156,64 @@
                 Đổi mật khẩu tài khoản hiện tại
               </header>
               <div class="panel-body">
-                <form class="form-horizontal " method="get">
+                <div class="form-horizontal">
                   <div class="form-group">
-                    <label class="col-sm-2 control-label">Mật khẩu hiện tại</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-4 control-label">Mật khẩu hiện tại</label>
+                    <div class="col-sm-4">
                       <input id="account_man_curr_password" type="password" class="form-control">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-2 control-label">Mật khẩu mới</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-4 control-label">Mật khẩu mới</label>
+                    <div class="col-sm-4">
                       <input id="account_man_new_password" type="password" class="form-control">                      
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-2 control-label">Xác nhận mật khẩu mới</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-4 control-label">Xác nhận mật khẩu mới</label>
+                    <div class="col-sm-4">
                       <input id="account_man_conf_password" type="password" class="form-control">
                     </div>
                   </div>                                  
-                </form>
+                </div>
                 <div class="pull-right">
                   <div><span>&nbsp;</span></div>
-                  <button type="button" class="btn btn-default btn-lg" onclick="onReset()">Đổi mật khẩu</button>
+                  <button type="button" class="btn btn-default btn-lg" onclick="changePassword()">Đổi mật khẩu</button>
                 </div>
               </div>
               <header class="panel-heading">
                 Thêm tài khoản mới
               </header>
               <div class="panel-body">
-                <form class="form-horizontal " method="get">
+                <div class="form-horizontal">
                   <div class="form-group">
-                    <label class="col-sm-2 control-label">Tên tài khoản</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-4 control-label">Tên tài khoản</label>
+                    <div class="col-sm-4">
                       <input id="account_add_username" type="text" class="form-control">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-2 control-label">Mật khẩu</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-4 control-label">Mật khẩu</label>
+                    <div class="col-sm-4">
                       <input id="account_add_password" type="text" class="form-control">                      
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-2 control-label">Xác nhận Mật khẩu</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-4 control-label">Xác nhận Mật khẩu</label>
+                    <div class="col-sm-4">
                       <input id="account_add_conf_password" type="text" class="form-control">                      
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-2 control-label">Loại tài khoản</label>
-                    <div class="col-sm-10">
+                    <label class="col-sm-4 control-label">Loại tài khoản</label>
+                    <div class="col-sm-4">
                       <input id="account_add_role" type="text" class="form-control">
                     </div>
                   </div>                  
-                </form>
+                </div>
                 <div class="pull-right">
                   <div><span>&nbsp;</span></div>
-                  <button type="button" class="btn btn-default btn-lg" onclick="onReset()">Thêm tài khoản</button>
+                  <button type="button" class="btn btn-default btn-lg" onclick="addUser()">Thêm tài khoản</button>
                 </div>
               </div> 
               
@@ -221,10 +221,10 @@
                   Reset mật khẩu/Xóa tài khoản
                 </header>
                 <div class="panel-body">
-                  <form class="form-horizontal " method="get">
+                  <div class="form-horizontal">
                     <div class="form-group">
-                      <label class="col-sm-2 control-label">Tên tài khoản</label>
-                      <div class="col-sm-10">
+                      <label class="col-sm-4 control-label">Tên tài khoản</label>
+                      <div class="col-sm-4">
                         <input id="account_reset_delelte" type="text" class="form-control">
                       </div>
                     </div>                 
@@ -234,8 +234,8 @@
                 <section class="panel">
                   <div class="pull-right">
                       <div><span>&nbsp;</span></div>
-                      <button type="button" class="btn btn-default btn-lg" onclick="onReset()">Reset mật khẩu</button><span>&nbsp;</span>
-                      <button type="button" class="btn btn-default btn-lg" onclick="onReset()">Xóa tài khoản</button>
+                      <button type="button" class="btn btn-default btn-lg" onclick="resetPassword()">Reset mật khẩu</button><span>&nbsp;</span>
+                      <button type="button" class="btn btn-default btn-lg" onclick="deleteUser()">Xóa tài khoản</button>
                   </div>
                 </section>  
 

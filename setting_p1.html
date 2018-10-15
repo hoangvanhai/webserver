@@ -142,7 +142,8 @@
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="sytem_status.html">Trang chủ</a></li>
               <li><i class="icon_adjust-vert"></i>Cài đặt</li>              
-                <li><i class="icon_adjust-vert"></i>P#1</li>             
+              <li><i class="icon_adjust-vert"></i>P#1</li>   
+              <li><i id="connecttion_status"></i></li>          
             </ol>
 
           </div>
@@ -162,14 +163,22 @@
                               <td>Thông số đo</td>
                               <td><input id="thongsodo_p1" type="text" class="form-control"></td>
                               <td>Đơn vị đo</td>
-                              <td><input type="donvido_p1" class="form-control"></td>
+                              <td><input id="donvido_p1" type="text" class="form-control"></td>
                             </tr>
                             <tr>
                               <td>Mô tả thông số</td>
-                              <td><input type="mota_thongso_p1" class="form-control"></td>
+                              <td><input id="mota_thongso_p1" type="text" class="form-control"></td>
                               <td>Báo cáo</td>
                               <td><input id="baocao_p1" type="checkbox" class="form-control"></td>
-                            </tr>                              
+                            </tr>   
+                            <tr>
+                              <td>Giới hạn cảnh báo trên</td>
+                              <td><input id="gioihantren_p1" type="text" class="form-control"></td>                              
+                            </tr>
+                            <tr>
+                              <td>Giới hạn cảnh báo dưới</td>
+                              <td><input id="gioihanduoi_p1" type="text" class="form-control"></td>                              
+                            </tr>
                           </tbody>
                         </table>  
 
@@ -198,7 +207,7 @@
                               </tr>                              
                               <tr>
                                 <td>Dải đo trên</td>
-                                <td><input type="daidotren_p1" class="form-control"></td>                                
+                                <td><input id="daidotren_p1" type="text" class="form-control"></td>                                
                               </tr>                              
                             </tbody>
                           </table>                        
@@ -267,13 +276,13 @@
                             <tbody>
                               <tr>
                                 <td>Bảo trì</td>
-                                <td><input type="text" class="form-control"></td>
-                                <td><input type="checkbox" class="form-control"></td>
+                                <td><input id="baotri_p1" type="text" class="form-control"></td>
+                                <td><input id="checkbaotri_p1" type="checkbox" class="form-control"></td>
                               </tr>
                               <tr>
                                 <td>Lỗi</td>
-                                <td><input type="text" class="form-control"></td>
-                                <td><input type="checkbox" class="form-control"></td>
+                                <td><input id="error_p1" type="text" class="form-control"></td>
+                                <td><input id="checkerror_p1" type="checkbox" class="form-control"></td>
                               </tr>                              
                             </tbody>
                           </table>
@@ -323,6 +332,7 @@
   <script src="js/form-component.js"></script>
   <!-- custome script for all page -->
   <script src="js/scripts.js"></script>
+  <script src="app/setting_tag.js"></script>
 
 
 </body>

@@ -3,8 +3,7 @@ localStorage.username_
 localStorage.password_
 localStorage.role_
 
-document.addEventListener("DOMContentLoaded", function(){
-    // setStatus('Đang chờ kết nối ...', true)
+document.addEventListener("DOMContentLoaded", function(){    
 
     if('WebSocket' in window) {
         SOCK = new WebSocket("ws://"+window.location.hostname+":8081", 'raw-protocol')
@@ -33,17 +32,19 @@ document.addEventListener("DOMContentLoaded", function(){
 
 function onMessage(event) {    
     try {        
-        msg = JSON.parse(event.data)        
+        msg = JSON.parse(event.data)     
+          
         if(msg != undefined) {
+            console.log(msg) 
             if(msg["type"] == "login") {
                 if(msg["status"] == "success") {
                     localStorage.username_ = msg["username"]
                     localStorage.role_ = msg["role"]
-
+                    
                     window.location = "sytem_status.html"; // Redirecting to other page.
 
                 } else {
-                    alert(msg["msg"])
+                    alert("tài khoản hoặc mật khẩu không đúng")
                 }
             }
         }
@@ -62,6 +63,8 @@ function onLogin() {
             password: getText("login_password")
         }        
     }
+
+    localStorage.password_ = getText("login_password")
 
     SOCK.send(JSON.stringify(msg))
 }

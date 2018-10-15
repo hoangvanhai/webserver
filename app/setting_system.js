@@ -9,8 +9,7 @@ document.addEventListener("DOMContentLoaded", function(){
             SOCK.binaryType= "arraybuffer"
             SOCK.onopen = function() {
                 setStatus('đã kết nối', false);
-                getSystemStatus()
-                
+                getSystemStatus()                
             }
 
             SOCK.onclose = function() {
@@ -47,6 +46,7 @@ function onMessage(event) {
                 setText("system_ftp_username", smsg["username"])
                 setText("system_ftp_password", smsg["password"])
                 setText("system_ftp_port", smsg["port"])
+                setText("system_logdur", smsg["logdur"])
 
             }
         }
@@ -91,7 +91,37 @@ function getSystemStatus() {
 }
 
 
+function onReload() {
+    getSystemStatus()
+}
 
+
+function onUpdate() {
+    if(SOCK == undefined) return
+    msg = {
+        type: 'control',
+        subtype: 'set_system_info',
+        data: {
+            ipaddress: getText("system_ip"),
+            netmask: getText("system_subnet"),
+            tinh: getText("system_tinh"),
+            coso: getText("system_coso"),
+            tram: getText("system_tram"),
+            serverip: getText("system_ftp_ip"),
+            username: getText("system_ftp_username"),
+            password: getText("system_ftp_password"),
+            port: Number(getText("system_ftp_port")),
+            logdur: Number(getText("system_logdur"))
+        }        
+    }
+
+    SOCK.send(JSON.stringify(msg))    
+}
+
+
+function onReboot() {
+
+}
 
 
 

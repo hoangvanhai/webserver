@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function(){
             SOCK.binaryType= "arraybuffer"
             SOCK.onopen = function() {
                 setStatus('đã kết nối', false);
-                getSystemStatus()                
+                getTagSetting(1)
             }
 
             SOCK.onclose = function() {
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     // console.log("username: " + localStorage.username_ + " role: " + localStorage.role_)
-    setText("user_name", localStorage.username)
+    //setText("user_name", localStorage.username)
 })
 
 function onMessage(event) {    
@@ -45,19 +45,10 @@ function onMessage(event) {
         msg = JSON.parse(event.data)        
         if(msg != undefined) {
             if(msg["type"] == "control" && 
-            msg["subtype"] == "get_system_info") {
-                smsg = msg["data"];
-                setText("status_ip", smsg["ipaddress"])
-                setText("status_subnet", smsg["netmask"])
-                setText("status_tinh", smsg["tinh"])
-                setText("status_coso", smsg["coso"])
-                setText("status_tram", smsg["tram"])
-                setText("status_ftp_ip", smsg["serverip"])
-                setText("status_ftp_username", smsg["username"])
-                setText("status_ftp_port", smsg["port"])
-                setText("status_ftp_logdur", smsg["logdur"])
-
-            }
+            msg["subtype"] == "get_tag_info") {
+                setTagContent(msg["tag_id"], msg["data"])
+            } 
+            
         }
     } catch(err) {        
         console.log("parser ", err)
@@ -88,12 +79,13 @@ function setStatus(val, warn) {
     }
 }
 
-function getSystemStatus() {
+function getTagSetting(tag) {
     if(SOCK == undefined) return
 
     msg = {
         type: 'control',
-        subtype: 'get_system_info',        
+        subtype: 'get_tag_info',                
+        tag_id: tag
     }
 
     SOCK.send(JSON.stringify(msg))
@@ -101,7 +93,21 @@ function getSystemStatus() {
 
 
 
-
+function setTagContent(tag, msg) {
+    setCheckbox("baocao_p" + tag, msg["enable"])
+    setText("thongsodo_p" + tag, msg["sw"])
+    setText("mota_thongso_p" + tag, "day là mô tả thông số")
+    setText("donvido_p" + tag, msg["unit"])
+    setText("gioihantren_p" + tag, "gioi han tren")
+    setText("gioihanduoi_p" + tag, "gioi han duoi")
+    setText("hamtinh_p" + tag, "Ax+B")
+    setText("A_p" + tag, msg["coeff"])
+    setText("B_p" + tag, msg["start"])
+    setText("daidoduoi_p" + tag, msg["min"])
+    setText("daidotren_p" + tag, msg["max"])
+    setText("baotri_p" + tag, msg["calib"])
+    setText("error_p" + tag, msg["error"])
+}
 
 
 

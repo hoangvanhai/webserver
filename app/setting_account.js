@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function(){
             SOCK.binaryType= "arraybuffer"
             SOCK.onopen = function() {
                 setStatus('đã kết nối', false);                
-                
+                onLogin();
             }
 
             SOCK.onclose = function() {
@@ -34,8 +34,43 @@ function onMessage(event) {
     try {        
         msg = JSON.parse(event.data)        
         if(msg != undefined) {
-            if(msg["type"] == "control") {
+            if(msg["type"] == "login") {                
+                if(msg["status"] == "success") {
+                    alert("Đăng nhập tài khoản thành công !")    
+                } else {
+                    alert ("Đăng nhập tài khoản thất bại " + msg["msg"])
+                }            
 
+            } else if (msg["type"] == "add_user") {
+                if(msg["status"] == "success") {
+                    alert("Thêm tài khoản thành công !")    
+                } else {
+                    alert ("Thêm tài khoản thất bại " + msg["msg"])
+                }
+            } else if (msg["type"] == "del_user") {
+                if(msg["status"] == "success") {
+                    alert("Xóa tài khoản thành công !")    
+                } else {
+                    alert ("Xóa tài khoản thất bại " + msg["msg"])
+                }
+            } else if (msg["type"] == "change_password") {
+                if(msg["status"] == "success") {
+                    alert("Đổi mật khẩu tài khoản thành công !")    
+                } else {
+                    alert ("Đổi mật khẩu tài khoản thất bại " + msg["msg"])
+                }
+            } else if (msg["type"] == "reset_password") {
+                if(msg["status"] == "success") {
+                    alert("Reset mật khẩu tài khoản thành công !")    
+                } else {
+                    alert ("Reset mật khẩu tài khoản thất bại " + msg["msg"])
+                }
+            } else if (msg["type"] == "logout") {
+                if(msg["status"] == "success") {
+                    alert("logout thành công !")    
+                } else {
+                    alert ("logout thất bại " + msg["msg"])
+                }
             }
 
         }
@@ -80,10 +115,117 @@ function getSystemStatus() {
 }
 
 
+function changePassword(username, oldpw, newpw) {
+    if(SOCK == undefined) {
+        console.log("sock is null")
+        return
+    }
+        
+
+    if(getText("account_man_new_password") != getText("account_man_conf_password")) {
+        alert("Mật khẩu mới không hợp lệ !")
+        return
+    }
+
+    if(getText("account_man_new_password") == "" ||
+        getText("account_man_conf_password") == "" ||
+        getText("account_man_curr_password") == "") {
+            alert("Thông tin chưa đủ !")
+            return
+    }
+    
+
+    msg = {
+        type: 'change_password',
+        data: {
+            oldpassword : getText("account_man_curr_password"),
+            newpassword : getText("account_man_new_password")
+        }
+    }
+
+    console.log(msg)
+
+    SOCK.send(JSON.stringify(msg))
+}
 
 
+function resetPassword(username) {
+    if(SOCK == undefined) return
+
+    if(getText("account_reset_delelte") == "") {
+        alert("Thông tin chưa đủ !")
+        return
+    }
+
+    msg = {
+        type: 'reset_password',
+        data: {
+            username : getText("account_reset_delelte"),
+        }
+    }
+
+    SOCK.send(JSON.stringify(msg))
+}
 
 
+function deleteUser(username) {
+    if(SOCK == undefined) return
+
+    if(getText("account_reset_delelte") == "") {
+        alert("Thông tin chưa đủ !")
+        return
+    }
 
 
+    msg = {
+        type: 'del_user',
+        data: {
+            username : getText("account_reset_delelte"),
+        }
+    }
+
+    SOCK.send(JSON.stringify(msg))
+}
+
+function addUser(username, passwd, role) {
+    if(SOCK == undefined) return
+
+    if(getText("account_add_password") != getText("account_add_conf_password")) {
+        alert("Mật khẩu không hợp lệ !")
+        return
+    }
+
+    if(getText("account_add_password") == "" ||
+        getText("account_add_conf_password") == "" ||
+        getText("account_add_role") == "") {
+            alert("Thông tin chưa đủ !")
+            return
+    }
+
+    msg = {
+        type: 'add_user',
+        data: {
+            username : getText("account_add_username"),
+            password : getText("account_add_password"),            
+            role : getText("account_add_role")
+        }
+    }
+
+    SOCK.send(JSON.stringify(msg))
+}
+
+
+function onLogin() {
+    if(SOCK == undefined) return
+
+    msg = {
+        type: 'login',
+        data: {
+            username: localStorage.username_,
+            password: localStorage.password_
+        }        
+    }
+
+    SOCK.send(JSON.stringify(msg))
+}
 
