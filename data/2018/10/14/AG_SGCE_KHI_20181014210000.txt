@@ -1,0 +1,9 @@
+Thông số	Giá trị		Đơn vị	Thời gian		Trạng thái TB
+user_tag12		124		voltage	20181014210000		02
+user_tag13		133		voltage	20181014210000		02
+user_tag14		137		voltage	20181014210000		02
+user_tag15		151		voltage	20181014210000		02
+user_tag16		173		voltage	20181014210000		02
+user_tag17		175		voltage	20181014210000		02
+user_tag18		192		voltage	20181014210000		02
+user_tag19		162		voltage	20181014210000		02

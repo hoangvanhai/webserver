@@ -36,20 +36,23 @@ function onMessage(event) {
         if(msg != undefined) {
             if(msg["type"] == "login") {                
                 if(msg["status"] == "success") {
-                    alert("Đăng nhập tài khoản thành công !")    
+                    //alert("Đăng nhập tài khoản thành công !")    
                 } else {
-                    alert ("Đăng nhập tài khoản thất bại " + msg["msg"])
+                    //alert ("Đăng nhập tài khoản thất bại " + msg["msg"])
                 }            
 
             } else if (msg["type"] == "add_user") {
                 if(msg["status"] == "success") {
-                    alert("Thêm tài khoản thành công !")    
+                    alert("Thêm tài khoản " + getText("account_add_username") + 
+                    " thành công !")    
                 } else {
-                    alert ("Thêm tài khoản thất bại " + msg["msg"])
+                    alert ("Thêm tài khoản " + getText("account_add_username") + 
+                    " thất bại " + msg["msg"])
                 }
             } else if (msg["type"] == "del_user") {
                 if(msg["status"] == "success") {
-                    alert("Xóa tài khoản thành công !")    
+                    alert("Xóa tài khoản " + getText("account_reset_delelte") + 
+                    " thành công !")    
                 } else {
                     alert ("Xóa tài khoản thất bại " + msg["msg"])
                 }
@@ -150,6 +153,12 @@ function changePassword(username, oldpw, newpw) {
 
 
 function resetPassword(username) {
+    
+    if(localStorage.role_ != "supperuser") {
+        alert("Không có quyền reset mật khẩu")
+        return
+    }
+
     if(SOCK == undefined) return
 
     if(getText("account_reset_delelte") == "") {
@@ -169,6 +178,12 @@ function resetPassword(username) {
 
 
 function deleteUser(username) {
+
+    if(localStorage.role_ != "supperuser") {
+        alert("Không có quyền xóa tài khoản")
+        return
+    }
+
     if(SOCK == undefined) return
 
     if(getText("account_reset_delelte") == "") {
@@ -188,6 +203,11 @@ function deleteUser(username) {
 }
 
 function addUser(username, passwd, role) {
+    if(localStorage.role_ != "supperuser") {
+        alert("Không có quyền thêm tài khoản mới")
+        return
+    }
+
     if(SOCK == undefined) return
 
     if(getText("account_add_password") != getText("account_add_conf_password")) {

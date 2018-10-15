@@ -111,7 +111,8 @@ function onUpdate() {
             username: getText("system_ftp_username"),
             password: getText("system_ftp_password"),
             port: Number(getText("system_ftp_port")),
-            logdur: Number(getText("system_logdur"))
+            logdur: Number(getText("system_logdur")),
+            dhcp: getCheckbox("system_dhcp")
         }        
     }
 
@@ -120,6 +121,22 @@ function onUpdate() {
 
 
 function onReboot() {
+
+    if(localStorage.role_ == "supperuser" || 
+        localStorage.role_ == "admin") {   
+
+        if(SOCK == undefined) return
+
+        msg = {
+            type: 'control',
+            subtype: 'system_reboot',        
+        }
+
+        SOCK.send(JSON.stringify(msg))
+    } else {
+        alert("Không có quyền thực hiện !" + localStorage.username_)
+    }
+
 
 }
 

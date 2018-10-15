@@ -1,0 +1,9 @@
+Thông số	Giá trị		Đơn vị	Thời gian		Trạng thái TB
+user_tag12		0		voltage	20181008220320		02
+user_tag13		0		voltage	20181008220320		02
+user_tag14		0		voltage	20181008220320		02
+user_tag15		0		voltage	20181008220320		02
+user_tag16		0		voltage	20181008220320		02
+user_tag17		0		voltage	20181008220320		02
+user_tag18		0		voltage	20181008220320		02
+user_tag19		0		voltage	20181008220320		02
