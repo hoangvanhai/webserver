@@ -29,6 +29,12 @@
   <!-- Custom styles -->
   <link href="css/style.css" rel="stylesheet">
   <link href="css/style-responsive.css" rel="stylesheet" />
+
+  <script type="text/javascript">    
+    localStorage.currTag_ = 6;
+    console.log("inline javascript " + localStorage.currTag_)
+  </script>
+
 </head>
 
 <body>
@@ -41,39 +47,8 @@
         <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
       </div>
 
-      <!--logo start-->
-      <a class="logo"> <span class="lite">Hệ thống quan trắc</span></a>
-      <!--logo end-->
+      <h4><center>HỆ THỐNG TRUYỀN VÀ QUẢN LÝ DỮ LIỆU QUAN TRẮC TỰ ĐỘNG</center></h4>
 
-      <div class="top-nav notification-row">
-        <!-- notificatoin dropdown start-->
-        <ul class="nav pull-right top-menu">          
-          <!-- user login dropdown start-->
-          <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="profile-ava">
-                                <img alt="" src="img/avatar1_small.jpg">
-                            </span>
-                            <span class="username">Administrator</span>
-
-                            <b class="caret"></b>
-                        </a>
-            <ul class="dropdown-menu logout">
-              <li>
-                <a href="index.html"><i class="icon_key_alt"></i> Đăng xuất</a>
-              </li>
-
-              <li>
-                <a href="#"><i class="icon_profile"></i>Thông tin tài khoản</a>
-              </li>
-
-
-            </ul>
-          </li>
-          <!-- user login dropdown end -->
-        </ul>
-        <!-- notificatoin dropdown end-->
-      </div>
     </header>
     <!--header end-->
 
@@ -83,7 +58,7 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
           <li class="">
-            <a class="" href="sytem_status.html">
+            <a class="" href="system_status.html">
                           <i class="icon_house_alt"></i>
                           <span>Trang chủ</span>
                       </a>
@@ -116,13 +91,13 @@
             <ul class="sub">
               <li><a class="" href="setting_system.html">Hệ thống</a></li>
               <li><a class="" href="setting_account.html">Tài khoản</a></li>
-              <li><a class="" href="setting_p1.html"><span>P#1</span></a></li>
+              <li><a class="active" href="setting_p1.html"><span>P#1</span></a></li>
               <li><a class="" href="setting_p2.html"><span>P#2</span></a></li>
               <li><a class="" href="setting_p3.html"><span>P#3</span></a></li>
               <li><a class="" href="setting_p4.html"><span>P#4</span></a></li>
               <li><a class="" href="setting_p5.html"><span>P#5</span></a></li>
               <li><a class="" href="setting_p6.html"><span>P#6</span></a></li>
-              <li><a class="active" href="setting_p7.html"><span>P#7</span></a></li>
+              <li><a class="" href="setting_p7.html"><span>P#7</span></a></li>
               <li><a class="" href="setting_p8.html"><span>P#8</span></a></li>
             </ul>
           </li>
@@ -137,63 +112,170 @@
     <section id="main-content">
       <section class="wrapper">
         <div class="row">
-          <div class="col-lg-12">              
-              <ol class="breadcrumb">
-                <li><i class="fa fa-home"></i><a href="sytem_status.html">Trang chủ</a></li>
-                <li><i class="icon_adjust-vert"></i>Cài đặt</li>              
-                <li><i class="icon_adjust-vert"></i>P#7</li>                 
-            </ol>
-          </div>
-        </div>
-        <div class="row">
           <div class="col-lg-12">
-            <section class="panel">
-              <header class="panel-heading">
-                Thông tin hệ thống
-              </header>
-              <div class="panel-body">
-                <form class="form-horizontal " method="get">
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label">Tỉnh</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control">
-                    </div>
+            <ol class="breadcrumb">
+              <span id="time_info"></span><span>&emsp;&emsp;</span>
+              <span id="account_info"></span>
+              <a class="pull-right" href="index.html"><i class="icon_key_alt"></i> Đăng xuất</a>
+            </ol>
+            <ol class="breadcrumb">
+              <li><i class="fa fa-home"></i><a href="system_status.html">Trang chủ</a></li>
+              <li><i class="icon_adjust-vert"></i>Cài đặt</li>              
+              <li><i class="icon_adjust-vert"></i>P#1</li>   
+              <li id="connecttion_status"></li>          
+            </ol>
+
+          </div>
+
+          <div class="panel-body">
+            <div class="tab-pane" id="chartjs">                        
+              <div class="row">
+                  <div class="col-lg-6">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            Thông số quan trắc
+                        </header>
+                        
+                        <table class="table">
+                          <tbody>
+                            <tr>
+                              <td>Thông số đo</td>
+                              <td><input id="thongsodo" type="text" class="form-control"></td>
+                              <td>Đơn vị đo</td>
+                              <td><input id="donvido" type="text" class="form-control"></td>
+                            </tr>
+                            <tr>
+                              <td>Mô tả thông số</td>
+                              <td><input id="mota_thongso" type="text" class="form-control"></td>
+                              <td>Báo cáo</td>
+                              <td><input id="baocao" type="checkbox" class="form-control"></td>
+                            </tr>   
+                            <tr>
+                              <td>Giới hạn cảnh báo trên</td>
+                              <td><input id="gioihantren" type="text" class="form-control"></td>                              
+                            </tr>
+                            <tr>
+                              <td>Giới hạn cảnh báo dưới</td>
+                              <td><input id="gioihanduoi" type="text" class="form-control"></td>                              
+                            </tr>
+                          </tbody>
+                        </table>  
+
+                    </section>
                   </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label">Cơ sở</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control">                      
-                    </div>
+
+                  <div class="col-lg-6">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              Dải đo
+                          </header>
+                          
+                          <table class="table">
+                            <tbody>
+                              <tr>
+                                <td>Hàm tính</td>
+                                <td><input id="hamtinh" type="text" class="form-control"></td>
+                                <td>A</td>
+                                <td><input id="A_p" type="text" class="form-control"></td>
+                                <td>B</td>
+                                <td><input id="B_p" type="text" class="form-control"></td>
+                              </tr>
+                              <tr>
+                                <td>Dải đo dưới</td>
+                                <td><input id="daidoduoi" type="text" class="form-control"></td>                                
+                              </tr>                              
+                              <tr>
+                                <td>Dải đo trên</td>
+                                <td><input id="daidotren" type="text" class="form-control"></td>                                
+                              </tr>                              
+                            </tbody>
+                          </table>                        
+
+                      </section>
                   </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label">Trạm</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label">Địa chỉ IP</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label">Subnet Mask</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control">
-                    </div>
-                  </div>                  
-                </form>
               </div>
-            </section>                
-        </section>
+              <div class="row">
+
+                  <div class="col-lg-6">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              Tiêu chuẩn hóa
+                          </header>
+                          
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Nguồn</th>
+                                <th>Giá trị tiêu chuẩn</th>
+                                <th>Đơn vị</th>
+                                <th>Chọn</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Oxy O2</td>
+                                <td><input id="O2_nguon" type="text" class="form-control"></td>
+                                <td><input id="O2_gt_tieuchuan" type="text" class="form-control"></td>
+                                <td><input id="O2_donvi" type="text" class="form-control"></td>
+                                <td><input id="O2_chon" type="checkbox" class="form-control"></td>
+                              </tr>
+                              <tr>
+                                <td>Nhiệt độ</td>
+                                <td><input id="Temp_nguon" type="text" class="form-control"></td>
+                                <td><input id="Temp_gt_tieuchuan" type="text" class="form-control"></td>
+                                <td><input id="Temp_donvi" type="text" class="form-control"></td>
+                                <td><input id="Temp_chon" type="checkbox" class="form-control"></td>
+                              </tr>
+                              <tr>
+                                <td>Áp suất</td>
+                                <td><input id="Press_nguon" type="text" class="form-control"></td>
+                                <td><input id="Press_gt_tieuchuan" type="text" class="form-control"></td>
+                                <td><input id="Press_donvi" type="text" class="form-control"></td>
+                                <td><input id="Press_chon" type="checkbox" class="form-control"></td>
+                              </tr> 
+                            </tbody>
+                          </table>                               
+                      </section>
+                  </div>
+                  <div class="col-lg-6">
+                      <section class="panel">
+                          <header class="panel-heading">
+                              Tín hiệu trạng thái
+                          </header>
+                          
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th>Nguồn</th>
+                                <th>Chọn</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Bảo trì</td>
+                                <td><input id="baotri" type="text" class="form-control"></td>
+                                <td><input id="checkbaotri" type="checkbox" class="form-control"></td>
+                              </tr>
+                              <tr>
+                                <td>Lỗi</td>
+                                <td><input id="error" type="text" class="form-control"></td>
+                                <td><input id="checkerror" type="checkbox" class="form-control"></td>
+                              </tr>                              
+                            </tbody>
+                          </table>
+
+                      </section>
+                  </div>
+                  <div class="panel-body">
+                    <div class="pull-right">                        
+                      <button id="btn_save_tag" type="button" class="btn btn-default btn-lg" onclick="onSaveTag()">Lưu lại</button>
+                    </div>
+                  </div>  
+              </div>              
+        </div>                     
       </section>
-    <!--main content end-->
-    <div class="text-right">
-      <div class="credits">
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div>
-    </div>
   </section>
   <!-- container section end -->
   <!-- javascripts -->
@@ -225,10 +307,10 @@
   <script src="js/bootstrap-datepicker.js"></script>
   <!-- ck editor -->
   <script type="text/javascript" src="assets/ckeditor/ckeditor.js"></script>
-  <!-- custom form component script for this page-->
-  <script src="js/form-component.js"></script>
+
   <!-- custome script for all page -->
   <script src="js/scripts.js"></script>
+  <script src="app/setting_tag.js"></script>
 
 
 </body>

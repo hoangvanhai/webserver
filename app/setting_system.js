@@ -9,7 +9,8 @@ document.addEventListener("DOMContentLoaded", function(){
             SOCK.binaryType= "arraybuffer"
             SOCK.onopen = function() {
                 setStatus('đã kết nối', false);
-                getSystemStatus()                
+                getSystemStatus()
+                loadUiInput()                
             }
 
             SOCK.onclose = function() {
@@ -44,7 +45,7 @@ function onMessage(event) {
                 setText("system_tram", smsg["tram"])
                 setText("system_ftp_ip", smsg["serverip"])
                 setText("system_ftp_username", smsg["username"])
-                setText("system_ftp_password", smsg["password"])
+                setText("system_ftp_password", "*****")
                 setText("system_ftp_port", smsg["port"])
                 setText("system_logdur", smsg["logdur"])
 
@@ -67,6 +68,10 @@ function getCheckbox(id){
 }
 function setCheckbox(id, val){
     document.getElementById(id).checked = val
+}
+
+function setDisabledInput(id) {
+    document.getElementById(id).disabled = true;
 }
 
 function setStatus(val, warn) {
@@ -98,6 +103,11 @@ function onReload() {
 
 function onUpdate() {
     if(SOCK == undefined) return
+
+    if(getText("system_ftp_password") == "")
+    alert("chưa nhập password ")
+    return
+
     msg = {
         type: 'control',
         subtype: 'set_system_info',
@@ -136,8 +146,27 @@ function onReboot() {
     } else {
         alert("Không có quyền thực hiện !" + localStorage.username_)
     }
+}
 
 
+function loadUiInput() {
+    if(localStorage.role_ != "supperuser" && 
+        localStorage.role_ != "admin") {
+        setDisabledInput("btn_dongbo")
+        setDisabledInput("btn_reset")
+        setDisabledInput("btn_update")
+        setDisabledInput("system_tinh")
+        setDisabledInput("system_coso")
+        setDisabledInput("system_tram")
+        setDisabledInput("system_ip")
+        setDisabledInput("system_subnet")
+        setDisabledInput("system_dhcp")
+        setDisabledInput("system_ftp_ip")
+        setDisabledInput("system_ftp_username")
+        setDisabledInput("system_ftp_password")
+        setDisabledInput("system_ftp_port")
+        setDisabledInput("system_logdur")
+    }
 }
 
 

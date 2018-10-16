@@ -38,33 +38,15 @@
     <!--header start-->
     <header class="header dark-bg">
       <div class="toggle-nav">
-        <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
+        <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom">
+          <i class="icon_menu"></i>
+        </div>
       </div>
-
-      <!--logo start-->
-      <a class="logo">                             
-        <!-- <span class="profile-widget"><img class="" alt="" src="img/logo.jpg"></span> -->
-        <span class="lite">Hệ thống quan trắc</span>        
-        <!-- <div class="lite" id="connecttion_status"></div> -->
+         
         
-      </a>
+      <h4><center>HỆ THỐNG TRUYỀN VÀ QUẢN LÝ DỮ LIỆU QUAN TRẮC TỰ ĐỘNG</center></h4>
+
       <!--logo end-->      
-
-      <div class="top-nav notification-row">        
-        <!-- notificatoin dropdown start-->
-        <ul class="nav pull-right top-menu">                    
-            <!-- <li><span class="lite" id="sys_username"></span></li> -->
-                            
-            <label id="sys_username" class="panel-heading">
-            </label>
-            
-
-            
-              <a href="index.html"><i class="icon_key_alt"></i> Đăng xuất</a>
-            
-        </ul>
-        <!-- notificatoin dropdown end-->
-      </div>
     </header>
     <!--header end-->
 
@@ -74,7 +56,7 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
           <li class="active">
-            <a class="" href="sytem_status.html">
+            <a class="" href="system_status.html">
                           <i class="icon_house_alt"></i>
                           <span>Trang chủ</span>
                       </a>
@@ -126,14 +108,23 @@
 
     <!--main content start-->
     <section id="main-content">
+
+
+
       <section class="wrapper">
         <div class="row">
           <div class="col-lg-12">
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="index.html">Trang chủ</a></li>
-              <li><i class="icon_document_alt"></i>Trạng thái</li>
-              <li><i id="connecttion_status"></i></li>
+              <span id="time_info"></span><span>&emsp;&emsp;</span>
+              <span id="account_info"></span>
+              <a class="pull-right" href="index.html"><i class="icon_key_alt"></i> Đăng xuất</a>
             </ol>
+            <ol class="breadcrumb">
+              <li><i class="fa fa-home"></i><a href="system_status.html">Trang chủ</a></li>
+              <li><i class="icon_document_alt"></i>Trạng thái</li>
+              <li id="connecttion_status"></li>                            
+            </ol>
+            
           </div>
         </div>
         <div class="row">
@@ -143,7 +134,7 @@
                 Thông tin hệ thống
               </header>
               <div class="panel-body">
-                <form class="form-horizontal " method="get">
+                <form class="form-horizontal">
                   <div class="form-group">
                     <label class="col-sm-4 control-label">Tỉnh</label>
                     <div class="col-sm-4">
@@ -183,7 +174,7 @@
                   Máy chủ FTP
                 </header>
                 <div class="panel-body">
-                  <form class="form-horizontal " method="get">
+                  <form class="form-horizontal">
                     <div class="form-group">
                       <label class="col-sm-4 control-label">Địa chỉ IP</label>
                       <div class="col-sm-4">
@@ -244,9 +235,7 @@
   <script src="js/daterangepicker.js"></script>
   <script src="js/bootstrap-datepicker.js"></script>
   <!-- ck editor -->
-  <script type="text/javascript" src="assets/ckeditor/ckeditor.js"></script>
-  <!-- custom form component script for this page-->
-  <script src="js/form-component.js"></script>
+  <script type="text/javascript" src="assets/ckeditor/ckeditor.js"></script>  
   <!-- custome script for all page -->
   <script src="js/scripts.js"></script>
   <script src="app/overview_status.js"></script>

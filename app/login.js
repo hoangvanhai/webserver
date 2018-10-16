@@ -2,6 +2,7 @@ var SOCK = undefined
 localStorage.username_
 localStorage.password_
 localStorage.role_
+localStorage.currTag_
 
 document.addEventListener("DOMContentLoaded", function(){    
 
@@ -41,7 +42,7 @@ function onMessage(event) {
                     localStorage.username_ = msg["username"]
                     localStorage.role_ = msg["role"]
                     
-                    window.location = "sytem_status.html"; // Redirecting to other page.
+                    window.location = "system_status.html"; // Redirecting to other page.
 
                 } else {
                     alert("tài khoản hoặc mật khẩu không đúng")

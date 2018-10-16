@@ -5,9 +5,7 @@ var password_
 var role_
 
 document.addEventListener("DOMContentLoaded", function(){
-    
-    
-
+       
     setStatus('Đang chờ kết nối ...', true)
 
     if('WebSocket' in window) {
@@ -16,8 +14,7 @@ document.addEventListener("DOMContentLoaded", function(){
             SOCK.binaryType= "arraybuffer"
             SOCK.onopen = function() {
                 setStatus('đã kết nối', false);
-                getSystemStatus()   
-                displayUsername()             
+                getSystemStatus()                          
             }
 
             SOCK.onclose = function() {
@@ -36,6 +33,11 @@ document.addEventListener("DOMContentLoaded", function(){
     } else {
         setStatus('Trinh duyet khong ho tro ws')
     }
+
+    setText("account_info", 'username')
+    // console.log("username = " + localStorage.username_)
+    
+    // setText("time_info", 'this is time')
     
 })
 
@@ -102,8 +104,8 @@ function getSystemStatus() {
 
 
 function displayUsername() {
-    console.log("username = " + localStorage.username_)
-    setText("sys_username", localStorage.username_)
+    // console.log("username = " + localStorage.username_)
+    // setText("system_username", localStorage.username_)
 }
 
 

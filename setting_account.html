@@ -41,39 +41,7 @@
         <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
       </div>
 
-      <!--logo start-->
-      <a class="logo"> <span class="lite">Hệ thống quan trắc</span></a>
-      <!--logo end-->
-
-      <div class="top-nav notification-row">
-        <!-- notificatoin dropdown start-->
-        <ul class="nav pull-right top-menu">          
-          <!-- user login dropdown start-->
-          <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="profile-ava">
-                                <img alt="" src="img/avatar1_small.jpg">
-                            </span>
-                            <span class="username">Administrator</span>
-
-                            <b class="caret"></b>
-                        </a>
-            <ul class="dropdown-menu logout">
-              <li>
-                <a href="index.html"><i class="icon_key_alt"></i> Đăng xuất</a>
-              </li>
-
-              <li>
-                <a href="#"><i class="icon_profile"></i>Thông tin tài khoản</a>
-              </li>
-
-
-            </ul>
-          </li>
-          <!-- user login dropdown end -->
-        </ul>
-        <!-- notificatoin dropdown end-->
-      </div>
+      <h4><center>HỆ THỐNG TRUYỀN VÀ QUẢN LÝ DỮ LIỆU QUAN TRẮC TỰ ĐỘNG</center></h4>
     </header>
     <!--header end-->
 
@@ -83,7 +51,7 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
           <li class="">
-            <a class="" href="sytem_status.html">
+            <a class="" href="system_status.html">
                           <i class="icon_house_alt"></i>
                           <span>Trang chủ</span>
                       </a>
@@ -139,10 +107,15 @@
         <div class="row">
           <div class="col-lg-12">
               <ol class="breadcrumb">
-                <li><i class="fa fa-home"></i><a href="sytem_status.html">Trang chủ</a></li>
+                <span id="time_info"></span><span>&emsp;&emsp;</span>
+                <span id="account_info"></span>
+                <a class="pull-right" href="index.html"><i class="icon_key_alt"></i> Đăng xuất</a>
+              </ol>
+              <ol class="breadcrumb">
+                <li><i class="fa fa-home"></i><a href="system_status.html">Trang chủ</a></li>
                 <li><i class="icon_adjust-vert"></i>Cài đặt</li>              
                 <li><i class="icon_adjust-vert"></i>Tài khoản</li>
-                <li><i id="connecttion_status"></i></li> 
+                <li id="connecttion_status"></li> 
             </ol>
           </div>
         </div>
@@ -213,7 +186,7 @@
                 </div>
                 <div class="pull-right">
                   <div><span>&nbsp;</span></div>
-                  <button type="button" class="btn btn-default btn-lg" onclick="addUser()">Thêm tài khoản</button>
+                  <button id="add_user" type="button" class="btn btn-default btn-lg" onclick="addUser()">Thêm tài khoản</button>
                 </div>
               </div> 
               
@@ -234,8 +207,8 @@
                 <section class="panel">
                   <div class="pull-right">
                       <div><span>&nbsp;</span></div>
-                      <button type="button" class="btn btn-default btn-lg" onclick="resetPassword()">Reset mật khẩu</button><span>&nbsp;</span>
-                      <button type="button" class="btn btn-default btn-lg" onclick="deleteUser()">Xóa tài khoản</button>
+                      <button id="reset_password" type="button" class="btn btn-default btn-lg" onclick="resetPassword()">Reset mật khẩu</button><span>&nbsp;</span>
+                      <button id="delete_user" type="button" class="btn btn-default btn-lg" onclick="deleteUser()">Xóa tài khoản</button>
                   </div>
                 </section>  
 
@@ -273,8 +246,7 @@
   <script src="js/bootstrap-datepicker.js"></script>
   <!-- ck editor -->
   <script type="text/javascript" src="assets/ckeditor/ckeditor.js"></script>
-  <!-- custom form component script for this page-->
-  <script src="js/form-component.js"></script>
+  
   <!-- custome script for all page -->
   <script src="js/scripts.js"></script>
   <script src="app/setting_account.js"></script>

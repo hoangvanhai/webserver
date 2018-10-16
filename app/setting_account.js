@@ -98,7 +98,7 @@ function setCheckbox(id, val){
 }
 
 function setDisabledInput(id) {
-    document.getElementById(id).disabled = true
+    document.getElementById(id).disabled = true;
 }
 
 function setStatus(val, warn) {
@@ -257,13 +257,14 @@ function onLogin() {
 
 
 function loadUiInput() {
-    if(localStorage.role_ == "supperuser") {
-
-    } else {
+    if(localStorage.role_ != "supperuser") {
         setDisabledInput("account_reset_delelte")
         setDisabledInput("account_add_username")
         setDisabledInput("account_add_password")
         setDisabledInput("account_add_conf_password")
         setDisabledInput("account_add_role")
+        setDisabledInput("add_user")
+        setDisabledInput("reset_password")
+        setDisabledInput("delete_user")
     }
 }

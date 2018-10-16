@@ -29,6 +29,12 @@
   <!-- Custom styles -->
   <link href="css/style.css" rel="stylesheet">
   <link href="css/style-responsive.css" rel="stylesheet" />
+
+  <script type="text/javascript">    
+    localStorage.currTag_ = 0;
+    console.log("inline javascript " + localStorage.currTag_)
+  </script>
+
 </head>
 
 <body>
@@ -41,39 +47,8 @@
         <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
       </div>
 
-      <!--logo start-->
-      <a class="logo"> <span class="lite">Hệ thống quan trắc</span></a>
-      <!--logo end-->
+      <h4><center>HỆ THỐNG TRUYỀN VÀ QUẢN LÝ DỮ LIỆU QUAN TRẮC TỰ ĐỘNG</center></h4>
 
-      <div class="top-nav notification-row">
-        <!-- notificatoin dropdown start-->
-        <ul class="nav pull-right top-menu">          
-          <!-- user login dropdown start-->
-          <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="profile-ava">
-                                <img alt="" src="img/avatar1_small.jpg">
-                            </span>
-                            <span class="username">Administrator</span>
-
-                            <b class="caret"></b>
-                        </a>
-            <ul class="dropdown-menu logout">
-              <li>
-                <a href="index.html"><i class="icon_key_alt"></i> Đăng xuất</a>
-              </li>
-
-              <li>
-                <a href="#"><i class="icon_profile"></i>Thông tin tài khoản</a>
-              </li>
-
-
-            </ul>
-          </li>
-          <!-- user login dropdown end -->
-        </ul>
-        <!-- notificatoin dropdown end-->
-      </div>
     </header>
     <!--header end-->
 
@@ -83,7 +58,7 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
           <li class="">
-            <a class="" href="sytem_status.html">
+            <a class="" href="system_status.html">
                           <i class="icon_house_alt"></i>
                           <span>Trang chủ</span>
                       </a>
@@ -138,12 +113,16 @@
       <section class="wrapper">
         <div class="row">
           <div class="col-lg-12">
-
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="sytem_status.html">Trang chủ</a></li>
+              <span id="time_info"></span><span>&emsp;&emsp;</span>
+              <span id="account_info"></span>
+              <a class="pull-right" href="index.html"><i class="icon_key_alt"></i> Đăng xuất</a>
+            </ol>
+            <ol class="breadcrumb">
+              <li><i class="fa fa-home"></i><a href="system_status.html">Trang chủ</a></li>
               <li><i class="icon_adjust-vert"></i>Cài đặt</li>              
               <li><i class="icon_adjust-vert"></i>P#1</li>   
-              <li><i id="connecttion_status"></i></li>          
+              <li id="connecttion_status"></li>          
             </ol>
 
           </div>
@@ -161,23 +140,23 @@
                           <tbody>
                             <tr>
                               <td>Thông số đo</td>
-                              <td><input id="thongsodo_p1" type="text" class="form-control"></td>
+                              <td><input id="thongsodo" type="text" class="form-control"></td>
                               <td>Đơn vị đo</td>
-                              <td><input id="donvido_p1" type="text" class="form-control"></td>
+                              <td><input id="donvido" type="text" class="form-control"></td>
                             </tr>
                             <tr>
                               <td>Mô tả thông số</td>
-                              <td><input id="mota_thongso_p1" type="text" class="form-control"></td>
+                              <td><input id="mota_thongso" type="text" class="form-control"></td>
                               <td>Báo cáo</td>
-                              <td><input id="baocao_p1" type="checkbox" class="form-control"></td>
+                              <td><input id="baocao" type="checkbox" class="form-control"></td>
                             </tr>   
                             <tr>
                               <td>Giới hạn cảnh báo trên</td>
-                              <td><input id="gioihantren_p1" type="text" class="form-control"></td>                              
+                              <td><input id="gioihantren" type="text" class="form-control"></td>                              
                             </tr>
                             <tr>
                               <td>Giới hạn cảnh báo dưới</td>
-                              <td><input id="gioihanduoi_p1" type="text" class="form-control"></td>                              
+                              <td><input id="gioihanduoi" type="text" class="form-control"></td>                              
                             </tr>
                           </tbody>
                         </table>  
@@ -195,19 +174,19 @@
                             <tbody>
                               <tr>
                                 <td>Hàm tính</td>
-                                <td><input id="hamtinh_p1" type="text" class="form-control"></td>
+                                <td><input id="hamtinh" type="text" class="form-control"></td>
                                 <td>A</td>
-                                <td><input id="A_p1" type="text" class="form-control"></td>
+                                <td><input id="A_p" type="text" class="form-control"></td>
                                 <td>B</td>
-                                <td><input id="B_p1" type="text" class="form-control"></td>
+                                <td><input id="B_p" type="text" class="form-control"></td>
                               </tr>
                               <tr>
                                 <td>Dải đo dưới</td>
-                                <td><input id="daidoduoi_p1" type="text" class="form-control"></td>                                
+                                <td><input id="daidoduoi" type="text" class="form-control"></td>                                
                               </tr>                              
                               <tr>
                                 <td>Dải đo trên</td>
-                                <td><input id="daidotren_p1" type="text" class="form-control"></td>                                
+                                <td><input id="daidotren" type="text" class="form-control"></td>                                
                               </tr>                              
                             </tbody>
                           </table>                        
@@ -236,24 +215,24 @@
                             <tbody>
                               <tr>
                                 <td>Oxy O2</td>
-                                <td><input id="O2_nguon_p1" type="text" class="form-control"></td>
-                                <td><input id="O2_gt_tieuchuan_p1" type="text" class="form-control"></td>
-                                <td><input id="O2_donvi_p1" type="text" class="form-control"></td>
-                                <td><input id="O2_chon_p1" type="checkbox" class="form-control"></td>
+                                <td><input id="O2_nguon" type="text" class="form-control"></td>
+                                <td><input id="O2_gt_tieuchuan" type="text" class="form-control"></td>
+                                <td><input id="O2_donvi" type="text" class="form-control"></td>
+                                <td><input id="O2_chon" type="checkbox" class="form-control"></td>
                               </tr>
                               <tr>
                                 <td>Nhiệt độ</td>
-                                <td><input id="Temp_nguon_p1" type="text" class="form-control"></td>
-                                <td><input id="Temp_gt_tieuchuan_p1" type="text" class="form-control"></td>
-                                <td><input id="Temp_donvi_p1" type="text" class="form-control"></td>
-                                <td><input id="Temp_chon_p1" type="checkbox" class="form-control"></td>
+                                <td><input id="Temp_nguon" type="text" class="form-control"></td>
+                                <td><input id="Temp_gt_tieuchuan" type="text" class="form-control"></td>
+                                <td><input id="Temp_donvi" type="text" class="form-control"></td>
+                                <td><input id="Temp_chon" type="checkbox" class="form-control"></td>
                               </tr>
                               <tr>
                                 <td>Áp suất</td>
-                                <td><input id="Press_nguon_p1" type="text" class="form-control"></td>
-                                <td><input id="Press_gt_tieuchuan_p1" type="text" class="form-control"></td>
-                                <td><input id="Press_donvi_p1" type="text" class="form-control"></td>
-                                <td><input id="Press_chon_p1" type="checkbox" class="form-control"></td>
+                                <td><input id="Press_nguon" type="text" class="form-control"></td>
+                                <td><input id="Press_gt_tieuchuan" type="text" class="form-control"></td>
+                                <td><input id="Press_donvi" type="text" class="form-control"></td>
+                                <td><input id="Press_chon" type="checkbox" class="form-control"></td>
                               </tr> 
                             </tbody>
                           </table>                               
@@ -276,13 +255,13 @@
                             <tbody>
                               <tr>
                                 <td>Bảo trì</td>
-                                <td><input id="baotri_p1" type="text" class="form-control"></td>
-                                <td><input id="checkbaotri_p1" type="checkbox" class="form-control"></td>
+                                <td><input id="baotri" type="text" class="form-control"></td>
+                                <td><input id="checkbaotri" type="checkbox" class="form-control"></td>
                               </tr>
                               <tr>
                                 <td>Lỗi</td>
-                                <td><input id="error_p1" type="text" class="form-control"></td>
-                                <td><input id="checkerror_p1" type="checkbox" class="form-control"></td>
+                                <td><input id="error" type="text" class="form-control"></td>
+                                <td><input id="checkerror" type="checkbox" class="form-control"></td>
                               </tr>                              
                             </tbody>
                           </table>
@@ -291,7 +270,7 @@
                   </div>
                   <div class="panel-body">
                     <div class="pull-right">                        
-                      <button type="button" class="btn btn-default btn-lg" onclick="onReset()">Lưu lại</button>
+                      <button id="btn_save_tag" type="button" class="btn btn-default btn-lg" onclick="onSaveTag()">Lưu lại</button>
                     </div>
                   </div>  
               </div>              
@@ -328,8 +307,7 @@
   <script src="js/bootstrap-datepicker.js"></script>
   <!-- ck editor -->
   <script type="text/javascript" src="assets/ckeditor/ckeditor.js"></script>
-  <!-- custom form component script for this page-->
-  <script src="js/form-component.js"></script>
+
   <!-- custome script for all page -->
   <script src="js/scripts.js"></script>
   <script src="app/setting_tag.js"></script>

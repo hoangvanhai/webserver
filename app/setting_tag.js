@@ -1,12 +1,9 @@
 var SOCK = undefined
 
-var username_
-var password_
-var role_
 
 document.addEventListener("DOMContentLoaded", function(){
     
-    
+    loadUiInput()
 
     setStatus('Đang chờ kết nối ...', true)
 
@@ -16,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function(){
             SOCK.binaryType= "arraybuffer"
             SOCK.onopen = function() {
                 setStatus('đã kết nối', false);
-                getTagSetting(1)
+                getTagSetting(Number(localStorage.currTag_))
             }
 
             SOCK.onclose = function() {
@@ -35,14 +32,12 @@ document.addEventListener("DOMContentLoaded", function(){
     } else {
         setStatus('Trinh duyet khong ho tro ws')
     }
-
-    // console.log("username: " + localStorage.username_ + " role: " + localStorage.role_)
-    //setText("user_name", localStorage.username)
 })
 
 function onMessage(event) {    
     try {        
-        msg = JSON.parse(event.data)        
+        msg = JSON.parse(event.data)  
+        console.log(msg)      
         if(msg != undefined) {
             if(msg["type"] == "control" && 
             msg["subtype"] == "get_tag_info") {
@@ -67,6 +62,10 @@ function getCheckbox(id){
 }
 function setCheckbox(id, val){
     document.getElementById(id).checked = val
+}
+
+function setDisabledInput(id) {
+    document.getElementById(id).disabled = true;
 }
 
 function setStatus(val, warn) {
@@ -94,22 +93,86 @@ function getTagSetting(tag) {
 
 
 function setTagContent(tag, msg) {
-    setCheckbox("baocao_p" + tag, msg["enable"])
-    setText("thongsodo_p" + tag, msg["sw"])
-    setText("mota_thongso_p" + tag, "day là mô tả thông số")
-    setText("donvido_p" + tag, msg["unit"])
-    setText("gioihantren_p" + tag, "gioi han tren")
-    setText("gioihanduoi_p" + tag, "gioi han duoi")
-    setText("hamtinh_p" + tag, "Ax+B")
-    setText("A_p" + tag, msg["coeff"])
-    setText("B_p" + tag, msg["start"])
-    setText("daidoduoi_p" + tag, msg["min"])
-    setText("daidotren_p" + tag, msg["max"])
-    setText("baotri_p" + tag, msg["calib"])
-    setText("error_p" + tag, msg["error"])
+    setCheckbox("baocao", msg["enable"])
+    setText("thongsodo", msg["sw"])
+    setText("mota_thongso", "day là mô tả thông số")
+    setText("donvido", msg["unit"])
+    setText("gioihantren", "gioi han tren")
+    setText("gioihanduoi", "gioi han duoi")
+    setText("hamtinh", "Ax+B")
+    setText("A_p", msg["coeff"])
+    setText("B_p", msg["start"])
+    setText("daidoduoi", msg["min"])
+    setText("daidotren", msg["max"])
+    setText("baotri", msg["calib"])
+    setText("error", msg["error"])
+
+    if(msg["calib"] != "") {
+        setCheckbox("checkbaotri", true)
+    } else {
+        setCheckbox("checkbaotri", false)
+    }
+
+    if(msg["error"] != "") {
+        setCheckbox("checkerror", true)
+    } else {
+        setCheckbox("checkerror", false)
+    }
 }
 
 
 
 
+function loadUiInput() {
+    if(localStorage.role_ != "supperuser" && 
+        localStorage.role_ != "admin") {
+            setDisabledInput("btn_save_tag")
+        }
+}
 
+
+
+function onSaveTag() {
+    if(SOCK == undefined) return
+
+    var str_baotri, str_error
+
+    if(getCheckbox("checkbaotri")) {
+        str_baotri = getText("baotri")
+    } else {
+        str_baotri = ""
+    }
+
+    if(getCheckbox("checkerror")) {
+        str_error = getText("error")
+    } else {
+        str_error = ""
+    }
+
+    
+
+    msg = {
+        type: 'control',
+        subtype: 'set_tag_info',
+        tag_id: Number(localStorage.currTag_),
+        data: {
+            enable: getCheckbox("baocao"),
+            sw: getText("thongsodo"),
+            unit: getText("donvido"),
+            desc: getText("mota_thongso"),            
+            limup: Number(getText("gioihantren")),
+            limdown: Number(getText("gioihanduoi")),
+            func: getText("hamtinh"),
+            coeff: Number(getText("A_p")),
+            start: Number(getText("B_p")),
+            max: Number(getText("daidotren")),
+            min: Number(getText("daidoduoi")),            
+            calib: str_baotri,
+            error: str_error            
+        }        
+    }
+
+    SOCK.send(JSON.stringify(msg))
+
+    console.log(msg)
+}
