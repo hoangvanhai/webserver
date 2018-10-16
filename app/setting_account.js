@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function(){
             SOCK.onopen = function() {
                 setStatus('đã kết nối', false);                
                 onLogin();
+                loadUiInput();
             }
 
             SOCK.onclose = function() {
@@ -94,6 +95,10 @@ function getCheckbox(id){
 }
 function setCheckbox(id, val){
     document.getElementById(id).checked = val
+}
+
+function setDisabledInput(id) {
+    document.getElementById(id).disabled = true
 }
 
 function setStatus(val, warn) {
@@ -249,3 +254,16 @@ function onLogin() {
     SOCK.send(JSON.stringify(msg))
 }
 
+
+
+function loadUiInput() {
+    if(localStorage.role_ == "supperuser") {
+
+    } else {
+        setDisabledInput("account_reset_delelte")
+        setDisabledInput("account_add_username")
+        setDisabledInput("account_add_password")
+        setDisabledInput("account_add_conf_password")
+        setDisabledInput("account_add_role")
+    }
+}

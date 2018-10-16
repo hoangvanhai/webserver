@@ -16,7 +16,8 @@ document.addEventListener("DOMContentLoaded", function(){
             SOCK.binaryType= "arraybuffer"
             SOCK.onopen = function() {
                 setStatus('đã kết nối', false);
-                getSystemStatus()                
+                getSystemStatus()   
+                displayUsername()             
             }
 
             SOCK.onclose = function() {
@@ -35,9 +36,7 @@ document.addEventListener("DOMContentLoaded", function(){
     } else {
         setStatus('Trinh duyet khong ho tro ws')
     }
-
-    // console.log("username: " + localStorage.username_ + " role: " + localStorage.role_)
-    setText("user_name", localStorage.username)
+    
 })
 
 function onMessage(event) {    
@@ -102,7 +101,10 @@ function getSystemStatus() {
 
 
 
-
+function displayUsername() {
+    console.log("username = " + localStorage.username_)
+    setText("sys_username", localStorage.username_)
+}
 
 
 
