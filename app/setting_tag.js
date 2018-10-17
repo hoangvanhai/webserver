@@ -42,7 +42,13 @@ function onMessage(event) {
             if(msg["type"] == "control" && 
             msg["subtype"] == "get_tag_info") {
                 setTagContent(msg["tag_id"], msg["data"])
-            } 
+            } else if(msg["type"] == "set_tag_info")  {
+                if(msg["status"] == "success") {
+                    alert("Lưu thông số thành công")
+                } else {
+                    alert("Lưu thông số thất bại " + msg["msg"])
+                }
+            }
             
         }
     } catch(err) {        
@@ -95,10 +101,10 @@ function getTagSetting(tag) {
 function setTagContent(tag, msg) {
     setCheckbox("baocao", msg["enable"])
     setText("thongsodo", msg["sw"])
-    setText("mota_thongso", "day là mô tả thông số")
+    setText("mota_thongso", msg["desc"])
     setText("donvido", msg["unit"])
-    setText("gioihantren", "gioi han tren")
-    setText("gioihanduoi", "gioi han duoi")
+    setText("gioihantren", msg["lim_max"])
+    setText("gioihanduoi", msg["lim_min"])
     setText("hamtinh", "Ax+B")
     setText("A_p", msg["coeff"])
     setText("B_p", msg["start"])
@@ -160,8 +166,8 @@ function onSaveTag() {
             sw: getText("thongsodo"),
             unit: getText("donvido"),
             desc: getText("mota_thongso"),            
-            limup: Number(getText("gioihantren")),
-            limdown: Number(getText("gioihanduoi")),
+            lim_max: Number(getText("gioihantren")),
+            lim_min: Number(getText("gioihanduoi")),
             func: getText("hamtinh"),
             coeff: Number(getText("A_p")),
             start: Number(getText("B_p")),
