@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>HTML PAGE</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <div>
+            <h1> this is h1 line</h1>
+            <div id="progress"> 
+                <div id="bar"></div>
+            </div>
+
+            <br>
+            <button onClick="move()"> start</button>
+
+            <br>
+            <button onClick="setProgressValue('bar', 50)">set50</button>
+
+            <br>
+
+            <select id="mySelect" onChange="onChanged()">
+                    <option>Apple</option>
+                    <option>Orange</option>
+                    <option>Pineapple</option>
+                    <option>Banana</option>
+            </select>
+            <span id="index_content"></span>
+            <br>
+            <button onClick="myFunction()">SetIndex</button>
+            <button onClick="getContent()">GetIndex</button>
+
+
+        </div>
+    </body>
+</html>
