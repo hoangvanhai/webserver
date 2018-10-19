@@ -1,0 +1,189 @@
+
+
+.wrapper {
+    width: 1000px;
+    margin: 0 auto;
+    border-color: green;
+    border-style: solid;
+    border-width: 2px;   
+    font-style: normal;
+    font-family: 'Times New Roman', Times, serif;    
+}
+
+.header {
+    width: 100%;        
+    color: #000000;
+    height: 80px;        
+    border-top-width: 0px;
+    border-bottom-width: 2px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-color: green;
+    border-style: solid;
+    padding-top: 20px;
+}
+
+.maintable {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+}
+
+
+.menu {
+    width: 160px;
+    border-right: 2px solid lightgrey;
+    margin: 0;
+    padding: 2px;
+    vertical-align: top;
+}
+
+.content {
+    /* border: none; */
+    margin: 0;
+    padding: 5px;
+    vertical-align: top;
+    /* border-color: green;
+    border-style: solid;
+    border-width: 2px;  */
+}
+
+.footer {
+    width: 100%;
+    border-top: 1px solid #369;
+    margin: 0;
+    padding: 5px;
+}
+
+
+.timedate {
+    right: 0px;
+    width: 300px;
+    padding-top: 35px;   
+    padding-bottom: 0px;
+    padding-right: 2px;
+    float: right;
+    text-align: right;
+    /* border-color: darkgreen;
+    border-style: solid;
+    border-width: 2px; */
+}
+.username {    
+    right: 0px;
+    width: 150px;
+    padding-top: 35px;   
+    float: right;
+    text-align: right;
+    padding-bottom: 0px;
+    /* border-color: darkgreen;
+    border-style: solid;
+    border-width: 2px; */
+}
+
+.logout {
+    width: 60px;
+    padding-top: 35px; 
+    padding-right: 4px;  
+    float: right;
+    text-align: right;
+    /* background-image : url("img/logout.png");     */
+}
+
+.inline {
+    /* display: flex; */
+    flex-direction: row;
+    align-items: center;
+}
+
+.row {
+    
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.button {
+    background-color: darkgreen; /* Green */    
+    border: none;
+    color: white;
+    padding-top: 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 1px 1px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    width: 160px;
+    height: 25px;
+    
+}
+
+.subbutton {
+    background-color: green; /* Green */        
+    border: none;
+    color: white;
+    padding-top: 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 1px 1px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    width: 155px;
+    height: 25px;    
+}
+
+.menubtn {
+    /* background-color: green;  */
+    color: white; 
+    /* border: 2px solid #4CAF50; */
+}
+
+.menubtn:hover {
+    background-color: lightgreen;
+    color: black;
+}
+
+.active {
+    background-color: lightgreen;
+    color: black;
+}
+
+.box {
+    padding-top: 3px;
+    padding-bottom: 3px;       
+    padding-left: 100px;
+    border-width: 1px 1px 1px 1px;
+    border-color: green;
+    border-style: solid;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 400px;
+}
+
+.boxnopadd {
+    padding-top: 3px;
+    padding-bottom: 3px;       
+    /* padding-left: 100px; */
+    border-width: 1px 1px 1px 1px;
+    border-color: green;
+    border-style: solid;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    min-width: 600px;
+}
+
+
+
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}

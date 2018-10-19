@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Giám sát hệ thống</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <script src="js/main_status.js"></script>
+</head>
+<body >
+
+
+    <div class="wrapper">        
+        <div class="header">
+            <div style="text-align: center; font-size: 20px;">
+                <b>HỆ THỐNG TRUYỀN VÀ QUẢN LÝ DỮ LIỆU QUAN TRẮC TỰ ĐỘNG</b>
+            </div> 
+
+            <div class="inline">
+                <img src="img/logo.jpg" alt="Logo" style="width:160px;height:50px;">            
+                <a class="logout"href="main_login.html"><img src="img/logout.png" alt="" 
+                    style="width:30px;height:20px;" ></a>
+                <span id="id_username" class="username"></span>
+                <span id="id_datetime" class="timedate"></span>            
+                <span id="id_connstatus" class="username"></span>
+            </div>
+
+        </div>
+
+        <table class="maintable">
+        
+        <tr>
+            <td class="menu">
+
+            <a class="button menubtn " href="main_status.html">TRẠNG THÁI</a>
+            <a class="button menubtn" href="sub_std.html">THÔNG SỐ QUAN TRẮC</a>
+            <a class="subbutton menubtn" href="sub_std.html">GIÁ TRỊ TIÊU CHUẨN</a>
+            <a class="subbutton menubtn active" href="sub_raw.html">GIÁ TRỊ THÔ</a>
+            <a class="button menubtn" href="#">TỆP DỮ LIỆU</a>
+            <a class="button menubtn" href="sub_system.html">CẤU HÌNH</a>
+            <a class="subbutton menubtn" href="sub_system.html">HỆ THỐNG</a>
+            <a class="subbutton menubtn " href="">TÀI KHOẢN</a>
+            <a class="subbutton menubtn" href="sub_p1.html">P#1</a>
+            <a class="subbutton menubtn" href="sub_p2.html">P#2</a>
+            <a class="subbutton menubtn" href="sub_p3.html">P#3</a>
+            <a class="subbutton menubtn" href="sub_p4.html">P#4</a>
+            <a class="subbutton menubtn" href="sub_p5.html">P#5</a>
+            <a class="subbutton menubtn" href="sub_p6.html">P#6</a>
+            <a class="subbutton menubtn" href="sub_p7.html">P#7</a>
+            <a class="subbutton menubtn" href="sub_p8.html">P#8</a>
+
+            </td>
+
+            <td class="content">    
+                    <div style="text-align: center; font-size: 20px; padding-top: 10px;">
+                        <b>Giá trị thô</b>
+                    </div>
+                <div class="row">                    
+                    <table border="1" style="border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                        <th style="width: 50px;">TT</th>
+                        <th style="width: 150px;">Thông số đo</th>
+                        <th style="width: 200px;">Giá trị</th>
+                        <th style="width: 100px;">Đơn vị</th>
+                        <th style="width: 100px;">Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td>P#1</td>
+                        <td id="data_raw_sw_name_p1"></td>
+                        <td id="data_raw_value_p1"></td>
+                        <td id="data_raw_unit_p1"></td>
+                        <td id="data_raw_status_p1"></td>
+                        </tr>
+                        <tr>
+                        <td>P#2</td>
+                        <td id="data_raw_sw_name_p2"></td>
+                        <td id="data_raw_value_p2"></td>
+                        <td id="data_raw_unit_p2"></td>
+                        <td id="data_raw_status_p2"></td>
+                        </tr>
+                        <tr>
+                        <td>P#3</td>
+                        <td id="data_raw_sw_name_p3"></td>
+                        <td id="data_raw_value_p3"></td>
+                        <td id="data_raw_unit_p3"></td>
+                        <td id="data_raw_status_p3"></td>
+                        </tr>
+                        <tr>
+                        <td>P#4</td>
+                        <td id="data_raw_sw_name_p4"></td>
+                        <td id="data_raw_value_p4"></td>
+                        <td id="data_raw_unit_p4"></td>
+                        <td id="data_raw_status_p4"></td>
+                        </tr>
+                        <tr>
+                        <td>P#5</td>
+                        <td id="data_raw_sw_name_p5"></td>
+                        <td id="data_raw_value_p5"></td>
+                        <td id="data_raw_unit_p5"></td>
+                        <td id="data_raw_status_p5"></td>
+                        </tr>
+
+                        <tr>
+                        <td>P#6</td>
+                        <td id="data_raw_sw_name_p6"></td>
+                        <td id="data_raw_value_p6"></td>
+                        <td id="data_raw_unit_p6"></td>
+                        <td id="data_raw_status_p6"></td>
+                        </tr>
+
+                        <tr>
+                        <td>P#7</td>
+                        <td id="data_raw_sw_name_p7"></td>
+                        <td id="data_raw_value_p7"></td>
+                        <td id="data_raw_unit_p7"></td>
+                        <td id="data_raw_status_p7"></td>
+                        </tr>
+
+                        <tr>
+                        <td>P#8</td>
+                        <td id="data_raw_sw_name_p8"></td>
+                        <td id="data_raw_value_p8"></td>
+                        <td id="data_raw_unit_p8"></td>
+                        <td id="data_raw_status_p8"></td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+
+            </td>
+
+        </tr>
+        
+        </table>
+    </div>
+
+  
+</body>
+</html>

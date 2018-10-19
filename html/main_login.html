@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Đăng nhập</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <script src="js/login.js"></script>
+</head>
+<body >
+
+
+    <div class="wrapper">        
+        <div class="header">
+            <div style="text-align: center; font-size: 20px;">
+                <b>HỆ THỐNG TRUYỀN VÀ QUẢN LÝ DỮ LIỆU QUAN TRẮC TỰ ĐỘNG</b>
+            </div> 
+
+            <div class="inline">
+                <img src="img/logo.jpg" alt="Logo" style="width:160px;height:50px;">                                            
+                <span id="id_datetime" class="timedate"></span>                            
+            </div>
+
+        </div>
+
+        <table class="maintable">
+        
+        <tr>            
+            <td class="content" style="height: 700px;">            
+                <div class="row">
+                    <div class="box" style="padding: 20px;">
+                            <center class="row">
+                                <b style="color: red; padding-bottom: 10px;">
+                                    Đăng nhập
+                                </b></center>
+                        <table class="row">                            
+                            <tr >
+                                <td>Tên đăng nhập:</td>                                
+                                <td><input type="text" id="id_login_username"></td>
+                            </tr>
+                            <tr >
+                                <td style="padding: 10px;">Mật khẩu:</td>
+                                <td><input type="password" id="id_login_password"></td>
+                            </tr> 
+                            <tr >
+                                <td></td>
+                                <td><button onclick="onLogin()">Đăng nhập</td>
+                            </tr>                            
+                            <tr >
+                                <td colspan="2" id="id_login_status" style="text-align: center;">                                    
+                                </td>                                
+                            </tr>                                                                                        
+                        </table>
+                    </div>
+                </div>       
+            </td>
+        </tr>        
+        </table>
+    </div>
+
+  
+</body>
+</html>

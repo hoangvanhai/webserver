@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Cài đặt hệ thống</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <script src="js/sub_system.js"></script>
+</head>
+<body >
+
+
+    <div class="wrapper">        
+        <div class="header">
+            <div style="text-align: center; font-size: 20px;">
+                <b>HỆ THỐNG TRUYỀN VÀ QUẢN LÝ DỮ LIỆU QUAN TRẮC TỰ ĐỘNG</b>
+            </div> 
+
+            <div class="inline">
+                <img src="img/logo.jpg" alt="Logo" style="width:160px;height:50px;">            
+                <a class="logout"href="main_login.html"><img src="img/logout.png" alt="" 
+                    style="width:30px;height:20px;" ></a>
+                <span id="id_username" class="username"></span>
+                <span id="id_datetime" class="timedate"></span>            
+                <span id="id_connstatus" class="username"></span>
+            </div>
+
+        </div>
+
+        <table class="maintable">
+        
+        <tr>
+            <td class="menu">
+
+            <a class="button menubtn " href="main_status.html">TRẠNG THÁI</a>
+            <a class="button menubtn" href="sub_std.html">THÔNG SỐ QUAN TRẮC</a>
+            <a class="subbutton menubtn" href="sub_std.html">GIÁ TRỊ TIÊU CHUẨN</a>
+            <a class="subbutton menubtn" href="sub_raw.html">GIÁ TRỊ THÔ</a>
+            <a class="button menubtn" href="#">TỆP DỮ LIỆU</a>
+            <a class="button menubtn" href="sub_system.html">CẤU HÌNH</a>
+            <a class="subbutton menubtn active" href="">HỆ THỐNG</a>
+            <a class="subbutton menubtn" href="sub_account.html">TÀI KHOẢN</a>
+            <a class="subbutton menubtn" href="sub_p1.html">P#1</a>
+            <a class="subbutton menubtn" href="sub_p2.html">P#2</a>
+            <a class="subbutton menubtn" href="sub_p3.html">P#3</a>
+            <a class="subbutton menubtn" href="sub_p4.html">P#4</a>
+            <a class="subbutton menubtn" href="sub_p5.html">P#5</a>
+            <a class="subbutton menubtn" href="sub_p6.html">P#6</a>
+            <a class="subbutton menubtn" href="sub_p7.html">P#7</a>
+            <a class="subbutton menubtn" href="sub_p8.html">P#8</a>
+
+            </td>
+
+            <td class="content">    
+                    <div style="text-align: center; font-size: 20px; padding-top: 10px;">
+                        <b>Cài đặt chung cho hệ thống</b>
+                    </div>
+                <div class="row">
+                    <div class="box">
+                        <table >
+                            <thead>
+                                <tr>
+                                    <b style="color: red">Thông tin hệ thống</b>
+                                </tr>
+                            </thead>                        
+                            <tr>
+                                <td>Tỉnh:</td>
+                                <td><input type="text" id="system_tinh"></td>
+                            </tr>
+                            <tr>
+                                <td>Cơ sở:</td>
+                                <td><input type="text" id="system_coso"></td>
+                            </tr>
+                            <tr>
+                                <td>Trạm:</td>
+                                <td><input type="text" id="system_tram"></td>
+                            </tr>
+                            <tr>
+                                <td>Địa chỉ IP:</td>
+                                <td><input type="text" id="system_ip"></td>
+                            </tr>
+                            <tr>
+                                <td>Subnet Mask:</td>
+                                <td><input type="text" id="system_subnetmask"></td>
+                            </tr>                        
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="box">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <b style="color: red">Máy chủ FTP</b>
+                                </tr>
+                            </thead>                        
+                            <tr>
+                                <td>Địa chỉ IP:</td>
+                                <td><input type="text" id="system_ftp_ip"></td>
+                            </tr>
+                            <tr>
+                                <td>Tên truy cập:</td>
+                                <td><input type="text" id="system_ftp_username"></td>
+                            </tr>
+                            <tr>
+                                <td>Mật khẩu:</td>
+                                <td><input type="text" id="system_ftp_password"></td>
+                            </tr>                        
+                            <tr>
+                                <td>Thời gian cập nhật:</td>
+                                <td><select name="system_ftp_logdur">
+                                    <option value="1_min">1 phút</option>
+                                    <option value="2_min">2 phút</option>
+                                    <option value="3_min">3 phút</option>
+                                    <option value="4_min">4 phút</option>
+                                    <option value="5_min">5 phút</option>
+                                </select></td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div> 
+                
+                <div class="inline" >
+                    <button onClick="onUpdate()"
+                        style="position: relative; float: right; width: 130px;">
+                        Lưu xuống logger</button>     
+                    
+                    <button onClick="onReset()"
+                        style="position: relative; float: right; width: 130px;">
+                        Reset logger</button>                           
+
+                </div>
+            </td>
+
+        </tr>
+        
+        </table>
+    </div>
+
+  
+</body>
+</html>

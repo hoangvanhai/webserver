@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>    
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+    <META HTTP-EQUIV="Content-language" CONTENT="vi">
+    <title>Cài đặt hệ thống</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <script src="js/main_status.js"></script>
+</head>
+<body >
+
+
+    <div class="wrapper">        
+        <div class="header">
+            <div style="text-align: center; font-size: 20px;">
+                <b>HỆ THỐNG TRUYỀN VÀ QUẢN LÝ DỮ LIỆU QUAN TRẮC TỰ ĐỘNG</b>
+            </div> 
+
+            <div class="inline">
+                <img src="img/logo.jpg" alt="Logo" style="width:160px;height:50px;">            
+                <a class="logout"href="main_login.html"><img src="img/logout.png" alt="" 
+                    style="width:30px;height:20px;" ></a>
+                <span id="id_username" class="username"></span>
+                <span id="id_datetime" class="timedate"></span>            
+                <span id="id_connstatus" class="username"></span>
+            </div>
+
+        </div>
+
+        <table class="maintable">
+        
+        <tr>
+            <td class="menu">
+
+            <a class="button menubtn " href="main_status.html">TRẠNG THÁI</a>
+            <a class="button menubtn" href="sub_std.html">THÔNG SỐ QUAN TRẮC</a>
+            <a class="subbutton menubtn" href="sub_std.html">GIÁ TRỊ TIÊU CHUẨN</a>
+            <a class="subbutton menubtn" href="sub_raw.html">GIÁ TRỊ THÔ</a>
+            <a class="button menubtn" href="#">TỆP DỮ LIỆU</a>
+            <a class="button menubtn" href="sub_system.html">CẤU HÌNH</a>
+            <a class="subbutton menubtn" href="sub_system.html">HỆ THỐNG</a>
+            <a class="subbutton menubtn" href="sub_account.html">TÀI KHOẢN</a>
+            <a class="subbutton menubtn active" href="">P#1</a>
+            <a class="subbutton menubtn" href="p2.html">P#2</a>
+            <a class="subbutton menubtn" href="p3.html">P#3</a>
+            <a class="subbutton menubtn" href="p4.html">P#4</a>
+            <a class="subbutton menubtn" href="p5.html">P#5</a>
+            <a class="subbutton menubtn" href="p6.html">P#6</a>
+            <a class="subbutton menubtn" href="p7.html">P#7</a>
+            <a class="subbutton menubtn" href="p8.html">P#8</a>
+
+            </td>
+
+            <td class="content">    
+                    <div style="text-align: center; font-size: 20px; padding-top: 10px;">
+                        <b>Cấu hình tham số</b>
+                    </div>
+                <div class="row">
+                    <div class="boxnopadd">
+                        <table >
+                            <thead>
+                                <tr>
+                                    <b style="color: red">Thông số quan trắc</b>
+                                </tr>
+                            </thead>                        
+                            <tr>
+                                <td>Thông số đo:</td>
+                                <td><input type="text" id="tsqt_thongsodo"></td>
+                                <td>&nbsp;Báo cáo:</td>
+                                <td><input type="checkbox" id="tsqt_baocao"></td>                                
+                            </tr>
+                            <tr>
+                                <td>Mô tả thông số:</td>
+                                <td colspan="3"><input type="text" id="tsqt_motathongso"></td>
+                            </tr>
+                            <tr>
+                                <td>Đơn vị thô:</td>
+                                <td><input type="text" id="tsqt_donvitho"></td>
+                                <td>&nbsp;Đơn vị tiêu chuẩn:</td>
+                                <td><input type="text" id="tsqt_donvitieuchuan"></td>
+                            </tr>                                                 
+                        </table>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="boxnopadd">
+                        <table >
+                            <thead>
+                                <tr>
+                                    <b style="color: red">Dải đo</b>
+                                </tr>
+                            </thead>                        
+                            <tr>
+                                <td>Hàm tính:</td>
+                                <td><input type="text" disabled value="A + B*x"></td>
+                                <td>A:</td>
+                                <td><input type="text" id="daido_a" style="width: 100px;"></td>                              
+                                <td>B:</td>
+                                <td><input type="text" id="daido_b" style="width: 100px;"></td>
+                            </tr>
+                            <tr>
+                                <td>Dải đo dưới:</td>
+                                <td><input type="text" id="daido_duoi"></td>
+                            </tr>
+                            <tr>
+                                <td>Dải đo trên:</td>
+                                <td><input type="text" id="daido_tren"></td>
+                            </tr>                                           
+                            <tr>
+                                <td>Ngưỡng cảnh báo:</td>
+                                <td><input type="text" id="daido_canhbao"></td>
+                            </tr>                                           
+                                    
+                        </table>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="boxnopadd">
+                        <b style="color: red">Tiêu chuẩn hóa</b>
+                        <table >
+                            <thead>
+                                <tr>
+                                    <td></td>
+                                    <td>Nguồn</td>
+                                    <td>Giá trị hiệu chuẩn</td>
+                                    <td>Đơn vị</td>
+                                    <td>Chọn</td>
+                                </tr>
+                            </thead>                        
+                            <tr>
+                                <td>Oxy O2:</td>
+                                <td>
+                                    <select name="tieuchuan_oxy" style="min-width: 100px;">
+                                    <option value="AI.0">AI.1</option>
+                                    <option value="AI.1">AI.2</option>
+                                    <option value="AI.2">AI.3</option>
+                                    <option value="AI.3">AI.4</option>
+                                    <option value="AI.4">AI.5</option>
+                                    <option value="AI.5">AI.6</option>
+                                    <option value="AI.6">AI.7</option>
+                                    <option value="AI.7">AI.8</option>                                    
+                                    </select>
+                                </td>
+                                
+                                <td><input type="number" id="tc_gttc_oxy"></td>                                                              
+                                <td><input type="text" id="tc_donvi_oxy"></td>
+                                <td><input type="checkbox" id="tc_chon_oxy"></td> 
+                            </tr>
+                            <tr>
+                                <td>Nhiệt độ:</td>
+                                <td>
+                                    <select name="tieuchuan_nhietdo" style="min-width: 100px;">
+                                    <option value="AI.0">AI.1</option>
+                                    <option value="AI.1">AI.2</option>
+                                    <option value="AI.2">AI.3</option>
+                                    <option value="AI.3">AI.4</option>
+                                    <option value="AI.4">AI.5</option>
+                                    <option value="AI.5">AI.6</option>
+                                    <option value="AI.6">AI.7</option>
+                                    <option value="AI.7">AI.8</option>                                    
+                                    </select>
+                                </td>
+                                
+                                <td><input type="number" id="tc_gttc_nhietdo"></td>                                                              
+                                <td><input type="text" id="tc_donvi_nhietdo"></td>
+                                <td><input type="checkbox" id="tc_chon_nhietdo"></td> 
+                            </tr>
+                            <tr>
+                                <td>Áp suất:</td>
+                                <td>
+                                    <select name="tieuchuan_apsuat" style="min-width: 100px;">
+                                    <option value="AI.0">AI.1</option>
+                                    <option value="AI.1">AI.2</option>
+                                    <option value="AI.2">AI.3</option>
+                                    <option value="AI.3">AI.4</option>
+                                    <option value="AI.4">AI.5</option>
+                                    <option value="AI.5">AI.6</option>
+                                    <option value="AI.6">AI.7</option>
+                                    <option value="AI.7">AI.8</option>                                    
+                                    </select>
+                                </td>
+                                
+                                <td><input type="number" id="tc_gttc_apsuat"></td>                                                              
+                                <td><input type="text" id="tc_donvi_apsuat"></td>
+                                <td><input type="checkbox" id="tc_chon_apsuat"></td> 
+                            </tr>                                           
+                                          
+                                    
+                        </table>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="boxnopadd">
+                            <b style="color: red">Tín hiệu trạng thái</b>
+                        <table >
+                            <thead>
+                                <tr>
+                                    <td></td>
+                                    <td>Nguồn</td>
+                                    <td>Chọn</td>
+                                </tr>
+                            </thead>                        
+                            <tr>
+                                <td>Bảo trì:</td>                                
+                                <td>
+                                <select name="tinhieu_baotri" style="min-width: 100px;">
+                                <option value="DI.0">DI.1</option>
+                                <option value="DI.1">DI.2</option>
+                                <option value="DI.2">DI.3</option>
+                                <option value="DI.3">DI.4</option>
+                                <option value="DI.4">DI.5</option>
+                                <option value="DI.5">DI.6</option>
+                                <option value="DI.6">DI.7</option>
+                                <option value="DI.7">DI.8</option>                                    
+                                </select>
+                                </td>
+                                <td><input type="checkbox" id="tinhieu_chonbaotri"></td>                             
+                            </tr>
+                            <tr>
+                                <td>Lỗi:</td>
+                                <td>
+                                <select name="tinhieu_loi" style="min-width: 100px;">
+                                <option value="DI.0">DI.1</option>
+                                <option value="DI.1">DI.2</option>
+                                <option value="DI.2">DI.3</option>
+                                <option value="DI.3">DI.4</option>
+                                <option value="DI.4">DI.5</option>
+                                <option value="DI.5">DI.6</option>
+                                <option value="DI.6">DI.7</option>
+                                <option value="DI.7">DI.8</option>                                    
+                                </select>
+                            </td>
+                                <td><input type="checkbox" id="tinhieu_chonloi"></td>                             
+                            </tr>                            
+                        </table>
+                    </div>
+                </div>
+
+                <div class="inline" >
+
+                    <button onclick="onUpdate()"
+                        style="position: relative; float: right; width: 130px;">
+                        Lưu xuống logger</button>                             
+
+                </div>
+                
+            </td>
+
+        </tr>
+        
+        </table>
+    </div>
+
+  
+</body>
+</html>
