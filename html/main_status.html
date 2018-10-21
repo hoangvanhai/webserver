@@ -5,6 +5,7 @@
     <title>Thông tin hệ thống</title>
     <link type="text/css" rel="stylesheet" href="css/style.css">
     <script src="js/main_status.js"></script>
+    <script src="js/utils.js"></script>
 </head>
 <body >
 
@@ -17,13 +18,12 @@
 
             <div class="inline">
                 <img src="img/logo.jpg" alt="Logo" style="width:160px;height:50px;">            
-                <a class="logout"href="main_login.html"><img src="img/logout.png" alt="" 
+                <a class="logout"href="index.html"><img src="img/logout.png" alt="" 
                     style="width:30px;height:20px;" ></a>
                 <span id="id_username" class="username"></span>
                 <span id="id_datetime" class="timedate"></span>            
                 <span id="id_connstatus" class="username"></span>
             </div>
-
         </div>
 
         <table class="maintable">
@@ -35,7 +35,7 @@
             <a class="button menubtn" href="sub_std.html">THÔNG SỐ QUAN TRẮC</a>
             <a class="subbutton menubtn" href="sub_std.html">GIÁ TRỊ TIÊU CHUẨN</a>
             <a class="subbutton menubtn" href="sub_raw.html">GIÁ TRỊ THÔ</a>
-            <a class="button menubtn" href="#">TỆP DỮ LIỆU</a>
+            <a class="button menubtn" href="//home/msi">TỆP DỮ LIỆU</a>
             <a class="button menubtn" href="sub_system.html">CẤU HÌNH</a>
             <a class="subbutton menubtn" href="sub_system.html">HỆ THỐNG</a>
             <a class="subbutton menubtn" href="sub_account.html">TÀI KHOẢN</a>
@@ -61,22 +61,27 @@
                             </thead>                        
                             <tr>
                                 <td>Tỉnh:</td>
+                                <td style="width: 60px;"></td>
                                 <td style="margin-left: 20px; margin-top: 10px;" id="id_status_tinh"></td>
                             </tr>
                             <tr>
                                 <td>Cơ sở:</td>
+                                <td>&#09;&nbsp;</td>
                                 <td id="id_status_coso" style="margin-left: 20px; margin-top: 10px;" ></td>
                             </tr>
                             <tr>
                                 <td>Trạm:</td>
+                                <td>&#09;&nbsp;</td>
                                 <td id="id_status_tram" style="margin-left: 20px; margin-top: 10px;" ></td>
                             </tr>
                             <tr>
                                 <td>Địa chỉ IP:</td>
+                                <td>&#09;&nbsp;</td>
                                 <td id="id_status_ip" style="margin-left: 20px; margin-top: 10px;" ></td>
                             </tr>
                             <tr>
                                 <td>Subnet Mask:</td>
+                                <td>&#09;&nbsp;</td>
                                 <td id="id_status_subnetmask" style="margin-left: 20px; margin-top: 10px;" ></td>
                             </tr>                        
                         </table>
@@ -93,14 +98,17 @@
                             </thead>                        
                             <tr>
                                 <td>Địa chỉ IP:</td>
+                                <td style="width: 35px;"></td>
                                 <td id="id_status_ftp_ip" style="margin-left: 20px; margin-top: 10px;" ></td>
                             </tr>
                             <tr>
                                 <td>Tên truy cập:</td>
+                                <td>&#09;&nbsp;</td>
                                 <td id="id_status_ftp_username" style="margin-left: 20px; margin-top: 10px;" ></td>
                             </tr>
                             <tr>
                                 <td>Thời gian báo cáo:</td>
+                                <td>&#09;&nbsp;</td>
                                 <td id="id_status_ftp_logdur" style="margin-left: 20px; margin-top: 10px;" ></td>
                             </tr>                        
                         </table>

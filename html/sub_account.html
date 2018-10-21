@@ -5,6 +5,7 @@
     <title>Thông tin hệ thống</title>
     <link type="text/css" rel="stylesheet" href="css/style.css">
     <script src="js/sub_account.js"></script>
+    <script src="js/utils.js"></script>
 </head>
 <body >
 
@@ -17,7 +18,7 @@
 
             <div class="inline">
                 <img src="img/logo.jpg" alt="Logo" style="width:160px;height:50px;">            
-                <a class="logout"href="main_login.html"><img src="img/logout.png" alt="" 
+                <a class="logout" href="index.html"><img src="img/logout.png" alt="" 
                     style="width:30px;height:20px;" ></a>
                 <span id="id_username" class="username"></span>
                 <span id="id_datetime" class="timedate"></span>            
@@ -52,8 +53,9 @@
 
             <td class="content">    
                     <div style="text-align: center; font-size: 20px; padding-top: 10px;">
-                        <b>Cấu hình tài khoản</b>
-                    </div>
+                        <b>Quản lý tài khoản</b>
+                    </div>                    
+
                 <div class="row">
                     <div class="box">
                         <table >
@@ -76,7 +78,7 @@
                             </tr>                            
                             <tr>
                                 <td></td>
-                                <td><button onclick="onChangePw()" style="width: 140px;" >Đổi mật khẩu</button></td>
+                                <td><button onClick="changePassword()" style="width: 140px;" >Đổi mật khẩu</button></td>
                             </tr>                        
                         </table>
                     </div>
@@ -96,16 +98,11 @@
                             </tr>
                             <tr>
                                 <td>Mật khẩu:</td>
-                                <td><input type="password" id="acc_add_password"></td>
-                            </tr>
-                            <tr>
-                                <td>Nhập lại mật khẩu:</td>
-                                <td><input type="password" id="acc_add_repassword"></td>
-                            </tr>                            
-                                                      
+                                <td><input type="text" id="acc_add_password"></td>
+                            </tr>                             
                             <tr>
                                 <td>Loại tài khoản:</td>
-                                <td><select name="acc_type">
+                                <td><select id="acc_type">
                                     <option value="root">root</option>
                                     <option value="admin">admin</option>
                                     <option value="user">user</option>                                    
@@ -114,7 +111,7 @@
 
                             <tr>
                                 <td></td>
-                                <td><button onclick="onChangePw()" style="width: 140px;">Thêm tài khoản</button></td>
+                                <td><button id="btn_adduser" onClick="addUser()" style="width: 140px;">Thêm tài khoản</button></td>
                             </tr>
                             
                         </table>
@@ -133,12 +130,12 @@
                             </thead>                        
                             <tr>
                                 <td>Tên tài khoản:</td>
-                                <td><input type="text" id="acc_add_username"></td>
+                                <td><input type="text" id="acc_reset_del_username"></td>
                             </tr>
                             
                             <tr>
-                                <td><button onclick="onChangePw()" style="width: 140px;">Reset mật khẩu</button></td>
-                                <td><button onclick="onChangePw()"style="width: 140px;">Xóa tài khoản</button></td>
+                                <td><button id="btn_resetpw" onclick="resetPassword()" style="width: 140px;">Reset mật khẩu</button></td>
+                                <td><button id="btn_delacc" onclick="deleteUser()"style="width: 140px;">Xóa tài khoản</button></td>
                             </tr>
                             
                         </table>
@@ -151,11 +148,13 @@
                         <div style="font-size: 20px; padding-top: 10px;">
                             <b>Các tài khoản của hệ thống</b>
                         </div>
-                        <textarea name="acc_list_all" cols="40" rows="5">
+                        <textarea id="acc_list_all" cols="40" rows="5">
 
                         </textarea>
                     </div>
                 </div>
+
+                <center id="id_status_report"></center>
                 
                 
             </td>

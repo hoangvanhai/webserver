@@ -1,7 +1,7 @@
 
 
 .wrapper {
-    width: 1000px;
+    width: 900px;
     margin: 0 auto;
     border-color: green;
     border-style: solid;
@@ -106,7 +106,7 @@
 
 
 .button {
-    background-color: darkgreen; /* Green */    
+    background-color: green; /* Green */    
     border: none;
     color: white;
     padding-top: 12px;
@@ -147,12 +147,12 @@
 }
 
 .menubtn:hover {
-    background-color: lightgreen;
+    background-color: darkgreen;
     color: black;
 }
 
 .active {
-    background-color: lightgreen;
+    background-color: darkgreen;
     color: black;
 }
 
@@ -186,4 +186,23 @@
     width:5px;
     height:auto;
     display:inline-block;
+}
+
+
+
+.progress {
+    width: 100%;    
+    background-color: grey;
+}
+
+#bar_p1, #bar_p2, #bar_p3, #bar_p4, #bar_p5, #bar_p6, #bar_p7, #bar_p8  {
+    width: 10%;
+    height: 15px;
+    background-color: green;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
 }

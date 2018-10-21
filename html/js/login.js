@@ -49,17 +49,18 @@ function onMessage(event){
                 } else {
                     setTextColor("id_login_status", "tài khoản hoặc mật khẩu không đúng", true)
                 }
-            } else {
-                if(msg["type"] == "control") {
-                    if(msg["subtype"] == "date_time") {
-                        smsg = msg["data"];
-                        setText("id_datetime", "Ngày: " + smsg["day"] + " - " + 
-                                smsg["month"] + " - " + smsg["year"] + " Giờ: " + 
-                                smsg["hour"] + " : " + smsg["min"] + " : " + 
-                                smsg["second"])
-                    }
+            }
+            
+            if(msg["type"] == "realtime_data") {
+                smsg = msg["time"];
+                if(smsg != undefined) {
+                    setText("id_datetime", "Ngày: " + smsg["day"] + " - " + 
+                    smsg["month"] + " - " + smsg["year"] + " Giờ: " + 
+                    smsg["hour"] + " : " + smsg["min"] + " : " + 
+                    smsg["sec"])
                 }
             }
+
         }
     } catch(err) {        
         console.log("parser ", err)
@@ -68,31 +69,28 @@ function onMessage(event){
 
 
 function onLogin(){
-
-    // setText("id_datetime", "Ngày: " + "20" + " - " + 
-    // "10" + " - " + "2018" + " Giờ: " + 
-    // "22" + " : " + "21" + " : " + "18")
-
-    if(getText("id_login_username") == "" || getText("id_login_password") == "") {
-        setTextColor("id_login_status", "tài khoản hoặc mật khẩu không đúng", true)
+    if(getText("id_login_username") == "" || 
+        getText("id_login_password") == "") {
+        setTextColor("id_login_status", "Vui lòng nhập đủ thông tin", true)
         return
     } else {
         setTextColor("id_login_status", "", false)
     }
     if(SOCK == undefined) {
-        setTextColor("id_login_status", "không thể kết nối tới thiết bị", true)
+        setTextColor("id_login_status", 
+        "Không thể kết nối tới thiết bị", true)
         return
     }   
 
     msg = {
         type: 'login',
         data: {
-            username: getText("login_username"),
-            password: getText("login_password")
+            username: getText("id_login_username"),
+            password: getText("id_login_password")
         }        
     }
 
-    localStorage.password_ = getText("login_password")
+    localStorage.password_ = getText("id_login_password")
 
     SOCK.send(JSON.stringify(msg))
 }
@@ -100,8 +98,7 @@ function onLogin(){
 function getText(id){
     return document.getElementById(id).value
 }
-function setText(id, val){
-    //document.getElementById(id).value = val
+function setText(id, val){ // set text for label
     document.getElementById(id).innerHTML = '<span>' + val + "</span>"
 }
 function getCheckbox(id){

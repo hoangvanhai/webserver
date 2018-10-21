@@ -3,77 +3,104 @@ var SOCK = undefined
 document.addEventListener("DOMContentLoaded", function(){
     setStatus('Đang chờ kết nối ...', true)
 
-    // if('WebSocket' in window) {
-    //     SOCK = new WebSocket("ws://"+window.location.hostname+":8081", 'raw-protocol')
-    //     if(SOCK) {
-    //         SOCK.binaryType= "arraybuffer"
-    //         SOCK.onopen = function() {
-    //             setStatus('đã kết nối', false);                
-    //             onLogin();
-    //             loadUiInput();
-    //         }
+    if('WebSocket' in window) {
+        SOCK = new WebSocket("ws://"+window.location.hostname+":8081", 'raw-protocol')
+        if(SOCK) {
+            SOCK.binaryType= "arraybuffer"
+            SOCK.onopen = function() {
+                setStatus('Đã kết nối', false);                
+                onLogin();
+                loadUiInput();
+            }
 
-    //         SOCK.onclose = function() {
-    //             setStatus('không kết nối', true);
-    //             SOCK=undefined
-    //         }
+            SOCK.onclose = function() {
+                setStatus('Không kết nối', true);
+                SOCK=undefined
+            }
 
-    //         SOCK.onmessage = onMessage
-    //         SOCK.onerror = function() {
-    //             setStatus('lỗi kết nối', true);
-    //             SOCK=undefined
-    //         }
-    //         } else {
-    //         setStatus('Tao ws khong thanh cong')
-    //     }
-    // } else {
-    //     setStatus('Trinh duyet khong ho tro ws')
-    // }
+            SOCK.onmessage = onMessage
+            SOCK.onerror = function() {
+                setStatus('lỗi kết nối', true);
+                SOCK=undefined
+            }
+            } else {
+            setStatus('Tao ws khong thanh cong')
+        }
+    } else {
+        setStatus('Trinh duyet khong ho tro ws')
+    }
+    console.log("tai khoan " + localStorage.username_)
+    setTextLabel("id_username", "Tài khoản: " + localStorage.username_)
+
 })
 
 function onMessage(event) {    
     try {        
-        msg = JSON.parse(event.data)        
+        msg = JSON.parse(event.data)  
+        // console.log(msg)      
         if(msg != undefined) {
             if(msg["type"] == "login") {                
                 if(msg["status"] == "success") {
-                    //alert("Đăng nhập tài khoản thành công !")    
+                    console.log("set username = " + msg["username"])
+                    setTextLabel("id_username", "Tài khoản: " + msg["username"])  
+                    getListAccount();
                 } else {
                     //alert ("Đăng nhập tài khoản thất bại " + msg["msg"])
                 }            
 
             } else if (msg["type"] == "add_user") {
                 if(msg["status"] == "success") {
-                    alert("Thêm tài khoản " + getText("account_add_username") + 
-                    " thành công !")    
+                    setTextColor("Thêm tài khoản " + getText("acc_add_username") + 
+                    " thành công !", false)    
                 } else {
-                    alert ("Thêm tài khoản " + getText("account_add_username") + 
-                    " thất bại " + msg["msg"])
+                    setTextColor ("Thêm tài khoản " + getText("acc_add_username") + 
+                    " thất bại " + msg["msg"], true)
                 }
             } else if (msg["type"] == "del_user") {
                 if(msg["status"] == "success") {
-                    alert("Xóa tài khoản " + getText("account_reset_delelte") + 
-                    " thành công !")    
+                    setTextColor("Xóa tài khoản " + getText("acc_reset_del_username") + 
+                    " thành công !", false)    
                 } else {
-                    alert ("Xóa tài khoản thất bại " + msg["msg"])
+                    setTextColor ("Xóa tài khoản thất bại " + msg["msg"], true)
                 }
             } else if (msg["type"] == "change_password") {
                 if(msg["status"] == "success") {
-                    alert("Đổi mật khẩu tài khoản thành công !")    
+                    setTextColor("Đổi mật khẩu tài khoản thành công !", false)    
                 } else {
-                    alert ("Đổi mật khẩu tài khoản thất bại " + msg["msg"])
+                    setTextColor ("Đổi mật khẩu tài khoản thất bại " + msg["msg"], true)
                 }
             } else if (msg["type"] == "reset_password") {
                 if(msg["status"] == "success") {
-                    alert("Reset mật khẩu tài khoản thành công !")    
+                    setTextColor("Reset mật khẩu tài khoản thành công !", false)    
                 } else {
-                    alert ("Reset mật khẩu tài khoản thất bại " + msg["msg"])
+                    setTextColor ("Reset mật khẩu tài khoản thất bại " + msg["msg"], false)
                 }
             } else if (msg["type"] == "logout") {
                 if(msg["status"] == "success") {
-                    alert("logout thành công !")    
+                    setTextColor("logout thành công !", false)    
                 } else {
-                    alert ("logout thất bại " + msg["msg"])
+                    setTextColor ("logout thất bại " + msg["msg"], true)
+                }
+            }
+
+            if(msg["type"] == "realtime_data") {
+                smsg = msg["time"];
+                if(smsg != undefined) {
+                    setTextLabel("id_datetime", "Ngày: " + smsg["day"] + " - " + 
+                    smsg["month"] + " - " + smsg["year"] + " Giờ: " + 
+                    smsg["hour"] + " : " + smsg["min"] + " : " + 
+                    smsg["sec"])
+                }
+            } else if(msg["type"] == "control") {
+                if(msg["subtype"] == 'get_list_account') {
+                    console.log(msg)
+                    smsg = msg["data"] 
+                    var list_account = "";
+                    for (i in smsg) {
+                        list_account += smsg[i]["account"] + "\r\n";
+                    }
+
+                    setText("acc_list_all", list_account)
                 }
             }
 
@@ -83,31 +110,15 @@ function onMessage(event) {
     }
 }
 
-
-function getText(id){
-    return document.getElementById(id).value
-}
-function setText(id, val){
-    document.getElementById(id).value = val
-}
-function getCheckbox(id){
-    return document.getElementById(id).checked
-}
-function setCheckbox(id, val){
-    document.getElementById(id).checked = val
-}
-
-function setDisabledInput(id) {
-    document.getElementById(id).disabled = true;
-}
-
 function setStatus(val, warn) {
     if (warn == true) {
         console.log("connected")
-        document.getElementById("connecttion_status").innerHTML = '<span style="color:red">' + val + "</span>"
+        document.getElementById("id_connstatus").innerHTML = 
+        '<span style="color:red">' + val + "</span>"
     }else{
         console.log("disconnected")
-        document.getElementById("connecttion_status").innerHTML = '<span style="color:green">' + val + "</span>"
+        document.getElementById("id_connstatus").innerHTML = 
+        '<span style="color:green">' + val + "</span>"
     }
 }
 
@@ -123,121 +134,128 @@ function getSystemStatus() {
 }
 
 
-function changePassword(username, oldpw, newpw) {
+function changePassword() {
+    
     if(SOCK == undefined) {
         console.log("sock is null")
         return
     }
         
 
-    if(getText("account_man_new_password") != getText("account_man_conf_password")) {
-        alert("Mật khẩu mới không hợp lệ !")
+    if(getText("acc_chpw_newpw") != 
+        getText("acc_chpw_renewpw")) {
+            setTextColor("Mật khẩu mới không hợp lệ !", true)
         return
     }
 
-    if(getText("account_man_new_password") == "" ||
-        getText("account_man_conf_password") == "" ||
-        getText("account_man_curr_password") == "") {
-            alert("Thông tin chưa đủ !")
+    if(getText("acc_chpw_renewpw") == "" ||
+        getText("acc_chpw_newpw") == "" ||
+        getText("acc_chpw_oldpw") == "") {
+            setTextColor("Thông tin chưa đủ !", true)
             return
     }
     
-
-    msg = {
-        type: 'change_password',
-        data: {
-            oldpassword : getText("account_man_curr_password"),
-            newpassword : getText("account_man_new_password")
+    if(confirm("Đổi mật khẩu ?")) {
+        msg = {
+            type: 'change_password',
+            data: {
+                oldpassword : getText("acc_chpw_oldpw"),
+                newpassword : getText("acc_chpw_newpw")
+            }
         }
+
+        console.log(msg)
+
+        SOCK.send(JSON.stringify(msg))
     }
-
-    console.log(msg)
-
-    SOCK.send(JSON.stringify(msg))
 }
 
 
-function resetPassword(username) {
-    
+function addUser() {
     if(localStorage.role_ != "supperuser") {
-        alert("Không có quyền reset mật khẩu")
+        setTextColor("Không có quyền thêm tài khoản mới", true)
         return
     }
 
     if(SOCK == undefined) return
 
-    if(getText("account_reset_delelte") == "") {
-        alert("Thông tin chưa đủ !")
+    if(getText("acc_add_username") == "" ||
+        getText("acc_add_password") == "") {
+            setTextColor("Thông tin chưa đủ !", true)
+            return
+    }
+
+
+    if(confirm("Thêm tài khoản: " + 
+        getText("acc_add_username") + " mật khẩu: " + 
+        getText("acc_add_password") + " ?")) {
+        msg = {
+            type: 'add_user',
+            data: {
+                username : getText("acc_add_username"),
+                password : getText("acc_add_password"),            
+                role : getText("acc_type")
+            }
+        }
+
+        SOCK.send(JSON.stringify(msg))
+    }
+}
+
+function resetPassword(username) {
+    
+    if(localStorage.role_ != "supperuser") {
+        setTextColor("Không có quyền reset mật khẩu", true)
         return
     }
 
-    msg = {
-        type: 'reset_password',
-        data: {
-            username : getText("account_reset_delelte"),
-        }
+    if(SOCK == undefined) return
+
+    if(getText("acc_reset_del_username") == "") {
+        setTextColor("Thông tin chưa đủ !", true)
+        return
     }
 
-    SOCK.send(JSON.stringify(msg))
+    if(confirm("Reset mật khẩu tài khoản: " + 
+        getText("acc_reset_del_username") + " ?")){
+        msg = {
+            type: 'reset_password',
+            data: {
+                username : getText("acc_reset_del_username"),
+            }
+        }
+
+        SOCK.send(JSON.stringify(msg))
+    }
 }
 
 
 function deleteUser(username) {
 
     if(localStorage.role_ != "supperuser") {
-        alert("Không có quyền xóa tài khoản")
+        setTextColor("Không có quyền xóa tài khoản", true)
         return
     }
 
     if(SOCK == undefined) return
 
-    if(getText("account_reset_delelte") == "") {
-        alert("Thông tin chưa đủ !")
+    if(getText("acc_reset_del_username") == "") {
+        setTextColor("Thông tin chưa đủ !", true)
         return
     }
 
-
-    msg = {
-        type: 'del_user',
-        data: {
-            username : getText("account_reset_delelte"),
+    if(confirm("Xóa tài khoản: " + getText("acc_reset_del_username") + " ?")) {
+        msg = {
+            type: 'del_user',
+            data: {
+                username : getText("acc_reset_del_username"),
+            }
         }
-    }
 
-    SOCK.send(JSON.stringify(msg))
+        SOCK.send(JSON.stringify(msg))
+    }
 }
 
-function addUser(username, passwd, role) {
-    if(localStorage.role_ != "supperuser") {
-        alert("Không có quyền thêm tài khoản mới")
-        return
-    }
-
-    if(SOCK == undefined) return
-
-    if(getText("account_add_password") != getText("account_add_conf_password")) {
-        alert("Mật khẩu không hợp lệ !")
-        return
-    }
-
-    if(getText("account_add_password") == "" ||
-        getText("account_add_conf_password") == "" ||
-        getText("account_add_role") == "") {
-            alert("Thông tin chưa đủ !")
-            return
-    }
-
-    msg = {
-        type: 'add_user',
-        data: {
-            username : getText("account_add_username"),
-            password : getText("account_add_password"),            
-            role : getText("account_add_role")
-        }
-    }
-
-    SOCK.send(JSON.stringify(msg))
-}
 
 
 function onLogin() {
@@ -254,17 +272,21 @@ function onLogin() {
     SOCK.send(JSON.stringify(msg))
 }
 
+function getListAccount() {
+    if(SOCK == undefined) return
 
+    msg = {
+        type: 'control',
+        subtype: 'get_list_account'
+    }
+
+    SOCK.send(JSON.stringify(msg))
+}
 
 function loadUiInput() {
     if(localStorage.role_ != "supperuser") {
-        setDisabledInput("account_reset_delelte")
-        setDisabledInput("account_add_username")
-        setDisabledInput("account_add_password")
-        setDisabledInput("account_add_conf_password")
-        setDisabledInput("account_add_role")
-        setDisabledInput("add_user")
-        setDisabledInput("reset_password")
-        setDisabledInput("delete_user")
+        setDisabledInput("btn_adduser")
+        setDisabledInput("btn_resetpw")
+        setDisabledInput("btn_delacc")
     }
 }
