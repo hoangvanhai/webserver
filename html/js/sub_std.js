@@ -68,15 +68,23 @@ function onMessage(event) {
 function setDataRawRow(msg, row) {
     
     setTextLabel("data_std_sw_name_p" + row, msg["sw"])
-    if(msg["final"] < msg["alarm"]) {
-        setTextLabelColor("data_std_value_p" + row, msg["final"].toFixed(2), false)
-        setBarChartPercen("bar_p" + row, 100 * msg["final"] / msg["max"], false)
+
+    var final_value = msg["final"];
+    var alarm_value = msg["alarm"];
+
+    if(final_value < 0) final_value = 0
+
+    
+    if(final_value < alarm_value) {
+        setTextLabelColor("data_std_value_p" + row, final_value.toFixed(2), false)
+        setBarChartPercen("bar_p" + row, 100 * final_value / msg["max"], false)
     } else {
-        setTextLabelColor("data_std_value_p" + row, msg["final"].toFixed(2), true)
-        setBarChartPercen("bar_p" + row, 100 * msg["final"] / msg["max"], true)
+        setTextLabelColor("data_std_value_p" + row, final_value.toFixed(2), true)
+        setBarChartPercen("bar_p" + row, 100 * final_value / msg["max"], true)
     }
 
-    setTextLabel("bar_value_unit_p" + row, msg["final"].toFixed(2) + " " + msg["final_unit"])
+
+    setTextLabel("bar_value_unit_p" + row, final_value.toFixed(2) + " " + msg["final_unit"])
     setTextLabel("bar_min_p" + row, msg["min"])
     setTextLabel("bar_max_p" + row, msg["max"])    
 

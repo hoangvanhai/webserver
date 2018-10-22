@@ -56,14 +56,15 @@
                         <b>Quản lý tài khoản</b>
                     </div>                    
 
-                <div class="row">
-                    <div class="box">
+                <div class="box">
+                    <div class="row">
                         <table >
-                            <thead>
                                 <tr>
-                                    <b style="color: red">Đổi mật khẩu tài khoản hiện tại</b>
+                                    <td colspan = "2">
+                                    <b style="color: darkred">Đổi mật khẩu</b>
+                                    </td>
                                 </tr>
-                            </thead>                        
+                       
                             <tr>
                                 <td>Mật khẩu hiện tại:</td>
                                 <td><input type="password" id="acc_chpw_oldpw"></td>
@@ -84,14 +85,14 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="box">
+                <div class="box">
+                    <div class="row">
                         <table>
-                            <thead>
-                                <tr>
-                                    <b style="color: red">Thêm tài khoản mới (quyền supper user)</b>
-                                </tr>
-                            </thead>                        
+                            <tr>
+                                <td colspan = "2">
+                                <b style="color: darkred">Thêm tài khoản mới</b>
+                                </td>
+                            </tr>
                             <tr>
                                 <td>Tên tài khoản:</td>
                                 <td><input type="text" id="acc_add_username" ></td>
@@ -103,7 +104,6 @@
                             <tr>
                                 <td>Loại tài khoản:</td>
                                 <td><select id="acc_type">
-                                    <option value="root">root</option>
                                     <option value="admin">admin</option>
                                     <option value="user">user</option>                                    
                                 </select></td>
@@ -120,14 +120,14 @@
                 
                 
 
-                <div class="row">
-                    <div class="box">
+                <div class="box">
+                    <div class="row">
                         <table>
-                            <thead>
-                                <tr>
-                                    <b style="color: red">Reset mật khẩu/Xóa tài khoản (quyền supper user)</b>
-                                </tr>
-                            </thead>                        
+                            <tr>
+                                <td colspan = "2">
+                                <b style="color: darkred">Reset mật khẩu/Xóa tài khoản</b>
+                                </td>
+                            </tr>                       
                             <tr>
                                 <td>Tên tài khoản:</td>
                                 <td><input type="text" id="acc_reset_del_username"></td>
@@ -142,18 +142,22 @@
                     </div>
                 </div>
 
-
-                <div class="row">
-                    <div class="box">
-                        <div style="font-size: 20px; padding-top: 10px;">
-                            <b>Các tài khoản của hệ thống</b>
-                        </div>
-                        <textarea id="acc_list_all" cols="40" rows="5">
-
-                        </textarea>
+                <div class="box">
+                    <div class="row">
+                        <table>
+                            <tr>
+                                <td>
+                                <b style="color: darkred">Các tài khoản của hệ thống</b>
+                                </td>
+                            </tr>                       
+                            <tr>
+                                <td><textarea id="acc_list_all" cols="40" rows="5"></textarea></td>
+                            </tr>
+                            
+                        </table>
                     </div>
                 </div>
-
+                
                 <center id="id_status_report"></center>
                 
                 
