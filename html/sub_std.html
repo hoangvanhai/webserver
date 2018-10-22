@@ -60,13 +60,19 @@
                         <span style="float: left;">Thời gian cập nhật</span>
                         <span style="width: 20px;">&nbsp;</span>
                         <span style="float: right;">
-                            <select id="raw_update_time" style="min-width: 100px;">
-                            <option value="0">Tức thời</option>
-                            <option value="1">1 phút</option>
-                            <option value="2">2 phút</option>
-                            <option value="3">3 phút</option>
-                            <option value="4">4 phút</option>
-                            <option value="5">5 phút</option>                                 
+                            <select id="std_update_time" style="min-width: 100px;"
+                                onChange="onChangedUpdateRate()">
+                                <option value="0">Tức thời</option>
+                                <option value="0.5">30 giây</option>
+                                <option value="1">1 phút</option>
+                                <option value="1.5">1.5 phút</option>
+                                <option value="2.0">2 phút</option>
+                                <option value="2.5">2.5 phút</option>                                 
+                                <option value="3">3 phút</option>
+                                <option value="3.5">3.5 phút</option>
+                                <option value="4">4 phút</option>
+                                <option value="4.5">4.5 phút</option>
+                                <option value="5">5 phút</option>                                 
                             </select>
                         </span>
                     </div> 

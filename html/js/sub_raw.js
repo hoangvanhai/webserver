@@ -80,8 +80,7 @@ function setDataRawRow(msg, row) {
     setTextLabel("bar_max_p" + row, msg["max"])    
 
     setTextLabel("data_raw_unit_p" + row, msg["inter_unit"])
-    setTextLabel("data_raw_status_p" + row, msg["status"])  
-    
+    setTextLabel("data_raw_status_p" + row, msg["status"])      
 }
 
 
@@ -99,6 +98,20 @@ function setStreaming(stream) {
     SOCK.send(JSON.stringify(msg))
 }
 
+
+function onChangedUpdateRate() {
+    if(SOCK == undefined) return
+
+    msg = {
+        type: 'control',
+        subtype: 'update_rate',
+        data: {
+            rate: Number(getContent("raw_update_time"))
+        }
+    }
+
+    SOCK.send(JSON.stringify(msg))
+}
 
 
 

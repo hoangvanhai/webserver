@@ -102,6 +102,18 @@ function setStreaming(stream) {
 
 
 
+function onChangedUpdateRate() {
+    if(SOCK == undefined) return
 
+    msg = {
+        type: 'control',
+        subtype: 'update_rate',
+        data: {
+            rate: Number(getContent("std_update_time"))
+        }
+    }
+
+    SOCK.send(JSON.stringify(msg))
+}
 
 
