@@ -41,17 +41,19 @@
             <td class="menu">
 
             <a class="button menubtn " href="main_status.html">TRẠNG THÁI</a>
-            <a class="button menubtn" href="sub_std.html">THÔNG SỐ QUAN TRẮC</a>
-            <a class="subbutton menubtn" href="sub_std.html">GIÁ TRỊ TIÊU CHUẨN</a>
-            <a class="subbutton menubtn" href="sub_raw.html">GIÁ TRỊ THÔ</a>
-            <a class="button menubtn" href="#">TỆP DỮ LIỆU</a>
+            <button class="dropdown-btn">THÔNG SỐ QUAN TRẮC </button>
+            <div class="dropdown-container">
+                <a class="subbutton menubtn" href="sub_std.html">GIÁ TRỊ TIÊU CHUẨN</a>
+                <a class="subbutton menubtn" href="sub_raw.html">GIÁ TRỊ THÔ</a>
+            </div> 
+            <a class="button menubtn" href="fileserver">TỆP DỮ LIỆU</a>
             <a class="button menubtn" href="sub_system.html">CẤU HÌNH</a>
             <a class="subbutton menubtn" href="sub_system.html">HỆ THỐNG</a>
             <a class="subbutton menubtn" href="sub_account.html">TÀI KHOẢN</a>
             <a class="subbutton menubtn" href="sub_p1.html">P#1</a>
             <a class="subbutton menubtn" href="sub_p2.html">P#2</a>
             <a class="subbutton menubtn" href="sub_p3.html">P#3</a>
-            <a class="subbutton menubtn active" href="">P#4</a>
+            <a class="subbutton menubtn active" href="#">P#4</a>
             <a class="subbutton menubtn" href="sub_p5.html">P#5</a>
             <a class="subbutton menubtn" href="sub_p6.html">P#6</a>
             <a class="subbutton menubtn" href="sub_p7.html">P#7</a>
@@ -66,19 +68,17 @@
 
                     <center id="tag_status_report"></center>
 
-                <div class="row">
-                    <div class="boxnopadd">
+                <div class="box">
+                    <div class="row">
                         <table >
-                            <thead>
-                                <tr>
-                                    <b style="color: red">Thông số quan trắc</b>
-                                </tr>
-                            </thead>                        
+                            
+                            <tr> <td>
+                                <b style="color: darkred">Thông số quan trắc</b></td>
+                            </tr>
+                                                    
                             <tr>
                                 <td>Thông số đo:</td>
-                                <td><input type="text" id="tsqt_thongsodo"></td>
-                                <td>&nbsp;Báo cáo:</td>
-                                <td><input type="checkbox" id="tsqt_baocao"></td>                                
+                                <td><input type="text" id="tsqt_thongsodo"></td>                                
                             </tr>
                             <tr>
                                 <td>Mô tả thông số:</td>
@@ -87,22 +87,28 @@
                             <tr>
                                 <td>Đơn vị thô:</td>
                                 <td><input type="text" id="tsqt_donvitho"></td>
-                                <td>&nbsp;Đơn vị tiêu chuẩn:</td>
+                            </tr>                                               
+                            <tr>
+                                <td>Đơn vị tiêu chuẩn:</td>
                                 <td><input type="text" id="tsqt_donvitieuchuan"></td>
-                            </tr>                                                 
+                            </tr>
+                            
+                            <tr>
+                                <td>Báo cáo:</td>
+                                <td><input type="checkbox" id="tsqt_baocao"></td>                                
+                            </tr>
                         </table>
                     </div>
                 </div>
 
 
-                <div class="row">
-                    <div class="boxnopadd">
+                <div class="box">
+                    <div class="row">
                         <table >
-                            <thead>
-                                <tr>
-                                    <b style="color: red">Dải đo</b>
-                                </tr>
-                            </thead>                        
+                            <tr> <td>
+                                <b style="color: darkred">Dải đo</b></td>
+                            </tr>
+                                                   
                             <tr>
                                 <td>Hàm tính:</td>
                                 <td><input type="text" disabled value="A + B*x"></td>
@@ -129,19 +135,23 @@
                 </div>
 
 
-                <div class="row">
-                    <div class="boxnopadd">
-                        <b style="color: red">Tiêu chuẩn hóa</b>
+                <div class="box">
+                    <div class="row">
+                        
                         <table >
-                            <thead>
-                                <tr>
-                                    <td></td>
-                                    <td>Nguồn</td>
-                                    <td>Giá trị hiệu chuẩn</td>
-                                    <td>Đơn vị</td>
-                                    <td>Chọn</td>
-                                </tr>
-                            </thead>                        
+                            <tr><td colspan="4">
+                                <b style="color: darkred">Tiêu chuẩn hóa</b>
+                            </td>
+                            </tr>
+                            
+                            <tr>
+                                <td></td>
+                                <td>Nguồn</td>
+                                <td>Giá trị hiệu chuẩn</td>
+                                <td>Đơn vị</td>
+                                <td>Chọn</td>
+                            </tr>
+                        
                             <tr>
                                 <td>Oxy O2:</td>
                                 <td>
@@ -206,17 +216,19 @@
                 </div>
 
 
-                <div class="row">
-                    <div class="boxnopadd">
-                            <b style="color: red">Tín hiệu trạng thái</b>
+                <div class="box">
+                    <div class="row">
+                            
                         <table >
-                            <thead>
-                                <tr>
-                                    <td></td>
-                                    <td>Nguồn</td>
-                                    <td>Chọn</td>
-                                </tr>
-                            </thead>                        
+                            <tr>
+                                <td colspan="3"><b style="color: darkred">Tín hiệu trạng thái</b></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Nguồn</td>
+                                <td>Chọn</td>
+                            </tr>
+                                                   
                             <tr>
                                 <td>Bảo trì:</td>                                
                                 <td>
@@ -257,7 +269,7 @@
 
                 <div class="inline" >
                     <button id="btn_savetag" onClick="onSaveTag()"
-                        style="position: relative; float: right; width: 130px;">
+                        style="float: right; width: 130px;">
                         Lưu xuống logger</button>                             
                 </div>
 
@@ -269,7 +281,23 @@
         
         </table>
     </div>
-
+    <script>
+            /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+        
+        for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "block";
+            }
+            });
+        }
+    </script>
   
 </body>
 </html>

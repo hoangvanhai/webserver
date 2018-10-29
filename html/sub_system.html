@@ -33,10 +33,12 @@
             <td class="menu">
 
             <a class="button menubtn " href="main_status.html">TRẠNG THÁI</a>
-            <a class="button menubtn" href="sub_std.html">THÔNG SỐ QUAN TRẮC</a>
-            <a class="subbutton menubtn" href="sub_std.html">GIÁ TRỊ TIÊU CHUẨN</a>
-            <a class="subbutton menubtn" href="sub_raw.html">GIÁ TRỊ THÔ</a>
-            <a class="button menubtn" href="#">TỆP DỮ LIỆU</a>
+            <button class="dropdown-btn">THÔNG SỐ QUAN TRẮC </button>
+            <div class="dropdown-container">
+                <a class="subbutton menubtn" href="sub_std.html">GIÁ TRỊ TIÊU CHUẨN</a>
+                <a class="subbutton menubtn" href="sub_raw.html">GIÁ TRỊ THÔ</a>
+            </div> 
+            <a class="button menubtn" href="fileserver">TỆP DỮ LIỆU</a>
             <a class="button menubtn" href="sub_system.html">CẤU HÌNH</a>
             <a class="subbutton menubtn active" href="">HỆ THỐNG</a>
             <a class="subbutton menubtn" href="sub_account.html">TÀI KHOẢN</a>
@@ -145,7 +147,23 @@
         
         </table>
     </div>
-
+    <script>
+            /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+        
+        for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "block";
+            }
+            });
+        }
+    </script>
   
 </body>
 </html>

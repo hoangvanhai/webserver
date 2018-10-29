@@ -65,9 +65,7 @@ function onMessage(event) {
 }
 
 
-function setDataRawRow(msg, row) {
-    
-    setTextLabel("data_std_sw_name_p" + row, msg["sw"])
+function setDataRawRow(msg, row) {    
 
     var final_value = msg["final"];
     var alarm_value = msg["alarm"];
@@ -76,21 +74,27 @@ function setDataRawRow(msg, row) {
 
     
     if(final_value < alarm_value) {
-        setTextLabelColor("data_std_value_p" + row, final_value.toFixed(2), false)
+        
         setBarChartPercen("bar_p" + row, 100 * final_value / msg["max"], false)
     } else {
-        setTextLabelColor("data_std_value_p" + row, final_value.toFixed(2), true)
+        
         setBarChartPercen("bar_p" + row, 100 * final_value / msg["max"], true)
     }
 
 
-    setTextLabel("bar_value_unit_p" + row, final_value.toFixed(2) + " " + msg["final_unit"])
+    setTextLabel("bar_value_unit_p" + row, msg["sw"] + ": " + 
+                msg["final"].toFixed(2) + " (" + msg["final_unit"] + ")")
+
     setTextLabel("bar_min_p" + row, msg["min"])
     setTextLabel("bar_max_p" + row, msg["max"])    
-
-    setTextLabel("data_std_unit_p" + row, msg["final_unit"])
-    setTextLabel("data_std_status_p" + row, msg["status"]) 
-
+    
+    if(msg["status"] == "00") {
+        setTextLabel("data_std_status_p" + row, "") 
+    } else if(msg["status"] == "01") {
+        setTextLabel("data_std_status_p" + row, 'Đang hiệu chỉnh') 
+    } else if(msg["status"] == "02") {
+        setTextLabel("data_std_status_p" + row, msg["Lỗi"]) 
+    }
 }
 
 

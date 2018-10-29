@@ -6,6 +6,9 @@
     <link type="text/css" rel="stylesheet" href="css/style.css">
     <script src="js/main_status.js"></script>
     <script src="js/utils.js"></script>
+    <script>
+    
+    </script>
 </head>
 <body >
 
@@ -31,22 +34,27 @@
         <tr>
             <td class="menu">
 
-            <a class="button menubtn active" href="">TRẠNG THÁI</a>
-            <a class="button menubtn" href="sub_std.html">THÔNG SỐ QUAN TRẮC</a>
-            <a class="subbutton menubtn" href="sub_std.html">GIÁ TRỊ TIÊU CHUẨN</a>
-            <a class="subbutton menubtn" href="sub_raw.html">GIÁ TRỊ THÔ</a>
-            <a class="button menubtn" href="data/">TỆP DỮ LIỆU</a>
-            <a class="button menubtn" href="sub_system.html">CẤU HÌNH</a>
-            <a class="subbutton menubtn" href="sub_system.html">HỆ THỐNG</a>
-            <a class="subbutton menubtn" href="sub_account.html">TÀI KHOẢN</a>
-            <a class="subbutton menubtn" href="sub_p1.html">P#1</a>
-            <a class="subbutton menubtn" href="sub_p2.html">P#2</a>
-            <a class="subbutton menubtn" href="sub_p3.html">P#3</a>
-            <a class="subbutton menubtn" href="sub_p4.html">P#4</a>
-            <a class="subbutton menubtn" href="sub_p5.html">P#5</a>
-            <a class="subbutton menubtn" href="sub_p6.html">P#6</a>
-            <a class="subbutton menubtn" href="sub_p7.html">P#7</a>
-            <a class="subbutton menubtn" href="sub_p8.html">P#8</a>
+            <a class="button menubtn active" href="">TRẠNG THÁI</a>            
+            <button class="dropdown-btn">THÔNG SỐ QUAN TRẮC </button>
+            <div class="dropdown-container">
+                <a class="subbutton menubtn" href="sub_std.html">GIÁ TRỊ TIÊU CHUẨN</a>
+                <a class="subbutton menubtn" href="sub_raw.html">GIÁ TRỊ THÔ</a>
+            </div>            
+            <a class="button menubtn" href="fileserver/">TỆP DỮ LIỆU</a>
+            <button class="dropdown-btn">CẤU HÌNH</button>
+            <div class="dropdown-container">
+                <a class="subbutton menubtn" href="sub_system.html">HỆ THỐNG</a>
+                <a class="subbutton menubtn" href="sub_account.html">TÀI KHOẢN</a>
+                <a class="subbutton menubtn" href="sub_p1.html">P#1</a>
+                <a class="subbutton menubtn" href="sub_p2.html">P#2</a>
+                <a class="subbutton menubtn" href="sub_p3.html">P#3</a>
+                <a class="subbutton menubtn" href="sub_p4.html">P#4</a>
+                <a class="subbutton menubtn" href="sub_p5.html">P#5</a>
+                <a class="subbutton menubtn" href="sub_p6.html">P#6</a>
+                <a class="subbutton menubtn" href="sub_p7.html">P#7</a>
+                <a class="subbutton menubtn" href="sub_p8.html">P#8</a>
+            </div>                                    
+
 
             </td>
 
@@ -114,5 +122,23 @@
     </div>
 
   
+    <script>
+            /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+        
+        for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "block";
+            }
+            });
+        }
+    </script>
+
 </body>
 </html>

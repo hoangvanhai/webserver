@@ -142,20 +142,19 @@ function onUpdate() {
 
 
 function onReset() {
-    if(confirm("Khởi động lại logger ?")) {
-        if(localStorage.password_ == secret) {
-            if(SOCK == undefined) return
-            msg = {
-                type: 'control',
-                subtype: 'system_reboot',        
-            }
+    if(confirm("Khởi động lại logger ?")) {        
 
-            SOCK.send(JSON.stringify(msg))
-        } else {
-            setTextColor("Mật khẩu không đúng", true)   
-        } 
+        if(SOCK == undefined) return
+
+        msg = {
+            type: 'control',
+            subtype: 'system_reboot',        
+        }
+
+        SOCK.send(JSON.stringify(msg))
     }
 }
+
 
 
 function loadUiInput() {

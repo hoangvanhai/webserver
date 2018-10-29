@@ -32,22 +32,24 @@
         <tr>
             <td class="menu">
 
-            <a class="button menubtn " href="main_status.html">TRẠNG THÁI</a>
-            <a class="button menubtn" href="sub_std.html">THÔNG SỐ QUAN TRẮC</a>
+            <a class="button menubtn" href="main_status.html">TRẠNG THÁI</a>
+            <a class="button menubtn" href="">THÔNG SỐ QUAN TRẮC</a>
             <a class="subbutton menubtn active" href="">GIÁ TRỊ TIÊU CHUẨN</a>
             <a class="subbutton menubtn" href="sub_raw.html">GIÁ TRỊ THÔ</a>
-            <a class="button menubtn" href="#">TỆP DỮ LIỆU</a>
-            <a class="button menubtn" href="sub_system.html">CẤU HÌNH</a>
-            <a class="subbutton menubtn" href="sub_system.html">HỆ THỐNG</a>
-            <a class="subbutton menubtn " href="sub_account.html">TÀI KHOẢN</a>
-            <a class="subbutton menubtn" href="sub_p1.html">P#1</a>
-            <a class="subbutton menubtn" href="sub_p2.html">P#2</a>
-            <a class="subbutton menubtn" href="sub_p3.html">P#3</a>
-            <a class="subbutton menubtn" href="sub_p4.html">P#4</a>
-            <a class="subbutton menubtn" href="sub_p5.html">P#5</a>
-            <a class="subbutton menubtn" href="sub_p6.html">P#6</a>
-            <a class="subbutton menubtn" href="sub_p7.html">P#7</a>
-            <a class="subbutton menubtn" href="sub_p8.html">P#8</a>
+            <a class="button menubtn " href="fileserver">TỆP DỮ LIỆU</a>
+            <button class="dropdown-btn">CẤU HÌNH</button>
+            <div class="dropdown-container">
+                <a class="subbutton menubtn" href="sub_system.html">HỆ THỐNG</a>
+                <a class="subbutton menubtn" href="sub_account.html">TÀI KHOẢN</a>
+                <a class="subbutton menubtn" href="sub_p1.html">P#1</a>
+                <a class="subbutton menubtn" href="sub_p2.html">P#2</a>
+                <a class="subbutton menubtn" href="sub_p3.html">P#3</a>
+                <a class="subbutton menubtn" href="sub_p4.html">P#4</a>
+                <a class="subbutton menubtn" href="sub_p5.html">P#5</a>
+                <a class="subbutton menubtn" href="sub_p6.html">P#6</a>
+                <a class="subbutton menubtn" href="sub_p7.html">P#7</a>
+                <a class="subbutton menubtn" href="sub_p8.html">P#8</a>
+            </div>   
 
             </td>
 
@@ -63,114 +65,32 @@
                             <select id="std_update_time" style="min-width: 100px;"
                                 onChange="onChangedUpdateRate()">
                                 <option value="0">Tức thời</option>
-                                <option value="0.5">30 giây</option>
-                                <option value="1">1 phút</option>
-                                <option value="1.5">1.5 phút</option>
-                                <option value="2.0">2 phút</option>
-                                <option value="2.5">2.5 phút</option>                                 
-                                <option value="3">3 phút</option>
-                                <option value="3.5">3.5 phút</option>
-                                <option value="4">4 phút</option>
-                                <option value="4.5">4.5 phút</option>
-                                <option value="5">5 phút</option>                                 
+                                <option value="1">Thời gian báo cáo</option>                                 
                             </select>
                         </span>
                     </div> 
                     
-                <div class="row">                    
-                    <table style="border-collapse: collapse;">
-                    <thead>
-                        <tr>
-                        <th style="width: 50px;">TT</th>
-                        <th style="width: 150px;">Thông số đo</th>
-                        <th style="width: 200px;">Giá trị</th>
-                        <th style="width: 100px;">Đơn vị</th>
-                        <th style="width: 100px;">Trạng thái</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>P#1</td>
-                        <td id="data_std_sw_name_p1"></td>
-                        <td id="data_std_value_p1"></td>
-                        <td id="data_std_unit_p1"></td>
-                        <td id="data_std_status_p1"></td>
-                    </tr>
-                    <tr>
-                        <td>P#2</td>
-                        <td id="data_std_sw_name_p2"></td>
-                        <td id="data_std_value_p2"></td>
-                        <td id="data_std_unit_p2"></td>
-                        <td id="data_std_status_p2"></td>
-                    </tr>
-                    <tr>
-                        <td>P#3</td>
-                        <td id="data_std_sw_name_p3"></td>
-                        <td id="data_std_value_p3"></td>
-                        <td id="data_std_unit_p3"></td>
-                        <td id="data_std_status_p3"></td>
-                    </tr>
-                    <tr>
-                        <td>P#4</td>
-                        <td id="data_std_sw_name_p4"></td>
-                        <td id="data_std_value_p4"></td>
-                        <td id="data_std_unit_p4"></td>
-                        <td id="data_std_status_p4"></td>
-                    </tr>
-                    <tr>
-                        <td>P#5</td>
-                        <td id="data_std_sw_name_p5"></td>
-                        <td id="data_std_value_p5"></td>
-                        <td id="data_std_unit_p5"></td>
-                        <td id="data_std_status_p5"></td>
-                    </tr>
-
-                    <tr>
-                        <td>P#6</td>
-                        <td id="data_std_sw_name_p6"></td>
-                        <td id="data_std_value_p6"></td>
-                        <td id="data_std_unit_p6"></td>
-                        <td id="data_std_status_p6"></td>
-                    </tr>
-
-                    <tr>
-                        <td>P#7</td>
-                        <td id="data_std_sw_name_p7"></td>
-                        <td id="data_std_value_p7"></td>
-                        <td id="data_std_unit_p7"></td>
-                        <td id="data_std_status_p7"></td>
-                    </tr>
-
-                    <tr>
-                        <td>P#8</td>
-                        <td id="data_std_sw_name_p8"></td>
-                        <td id="data_std_value_p8"></td>
-                        <td id="data_std_unit_p8"></td>
-                        <td id="data_std_status_p8"></td>
-                    </tr>
-                </tbody>
-            </table>           
-            </div>
-
-            <div>&nbsp;</div>
-
-            <div class="row">                    
+                
+            <div class="boxnopadd">                    
                 <table style="border-collapse: collapse;">                    
                 <tbody>
 
                     <tr>
                     <td style="width: 50px;">P#1</td>
-                    <td style="width: 150px;" id="bar_value_unit_p1"></td>
-                    <td style="width: 550px;">
-                        <div class="progress"> 
-                            <div id="bar_p1"></div>
-                        </div>
+                    <td style="width: 15%;" id="bar_value_unit_p1"></td>
+                    <td style="width: 100%;">
+                        
                         <div class="inline">
                             <span style="float: left; text-align: left; width: 20px;" 
                             id="bar_min_p1"></span>
+                            
                             <span style="float: right; text-align: right; width: 50px;" 
                             id="bar_max_p1"></span>
                         </div>
+                        <div class="progress"> 
+                                <div id="bar_p1"></div>
+                        </div>
+                        <center id="data_std_status_p1"></center>
                     </td>
                     </tr>
 
@@ -178,15 +98,17 @@
                     <td>P#2</td>
                     <td id="bar_value_unit_p2"></td>
                     <td>
-                        <div class="progress"> 
-                            <div id="bar_p2"></div>
-                        </div>
+                        
                         <div class="inline">
                             <span style="float: left; text-align: left;" 
-                            id="bar_min_p2"></span>
+                            id="bar_min_p2"></span>                            
                             <span style="float: right; text-align: right;" 
                             id="bar_max_p2"></span>
                         </div>
+                        <div class="progress"> 
+                            <div id="bar_p2"></div>
+                        </div>
+                        <center id="data_std_status_p2"></center>
                     </td>
                     </tr>
 
@@ -194,15 +116,18 @@
                     <td>P#3</td>
                     <td id="bar_value_unit_p3"></td>
                     <td>
-                        <div class="progress"> 
-                            <div id="bar_p3"></div>
-                        </div>
+
                         <div class="inline">
                             <span style="float: left; text-align: left;" 
                             id="bar_min_p3"></span>
+                            
                             <span style="float: right; text-align: right;" 
                             id="bar_max_p3"></span>
                         </div>
+                        <div class="progress"> 
+                                <div id="bar_p3"></div>
+                            </div>
+                            <center id="data_std_status_p3"></center>
                     </td>
                     </tr>
 
@@ -210,15 +135,18 @@
                     <td>P#4</td>
                     <td id="bar_value_unit_p4"></td>
                     <td>
-                        <div class="progress"> 
-                            <div id="bar_p4"></div>
-                        </div>
+
                         <div class="inline">
                             <span style="float: left; text-align: left;" 
                             id="bar_min_p4"></span>
+                            
                             <span style="float: right; text-align: right;" 
                             id="bar_max_p4"></span>
                         </div>
+                        <div class="progress"> 
+                                <div id="bar_p4"></div>
+                            </div>
+                        <center id="data_std_status_p4"></center>
                     </td>
                     </tr>
 
@@ -226,15 +154,18 @@
                     <td>P#5</td>
                     <td id="bar_value_unit_p5"></td>
                     <td>
-                        <div class="progress"> 
-                            <div id="bar_p5"></div>
-                        </div>
                         <div class="inline">
                             <span style="float: left; text-align: left;" 
                             id="bar_min_p5"></span>
+                            
                             <span style="float: right; text-align: right;" 
                             id="bar_max_p5"></span>
                         </div>
+                        <div class="progress"> 
+                                <div id="bar_p5"></div>
+                        </div>
+                        <center id="data_std_status_p5"></center>
+
                     </td>
                     </tr>
 
@@ -242,15 +173,18 @@
                     <td>P#6</td>
                     <td id="bar_value_unit_p6"></td>
                     <td>
-                        <div class="progress"> 
-                            <div id="bar_p6"></div>
-                        </div>
+
                         <div class="inline">
                             <span style="float: left; text-align: left;" 
                             id="bar_min_p6"></span>
+                            
                             <span style="float: right; text-align: right;" 
                             id="bar_max_p6"></span>
                         </div>
+                        <div class="progress"> 
+                            <div id="bar_p6"></div>
+                        </div>
+                        <center id="data_std_status_p6"></center>
                     </td>
                     </tr>
                     
@@ -258,15 +192,18 @@
                     <td>P#7</td>
                     <td id="bar_value_unit_p7"></td>
                     <td>
-                        <div class="progress"> 
-                            <div id="bar_p7"></div>
-                        </div>
+
                         <div class="inline">
                             <span style="float: left; text-align: left;" 
                             id="bar_min_p7"></span>
+                            
                             <span style="float: right; text-align: right;" 
                             id="bar_max_p7"></span>
                         </div>
+                        <div class="progress"> 
+                                <div id="bar_p7"></div>
+                        </div>
+                        <center id="data_std_status_p7"></center>
                     </td>
                     </tr>
 
@@ -274,15 +211,18 @@
                     <td>P#8</td>
                     <td id="bar_value_unit_p8"></td>
                     <td>
-                        <div class="progress"> 
-                            <div id="bar_p8"></div>
-                        </div>
+
                         <div class="inline">
                             <span style="float: left; text-align: left;" 
                             id="bar_min_p8"></span>
+                            
                             <span style="float: right; text-align: right;" 
                             id="bar_max_p8"></span>
                         </div>
+                        <div class="progress"> 
+                            <div id="bar_p8"></div>
+                        </div>
+                        <center id="data_std_status_p8"></center>
                     </td>
                     </tr>
 
@@ -298,6 +238,23 @@
         </table>
     </div>
 
+    <script>
+            /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+        
+        for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "block";
+            }
+            });
+        }
+    </script>
   
 </body>
 </html>

@@ -284,8 +284,11 @@ function getListAccount() {
 }
 
 function loadUiInput() {
-    if(localStorage.role_ != "supperuser") {
+    if(localStorage.role_ == "user") {
         setDisabledInput("btn_adduser")
+        setDisabledInput("btn_resetpw")
+        setDisabledInput("btn_delacc")
+    } else if(localStorage.role_ == "admin") {
         setDisabledInput("btn_resetpw")
         setDisabledInput("btn_delacc")
     }
