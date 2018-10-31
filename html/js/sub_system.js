@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function(){
             SOCK.onclose = function() {
                 setStatus('Không kết nối', true);
                 SOCK=undefined
+                forceBack()
             }
 
             SOCK.onmessage = onMessage
@@ -29,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function(){
     } else {
         setStatus('Trinh duyet khong ho tro ws')
     }
-
+    setBack(localStorage.username_)
     setTextLabel("id_username", "Tài khoản: " + localStorage.username_)
 })
 

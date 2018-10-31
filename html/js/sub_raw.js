@@ -15,11 +15,12 @@ document.addEventListener("DOMContentLoaded", function(){
             SOCK.onclose = function() {
                 setStatus('Không kết nối', true);
                 SOCK=undefined
+                forceBack()
             }
 
             SOCK.onmessage = onMessage
             SOCK.onerror = function() {
-                setStatus('lỗi kết nối', true);
+                setStatus('Lỗi kết nối', true);
                 SOCK=undefined
             }
             } else {
@@ -28,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function(){
     } else {
         setStatus('Trinh duyet khong ho tro ws')
     }
-
+    setBack(localStorage.username_)
     setTextLabel("id_username", "Tài khoản: " + localStorage.username_)
 })
 
@@ -76,7 +77,8 @@ function setDataRawRow(msg, row) {
     if(inter_value < alarm_value) {
         setBarChartPercen("bar_p" + row, 100 * inter_value / msg["max"], false)
     } else {
-        setBarChartPercen("bar_p" + row, 100 * inter_value / msg["max"], true)
+        if(msg["alarm_en"] == true)
+            setBarChartPercen("bar_p" + row, 100 * inter_value / msg["max"], true)
     }
 
     setTextLabel("bar_value_unit_p" + row,  msg["sw"] + ": " + 
@@ -88,9 +90,9 @@ function setDataRawRow(msg, row) {
     if(msg["status"] == "00") {
         setTextLabel("data_raw_status_p" + row, "") 
     } else if(msg["status"] == "01") {
-        setTextLabel("data_raw__status_p" + row, 'Đang hiệu chỉnh') 
+        setTextLabel("data_raw_status_p" + row, 'Đang hiệu chỉnh') 
     } else if(msg["status"] == "02") {
-        setTextLabel("data_raw_status_p" + row, msg["Lỗi"]) 
+        setTextLabel("data_raw_status_p" + row, "Lỗi") 
     }   
 }
 

@@ -76,3 +76,16 @@ function setBarChartPercen(id, per, warn) {
         document.getElementById(id).style.backgroundColor = 'green'
     }
 }
+
+
+function setBack(username) {
+    if(username == "") {
+        window.location = "index.html";
+    }
+}
+
+
+function forceBack() {
+    localStorage.username_ = ""
+    window.location = "index.html";
+}

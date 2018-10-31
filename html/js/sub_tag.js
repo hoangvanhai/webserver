@@ -15,13 +15,14 @@ document.addEventListener("DOMContentLoaded", function(){
             }
 
             SOCK.onclose = function() {
-                setStatus('Không kết nối', true);
+                setStatus('Không kết nối', true);                
                 SOCK=undefined
+                forceBack()
             }
 
             SOCK.onmessage = onMessage
             SOCK.onerror = function() {
-                setStatus('lỗi kết nối', true);
+                setStatus('Lỗi kết nối', true);
                 SOCK=undefined
             }
             } else {
@@ -32,7 +33,9 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     loadUiInput()
+    setBack(localStorage.username_)
     setTextLabel("id_username", "Tài khoản: " + localStorage.username_)
+
 })
 
 function onMessage(event) {    
@@ -134,7 +137,19 @@ function setTagContent(tag, msg) {
         setCheckbox("tc_chon_apsuat", true)
         setTempStatus()
         setPressStatus();
-    }    
+    }
+    
+    if(msg["cal_revert"] == true) {
+        setCheckbox("tc_chon_nghichdao", true)
+    } else {
+        setCheckbox("tc_chon_nghichdao", false)
+    }
+
+    if(msg["alarm_en"] == true) {
+        setCheckbox("daido_chophepcb", true)
+    } else {
+        setCheckbox("daido_chophepcb", false)
+    }
 }
 
 function loadUiInput() {
@@ -142,6 +157,12 @@ function loadUiInput() {
         localStorage.role_ != "admin") {
         setDisabledInput("btn_savetag")
     }
+
+    // console.log("role = " + localStorage.role_)
+    // if(localStorage.role_ == "admin") {
+    //     console.log("delete admin")
+    //     deleteItem()
+    // }
 }
 
 
@@ -193,7 +214,9 @@ function onSaveTag() {
                 error: getContent("tinhieu_loi"),
                 has_error: getCheckbox("tinhieu_chonloi"),
                 has_calib: getCheckbox("tinhieu_chonloi"),
-                final_type: ftype
+                final_type: ftype,
+                cal_revert: getCheckbox("tc_chon_nghichdao"),
+                alarm_en: getCheckbox("daido_chophepcb")
             }        
         }
 

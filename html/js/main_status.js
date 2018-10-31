@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function(){
             SOCK.onclose = function(){
                 setStatus('Không kết nối', true);
                 SOCK = undefined
+                forceBack()
             }
             SOCK.onmessage = onMessage
             SOCK.onerror = function(){
@@ -27,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function(){
         setStatus('Trình duyệt không hỗ trợ', true);
     }
 
+    setBack(localStorage.username_)
     setTextLabel("id_username", "Tài khoản: " + localStorage.username_)
 })
 

@@ -15,11 +15,12 @@ document.addEventListener("DOMContentLoaded", function(){
             SOCK.onclose = function() {
                 setStatus('Không kết nối', true);
                 SOCK=undefined
+                forceBack()
             }
 
             SOCK.onmessage = onMessage
             SOCK.onerror = function() {
-                setStatus('lỗi kết nối', true);
+                setStatus('Lỗi kết nối', true);
                 SOCK=undefined
             }
             } else {
@@ -28,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function(){
     } else {
         setStatus('Trinh duyet khong ho tro ws')
     }
-
+    setBack(localStorage.username_)
     setTextLabel("id_username", "Tài khoản: " + localStorage.username_)
 })
 
@@ -77,8 +78,8 @@ function setDataRawRow(msg, row) {
         
         setBarChartPercen("bar_p" + row, 100 * final_value / msg["max"], false)
     } else {
-        
-        setBarChartPercen("bar_p" + row, 100 * final_value / msg["max"], true)
+        if(msg["alarm_en"] == true)
+            setBarChartPercen("bar_p" + row, 100 * final_value / msg["max"], true)
     }
 
 
@@ -93,7 +94,7 @@ function setDataRawRow(msg, row) {
     } else if(msg["status"] == "01") {
         setTextLabel("data_std_status_p" + row, 'Đang hiệu chỉnh') 
     } else if(msg["status"] == "02") {
-        setTextLabel("data_std_status_p" + row, msg["Lỗi"]) 
+        setTextLabel("data_std_status_p" + row, 'Lỗi') 
     }
 }
 

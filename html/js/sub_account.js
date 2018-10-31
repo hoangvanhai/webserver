@@ -16,12 +16,14 @@ document.addEventListener("DOMContentLoaded", function(){
             SOCK.onclose = function() {
                 setStatus('Không kết nối', true);
                 SOCK=undefined
+                forceBack()
             }
 
             SOCK.onmessage = onMessage
             SOCK.onerror = function() {
-                setStatus('lỗi kết nối', true);
+                setStatus('Lỗi kết nối', true);
                 SOCK=undefined
+                forceBack()
             }
             } else {
             setStatus('Tao ws khong thanh cong')
@@ -29,8 +31,14 @@ document.addEventListener("DOMContentLoaded", function(){
     } else {
         setStatus('Trinh duyet khong ho tro ws')
     }
-    console.log("tai khoan " + localStorage.username_)
+    setBack(localStorage.username_)
     setTextLabel("id_username", "Tài khoản: " + localStorage.username_)
+    
+    console.log("role = " + localStorage.role_)
+    if(localStorage.role_ == "admin") {
+        console.log("delete admin")
+        deleteItem()
+    }
 
 })
 
@@ -171,8 +179,9 @@ function changePassword() {
 }
 
 
+
 function addUser() {
-    if(localStorage.role_ != "supperuser") {
+    if(localStorage.role_ == "user") {
         setTextColor("Không có quyền thêm tài khoản mới", true)
         return
     }
@@ -204,7 +213,7 @@ function addUser() {
 
 function resetPassword(username) {
     
-    if(localStorage.role_ != "supperuser") {
+    if(localStorage.role_ == "user") {
         setTextColor("Không có quyền reset mật khẩu", true)
         return
     }
@@ -232,7 +241,7 @@ function resetPassword(username) {
 
 function deleteUser(username) {
 
-    if(localStorage.role_ != "supperuser") {
+    if(localStorage.role_ = "user") {
         setTextColor("Không có quyền xóa tài khoản", true)
         return
     }
@@ -290,6 +299,14 @@ function loadUiInput() {
         setDisabledInput("btn_delacc")
     } else if(localStorage.role_ == "admin") {
         setDisabledInput("btn_resetpw")
-        setDisabledInput("btn_delacc")
+        // setDisabledInput("btn_delacc")
+    } if(localStorage.role_ == "supperuser") {
+        setDisabledInput("btn_changepw")
     }
+}
+
+
+function deleteItem() {
+    var select= document.getElementById("acc_type");
+    select.removeChild(select.options[0])
 }

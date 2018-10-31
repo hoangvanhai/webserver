@@ -30,7 +30,10 @@ document.addEventListener("DOMContentLoaded", function(){
         setStatus('Trình duyệt không hỗ trợ', true);
     }
     
-    setText("id_datetime", 'this is time')
+    //setText("id_datetime", 'this is time')
+    localStorage.username_ = ""
+    localStorage.password_ = ""
+    localStorage.role_ = ""
 })
 
 function onMessage(event){
