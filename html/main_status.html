@@ -15,18 +15,36 @@
 
     <div class="wrapper">        
         <div class="header">
-            <div style="text-align: center; font-size: 20px;">
-                <b>HỆ THỐNG TRUYỀN VÀ QUẢN LÝ DỮ LIỆU QUAN TRẮC TỰ ĐỘNG</b>
-            </div> 
 
-            <div class="inline">
-                <img src="img/logo.jpg" alt="Logo" style="width:160px;height:50px;">            
-                <a class="logout"href="index.html"><img src="img/logout.png" alt="" 
-                    style="width:30px;height:20px;" ></a>
-                <span id="id_username" class="username"></span>
-                <span id="id_datetime" class="timedate"></span>            
-                <span id="id_connstatus" class="username"></span>
-            </div>
+            <table class="">
+                <tbody>
+                    <tr>
+                        <td>
+                            <img src="img/logo.jpg" alt="Logo" style="margin-left: 20px;width:160px;height:50px;">            
+                        </td>
+                        <td style="width: 80%;">
+                                
+                            <center style="font-size: 20px; margin-left: 10%;">
+                                <b>HỆ THỐNG TRUYỀN VÀ QUẢN LÝ DỮ LIỆU QUAN TRẮC TỰ ĐỘNG</b>
+                            </center>
+                                
+                        </td>
+                        <td style="width: 20%; height: 80px;">
+
+                        <div class="inline">
+                                
+                                <span><a class="logout" href="index.html"><img src="img/logout.png" alt="" 
+                                    style="width:20px;height:15px;" ></a></span>
+                                <span id="id_username" class="username"></span>
+                        </div>
+                        
+                        <div id="id_connstatus" class="timedate"></div>
+                        <div id="id_datetime" class="timedate"></div>                    
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
         </div>
 
         <table class="maintable">
@@ -58,60 +76,50 @@
 
             </td>
 
-            <td class="content">            
+            <td class="content" style="height: 700px;">            
                 <div class="box">
+                        <b class="tabletitile">Thông tin hệ thống</b>
                     <div class="row">
-                        <table >                            
-                            <!-- <tr>
-                                <td colspan = "2">
-                                <b style="color: darkred">Thông tin hệ thống</b>
-                                </td>
-                            </tr>                         -->
-                            <caption style="color: darkred; font-weight: bold;">Thông tin hệ thống</caption>                                                        
+                        <table >                                                                                    
                             <tr>
-                                <td style="text-align: right; min-width: 250px;">Tỉnh:</td>
-                                <td style="text-align: left; min-width: 250px;" id="id_status_tinh"></td>
+                                <td>Tỉnh:</td>
+                                <td id="id_status_tinh"></td>
                             </tr>
                             <tr>
-                                <td style="text-align: right;">Cơ sở:</td>
-                                <td style="text-align: left;" id="id_status_coso"></td>
+                                <td >Cơ sở:</td>
+                                <td id="id_status_coso"></td>
                             </tr>
                             <tr>
-                                <td style="text-align: right;">Trạm:</td>
-                                <td style="text-align: left;" id="id_status_tram" ></td>
+                                <td >Trạm:</td>
+                                <td id="id_status_tram" ></td>
                             </tr>
                             <tr>
-                                <td style="text-align: right;">Địa chỉ IP:</td>
-                                <td style="text-align: left;" id="id_status_ip"></td>
+                                <td >Địa chỉ IP:</td>
+                                <td  id="id_status_ip"></td>
                             </tr>
                             <tr>
-                                <td style="text-align: right;">Subnet Mask:</td>
-                                <td style="text-align: left;" id="id_status_subnetmask"></td>
+                                <td >Subnet Mask:</td>
+                                <td id="id_status_subnetmask"></td>
                             </tr>                        
                         </table>
                     </div>
                 </div>
 
                 <div class="box">
+                        <b class="tabletitile">Máy chủ FTP</b>
                     <div class="row">
                         <table>
-                            <!-- <tr>
-                                <td colspan = "2">
-                                <b style="color: darkred">Máy chủ FTP</b>
-                                </td>
-                            </tr>                        -->
-                            <caption style="color: darkred; font-weight: bold;">Máy chủ FTP</caption>
                             <tr>
-                                <td style="text-align: right; min-width: 250px;">Địa chỉ IP:</td>
-                                <td style="text-align: left; min-width: 250px;" id="id_status_ftp_ip"></td>
+                                <td >Địa chỉ IP:</td>
+                                <td  id="id_status_ftp_ip"></td>
                             </tr>
                             <tr>
-                                <td style="text-align: right;">Tên truy cập:</td>
-                                <td style="text-align: left;" id="id_status_ftp_username" ></td>
+                                <td >Tên truy cập:</td>
+                                <td id="id_status_ftp_username" ></td>
                             </tr>
                             <tr>
-                                <td style="text-align: right;">Thời gian báo cáo:</td>
-                                <td style="text-align: left;" id="id_status_ftp_logdur"></td>
+                                <td>Thời gian báo cáo:</td>
+                                <td id="id_status_ftp_logdur"></td>
                             </tr>                        
                         </table>
                     </div>

@@ -12,18 +12,34 @@
 
     <div class="wrapper">        
         <div class="header">
-            <div style="text-align: center; font-size: 20px;">
-                <b>HỆ THỐNG TRUYỀN VÀ QUẢN LÝ DỮ LIỆU QUAN TRẮC TỰ ĐỘNG</b>
-            </div> 
+        <table class="">
+                <tbody>
+                    <tr>
+                        <td>
+                            <img src="img/logo.jpg" alt="Logo" style="margin-left: 20px;width:160px;height:50px;">            
+                        </td>
+                        <td style="width: 80%;">
+                                
+                            <center style="font-size: 20px; margin-left: 10%;">
+                                <b>HỆ THỐNG TRUYỀN VÀ QUẢN LÝ DỮ LIỆU QUAN TRẮC TỰ ĐỘNG</b>
+                            </center>
+                                
+                        </td>
+                        <td style="width: 20%; height: 80px;">
 
-            <div class="inline">
-                <img src="img/logo.jpg" alt="Logo" style="width:160px;height:50px;">            
-                <a class="logout" href="index.html"><img src="img/logout.png" alt="" 
-                    style="width:30px;height:20px;" ></a>
-                <span id="id_username" class="username"></span>
-                <span id="id_datetime" class="timedate"></span>            
-                <span id="id_connstatus" class="username"></span>
-            </div>
+                        <div class="inline">
+                                
+                                <span><a class="logout" href="index.html"><img src="img/logout.png" alt="" 
+                                    style="width:20px;height:15px;" ></a></span>
+                                <span id="id_username" class="username"></span>
+                        </div>
+                        
+                        <div id="id_connstatus" class="timedate"></div>
+                        <div id="id_datetime" class="timedate"></div>                    
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
         </div>
 
@@ -53,19 +69,12 @@
 
             </td>
 
-            <td class="content">    
-                    <div style="text-align: center; font-size: 20px; padding-top: 10px;">
-                        <b>Quản lý tài khoản</b>
-                    </div>                    
-
+            <td class="content">                    
                 <div class="box">
+                        <b class="tabletitile">Đổi mật khẩu</b>
                     <div class="row">
                         <table >
-                                <tr>
-                                    <td colspan = "2">
-                                    <b style="color: darkred">Đổi mật khẩu</b>
-                                    </td>
-                                </tr>
+                                
                        
                             <tr>
                                 <td>Mật khẩu hiện tại:</td>
@@ -88,13 +97,10 @@
                 </div>
 
                 <div class="box">
+                        <b class="tabletitile">Thêm tài khoản mới</b>
                     <div class="row">
                         <table>
-                            <tr>
-                                <td colspan = "2">
-                                <b style="color: darkred">Thêm tài khoản mới</b>
-                                </td>
-                            </tr>
+                            
                             <tr>
                                 <td>Tên tài khoản:</td>
                                 <td><input type="text" id="acc_add_username" ></td>
@@ -123,13 +129,10 @@
                 
 
                 <div class="box">
+                        <b class="tabletitile">Reset mật khẩu/Xóa tài khoản</b>
                     <div class="row">
                         <table>
-                            <tr>
-                                <td colspan = "2">
-                                <b style="color: darkred">Reset mật khẩu/Xóa tài khoản</b>
-                                </td>
-                            </tr>                       
+                                                 
                             <tr>
                                 <td>Tên tài khoản:</td>
                                 <td><input type="text" id="acc_reset_del_username"></td>
@@ -145,15 +148,13 @@
                 </div>
 
                 <div class="box">
+                        <b class="tabletitile">Các tài khoản của hệ thống</b>
                     <div class="row">
                         <table>
-                            <tr>
-                                <td>
-                                <b style="color: darkred">Các tài khoản của hệ thống</b>
-                                </td>
-                            </tr>                       
-                            <tr>
-                                <td><textarea id="acc_list_all" cols="40" rows="5"></textarea></td>
+                                                            
+                            <tr> 
+                                <td></td>
+                                <td><textarea id="acc_list_all" cols="25" rows="5"></textarea></td>
                             </tr>
                             
                         </table>

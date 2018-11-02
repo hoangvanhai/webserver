@@ -42,8 +42,8 @@ function onMessage(event) {
             if(msg["type"] == "control" && 
             msg["subtype"] == "get_system_info") {
                 smsg = msg["data"];
-                setText("system_ip", smsg["ipaddress"])
-                setText("system_netmask", smsg["netmask"])
+                setTextLabel("system_ip", smsg["ipaddress"])
+                setTextLabel("system_netmask", smsg["netmask"])
                 setText("system_tinh", smsg["tinh"])
                 setText("system_coso", smsg["coso"])
                 setText("system_tram", smsg["tram"])
@@ -79,9 +79,9 @@ function onMessage(event) {
             if(msg["type"] == "realtime_data") {
                 smsg = msg["time"];
                 if(smsg != undefined) {
-                    setTextLabel("id_datetime", "Ngày: " + smsg["day"] + " - " + 
-                    smsg["month"] + " - " + smsg["year"] + " Giờ: " + 
-                    smsg["hour"] + " : " + smsg["min"] + " : " + 
+                    setTextLabel("id_datetime", "Ngày: " + smsg["day"] + "-" + 
+                    smsg["month"] + "-" + smsg["year"] + "&nbsp;&nbsp;" + 
+                    smsg["hour"] + ":" + smsg["min"] + ":" + 
                     smsg["sec"])
                 }
             }
@@ -112,7 +112,7 @@ function onReload() {
 function onUpdate() {
     if(SOCK == undefined) return    
 
-    if(confirm("Lưu xuống logger ?")) {
+    if(confirm("Lưu cấu hình ?")) {
         if(getText("system_ftp_password") == "") {
             setTextColor("Chưa nhập mật khẩu", true)
             return
@@ -124,8 +124,8 @@ function onUpdate() {
             type: 'control',
             subtype: 'set_system_info',
             data: {
-                ipaddress: getText("system_ip"),
-                netmask: getText("system_netmask"),
+                // ipaddress: getText("system_ip"),
+                // netmask: getText("system_netmask"),
                 tinh: getText("system_tinh"),
                 coso: getText("system_coso"),
                 tram: getText("system_tram"),

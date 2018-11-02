@@ -12,18 +12,34 @@
 
     <div class="wrapper">        
         <div class="header">
-            <div style="text-align: center; font-size: 20px;">
-                <b>HỆ THỐNG TRUYỀN VÀ QUẢN LÝ DỮ LIỆU QUAN TRẮC TỰ ĐỘNG</b>
-            </div> 
+        <table class="">
+                <tbody>
+                    <tr>
+                        <td>
+                            <img src="img/logo.jpg" alt="Logo" style="margin-left: 20px;width:160px;height:50px;">            
+                        </td>
+                        <td style="width: 80%;">
+                                
+                            <center style="font-size: 20px; margin-left: 10%;">
+                                <b>HỆ THỐNG TRUYỀN VÀ QUẢN LÝ DỮ LIỆU QUAN TRẮC TỰ ĐỘNG</b>
+                            </center>
+                                
+                        </td>
+                        <td style="width: 20%; height: 80px;">
 
-            <div class="inline">
-                <img src="img/logo.jpg" alt="Logo" style="width:160px;height:50px;">            
-                <a class="logout" href="index.html"><img src="img/logout.png" alt="" 
-                    style="width:30px;height:20px;" ></a>
-                <span id="id_username" class="username"></span>
-                <span id="id_datetime" class="timedate"></span>            
-                <span id="id_connstatus" class="username"></span>
-            </div>
+                        <div class="inline">
+                                
+                                <span><a class="logout" href="index.html"><img src="img/logout.png" alt="" 
+                                    style="width:20px;height:15px;" ></a></span>
+                                <span id="id_username" class="username"></span>
+                        </div>
+                        
+                        <div id="id_connstatus" class="timedate"></div>
+                        <div id="id_datetime" class="timedate"></div>                    
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
         </div>
 
@@ -53,68 +69,54 @@
 
             </td>
 
-            <td class="content">    
-                    <div style="text-align: center; font-size: 20px; padding-top: 10px;">
-                        <b>Cài đặt chung cho hệ thống</b>
-                    </div>                    
-
+            <td class="content" style="height: 700px;">                    
                 <div class="box">
+                        <b class="tabletitile">Thông tin hệ thống</b>
                     <div class="row">
-                        <table >
+                        <table >                     
                             <tr>
-                                <td colspan = "2">
-                                <b style="color: darkred">Thông tin hệ thống</b>
-                                </td>
-                            </tr>                      
-                            <tr>
-                                <td>Tỉnh:</td>
-                                <td style="width: 50px;"></td>
-                                <td><input type="text" id="system_tinh"></td>
+                                <td style="width: 40%px;">Tỉnh:</td>                                
+                                <td ><input type="text" id="system_tinh"></td>
                             </tr>
                             <tr>
                                 <td>Cơ sở:</td>
-                                <td>&nbsp;</td>
                                 <td><input type="text" id="system_coso"></td>
                             </tr>
                             <tr>
                                 <td>Trạm:</td>
-                                <td>&nbsp;</td>
+                                
                                 <td><input type="text" id="system_tram"></td>
                             </tr>
                             <tr>
-                                <td>Địa chỉ IP:</td><td>&nbsp;</td>
-                                <td><input type="text" id="system_ip"></td>
+                                <td>Địa chỉ IP:</td>
+                                <td id="system_ip"></td>
                             </tr>
                             <tr>
-                                <td>Subnet Mask:</td><td>&nbsp;</td>
-                                <td><input type="text" id="system_netmask"></td>
+                                <td>Subnet Mask:</td>
+                                <td id="system_netmask"></td>
                             </tr>                        
                         </table>
                     </div>
                 </div>
 
                 <div class="box">
+                        <b class="tabletitile">Máy chủ FTP</b>
                     <div class="row">
-                        <table>
+                        <table>                      
                             <tr>
-                                <td colspan = "2">
-                                <b style="color: darkred">Máy chủ FTP</b>
-                                </td>
-                            </tr>                       
-                            <tr>
-                                <td>Địa chỉ IP:</td><td>&nbsp;</td>
-                                <td><input type="text" id="system_ftp_ip"></td>
+                                <td >Địa chỉ IP:</td>
+                                <td ><input type="text" id="system_ftp_ip"></td>
                             </tr>
                             <tr>
-                                <td>Tên truy cập:</td><td>&nbsp;</td>
+                                <td>Tên truy cập:</td>
                                 <td><input type="text" id="system_ftp_username"></td>
                             </tr>
                             <tr>
-                                <td>Mật khẩu:</td><td>&nbsp;</td>
+                                <td>Mật khẩu:</td>
                                 <td><input type="text" id="system_ftp_password"></td>
                             </tr>                        
                             <tr>
-                                <td>Thời gian cập nhật:</td><td>&nbsp;</td>
+                                <td>Thời gian cập nhật:</td>
                                 <td><select id="system_ftp_logdur">
                                     <option value="1">1 phút</option>
                                     <option value="2">2 phút</option>
@@ -132,11 +134,11 @@
                 <div class="inline">
                     <button id="btn_update" onClick="onUpdate()"
                         style="position: relative; float: right; width: 130px;">
-                        Lưu xuống logger</button>     
+                        Lưu cấu hình</button>     
                     
                     <button id="btn_reset" onClick="onReset()"
                         style="position: relative; float: right; width: 130px;">
-                        Reset logger</button>                           
+                        Khởi động lại</button>                           
                 </div>
 
                 <center id="id_status_report"></center>

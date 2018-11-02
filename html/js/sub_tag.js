@@ -57,9 +57,9 @@ function onMessage(event) {
             if(msg["type"] == "realtime_data") {
                 smsg = msg["time"];
                 if(smsg != undefined) {
-                    setTextLabel("id_datetime", "Ngày: " + smsg["day"] + " - " + 
-                    smsg["month"] + " - " + smsg["year"] + " Giờ: " + 
-                    smsg["hour"] + " : " + smsg["min"] + " : " + 
+                    setTextLabel("id_datetime", "Ngày: " + smsg["day"] + "-" + 
+                    smsg["month"] + "-" + smsg["year"] + "&nbsp;&nbsp;" + 
+                    smsg["hour"] + ":" + smsg["min"] + ":" + 
                     smsg["sec"])
                 }
             }

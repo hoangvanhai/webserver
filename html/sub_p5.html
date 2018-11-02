@@ -20,18 +20,34 @@
 
     <div class="wrapper">        
         <div class="header">
-            <div style="text-align: center; font-size: 20px;">
-                <b>HỆ THỐNG TRUYỀN VÀ QUẢN LÝ DỮ LIỆU QUAN TRẮC TỰ ĐỘNG</b>
-            </div> 
+        <table class="">
+                <tbody>
+                    <tr>
+                        <td>
+                            <img src="img/logo.jpg" alt="Logo" style="margin-left: 20px;width:160px;height:50px;">            
+                        </td>
+                        <td style="width: 80%;">
+                                
+                            <center style="font-size: 20px; margin-left: 10%;">
+                                <b>HỆ THỐNG TRUYỀN VÀ QUẢN LÝ DỮ LIỆU QUAN TRẮC TỰ ĐỘNG</b>
+                            </center>
+                                
+                        </td>
+                        <td style="width: 20%; height: 80px;">
 
-            <div class="inline">
-                <img src="img/logo.jpg" alt="Logo" style="width:160px;height:50px;">            
-                <a class="logout"href="index.html"><img src="img/logout.png" alt="" 
-                    style="width:30px;height:20px;" ></a>
-                <span id="id_username" class="username"></span>
-                <span id="id_datetime" class="timedate"></span>            
-                <span id="id_connstatus" class="username"></span>
-            </div>
+                        <div class="inline">
+                                
+                                <span><a class="logout" href="index.html"><img src="img/logout.png" alt="" 
+                                    style="width:20px;height:15px;" ></a></span>
+                                <span id="id_username" class="username"></span>
+                        </div>
+                        
+                        <div id="id_connstatus" class="timedate"></div>
+                        <div id="id_datetime" class="timedate"></div>                    
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
         </div>
 
@@ -62,19 +78,14 @@
             </td>
 
             <td class="content">    
-                    <div style="text-align: center; font-size: 20px; padding-top: 10px;">
-                        <b>Cấu hình tham số</b>
-                    </div>
-
                     <center id="tag_status_report"></center>
 
                 <div class="box">
+                        <b class="tabletitile">Thông số quan trắc</b>
                     <div class="row">
                         <table >
                             
-                            <tr> <td>
-                                <b style="color: darkred">Thông số quan trắc</b></td>
-                            </tr>
+                            
                                                     
                             <tr>
                                 <td>Thông số đo:</td>
@@ -103,19 +114,17 @@
 
 
                 <div class="box">
+                        <b class="tabletitile">Dải đo</b>  
                     <div class="row">
                         <table >
-                            <tr> <td>
-                                <b style="color: darkred">Dải đo</b></td>
-                            </tr>
-                                                   
+                                           
                             <tr>
                                 <td>Hàm tính:</td>
                                 <td><input type="text" disabled value="A + B*x"></td>
-                                <td>A:</td>
-                                <td><input type="number" id="daido_a" style="width: 100px;"></td>                              
-                                <td>B:</td>
-                                <td><input type="number" id="daido_b" style="width: 100px;"></td>
+                                <td style="width: 10px; text-align:right;">A:</td>
+                                <td><input type="number" id="daido_a" style="width: 50px;"></td>                              
+                                <td style="width: 10px; text-align:right;">B:</td>
+                                <td><input type="number" id="daido_b" style="width: 50px;"></td>
                             </tr>
                             <tr>
                                 <td>Dải đo dưới:</td>
@@ -128,24 +137,21 @@
                             <tr>
                                 <td>Ngưỡng cảnh báo:</td>
                                 <td><input type="number" id="daido_canhbao"></td>
+                                <td style="width: 10px;"><input type="checkbox" id="daido_chophepcb"></td>
                             </tr>                                           
-                            <tr>
-                                <td>Cho phép cảnh báo:</td>
-                                <td><input type="checkbox" id="daido_chophepcb"></td> 
-                            </tr>             
+                                      
                         </table>
                     </div>
                 </div>
 
 
                 <div class="box">
+                        <b class="tabletitile">Tiêu chuẩn hóa</b>
                     <div class="row">
                         
                         <table >
-                            <tr><td colspan="4">
-                                <b style="color: darkred">Tiêu chuẩn hóa</b>
-                            </td>
-                            </tr>
+                            
+                            
                             
                             <tr>
                                 <td></td>
@@ -226,12 +232,11 @@
 
 
                 <div class="box">
+                        <b class="tabletitile">Tín hiệu trạng thái</b>
                     <div class="row">
                             
                         <table >
-                            <tr>
-                                <td colspan="3"><b style="color: darkred">Tín hiệu trạng thái</b></td>
-                            </tr>
+                            
                             <tr>
                                 <td></td>
                                 <td>Nguồn</td>
@@ -279,7 +284,7 @@
                 <div class="inline" >
                     <button id="btn_savetag" onClick="onSaveTag()"
                         style="float: right; width: 130px;">
-                        Lưu xuống logger</button>                             
+                        Lưu cấu hình</button>                             
                 </div>
 
                 <center id="id_status_report"></center>

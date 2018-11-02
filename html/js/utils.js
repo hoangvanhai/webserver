@@ -68,12 +68,12 @@ function setTextColor(val, warn) {
 
 function setBarChartPercen(id, per, warn) {
     var percen = per
-    if(percen > 100) percen = 100    
+    if(percen >= 100) percen = 100    
     document.getElementById(id).style.width = percen + '%'     
     if(warn) {
         document.getElementById(id).style.backgroundColor = 'red'
     } else {
-        document.getElementById(id).style.backgroundColor = 'green'
+        document.getElementById(id).style.backgroundColor = 'green' /*'rgb(40, 250, 50)'*/
     }
 }
 
@@ -82,10 +82,24 @@ function setBack(username) {
     if(username == "") {
         window.location = "index.html";
     }
+    if(username == undefined) {
+        window.location = "index.html";
+    }
 }
 
 
 function forceBack() {
     localStorage.username_ = ""
     window.location = "index.html";
+}
+
+function removeTag(id) {
+    document.getElementById(id).remove();
+}
+
+
+function removeHtmlTag(userrole) {
+    if(userrole == "user") {
+        
+    }
 }

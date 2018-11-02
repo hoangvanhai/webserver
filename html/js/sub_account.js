@@ -94,9 +94,9 @@ function onMessage(event) {
             if(msg["type"] == "realtime_data") {
                 smsg = msg["time"];
                 if(smsg != undefined) {
-                    setTextLabel("id_datetime", "Ngày: " + smsg["day"] + " - " + 
-                    smsg["month"] + " - " + smsg["year"] + " Giờ: " + 
-                    smsg["hour"] + " : " + smsg["min"] + " : " + 
+                    setTextLabel("id_datetime", "Ngày: " + smsg["day"] + "-" + 
+                    smsg["month"] + "-" + smsg["year"] + "&nbsp;&nbsp;" + 
+                    smsg["hour"] + ":" + smsg["min"] + ":" + 
                     smsg["sec"])
                 }
             } else if(msg["type"] == "control") {
@@ -241,7 +241,7 @@ function resetPassword(username) {
 
 function deleteUser(username) {
 
-    if(localStorage.role_ = "user") {
+    if(localStorage.role_ == "user") {
         setTextColor("Không có quyền xóa tài khoản", true)
         return
     }

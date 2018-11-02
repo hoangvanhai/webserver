@@ -22,7 +22,7 @@
     border-right-width: 0px;
     border-color: green;
     border-style: solid;
-    padding-top: 20px;
+    /* padding-top: 20px;     */
 }
 
 .maintable {
@@ -38,6 +38,7 @@
     margin: 0;
     padding: 2px;
     vertical-align: top;
+    font-weight: bold;
 }
 
 .content {
@@ -59,35 +60,41 @@
 
 
 .timedate {
-    right: 0px;
-    width: 300px;
-    padding-top: 35px;   
-    padding-bottom: 0px;
+    /* right: 0px; */
+    /* width: 300px; */
+    /* padding-top: 35px;    */
+    display: block;
+    padding-top: 6px;
     padding-right: 2px;
     float: right;
     text-align: right;
+	font-weight: bold;
+    font-size: 12px;
+    clear: both;
+    /* background-color: black; */
     /* border-color: darkgreen;
     border-style: solid;
     border-width: 2px; */
 }
 .username {    
-    right: 0px;
+    /* right: 0px; */
     width: 150px;
-    padding-top: 35px;   
+    /* padding-top: 35px;    */
     float: right;
     text-align: right;
-    padding-bottom: 0px;
+    font-weight: bold;
+    /* padding-bottom: 0px; */
     /* border-color: darkgreen;
     border-style: solid;
     border-width: 2px; */
 }
 
 .logout {
-    width: 60px;
-    padding-top: 35px; 
+    width: 30px;
+    /* padding-top: 35px;  */
     padding-right: 4px;  
     float: right;
-    text-align: right;
+    text-align: right;    
     /* background-image : url("img/logout.png");     */
 }
 
@@ -102,8 +109,10 @@
 
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center;
+    justify-content: center; */
+    /* background-color: darkolivegreen; */
+
 }
 
 
@@ -122,6 +131,7 @@
     cursor: pointer;
     width: 170px;
     height: 25px;
+    font-weight: bold;
     
 }
 
@@ -139,7 +149,7 @@
     transition-duration: 0.4s;
     cursor: pointer;
     width: 170px;
-    height: 25px;    
+    height: 25px;        
 }
 
 .menubtn {
@@ -161,19 +171,53 @@
 .box {
     padding-top: 3px;
     padding-bottom: 3px;       
-    /* padding-left: 100px; */
+    /* padding-left: 30%px; */
     border-width: 0px 0px 1px 0px;
     border-color: green;
     border-style: solid;
     margin-top: 20px;
     margin-bottom: 20px;
     width: 100%;
+    /* background-color: blueviolet; */
+}
+
+.boxcenter {
+    padding-top: 3px;
+    padding-bottom: 3px;       
+    /* padding-left: 30%px; */
+    border-width: 0px 0px 1px 0px;
+    border-color: green;
+    border-style: solid;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;    
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.boxnoborder {
+    padding-top: 3px;
+    padding-bottom: 3px;           
+    border-width: 0px 0px 0px 0px;
+    border-color: green;
+    border-style: solid;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;    
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .boxnopadd {
     padding-top: 3px;
     padding-bottom: 3px;       
-    /* padding-left: 100px; */
+    
     border-width: 0px 0px 0px 0px;
     border-color: green;
     border-style: solid;
@@ -199,17 +243,39 @@
 
 #bar_p1, #bar_p2, #bar_p3, #bar_p4, #bar_p5, #bar_p6, #bar_p7, #bar_p8  {
     width: 10%;
-    height: 15px;
-    background-color: green;
+    height: 30px;
+    background-color: green/* rgb(40, 250, 50); */
 }
 
-th, td {
+.barmin {
+    float: left; 
+    text-align: left; 
+    width: 20px; 
+    margin-top: 6px;
+    margin-left: 1px;
+    color: white;
+}
+
+.barmax {
+    float: right; 
+    text-align: right; 
+    width: 80px; 
+    margin-top: 6px;
+    margin-right: 2px;
+    color: white;
+}
+
+td {
     padding: 4px;
-    text-align: left;
-    /* border-bottom: 1px solid #ddd; */
+    /* text-align: left;     */
 }
 
-
+.tdbar {
+    border-color:gray;
+    border-style: solid;
+    border-width: 1px;
+    padding: 8px; 
+}
 
 /* Fixed sidenav, full height */
 .sidenav {
@@ -242,6 +308,7 @@ th, td {
     width: 170px;
     height: 35px;
     outline: none;
+    font-weight: bold;
 }
 
 /* On mouse-over */
@@ -267,3 +334,44 @@ th, td {
     float: right;
     padding-right: 8px;
 }
+
+
+.tabletitile {
+    margin-left: 30px; 
+    font-size:larger; 
+    color: darkred;
+}
+
+tbody>tr>:nth-child(1){        
+    text-align:right;
+    font-weight: bold;    
+}
+
+tbody>tr>:nth-child(2){        
+    text-align:left;
+}
+
+
+.box tbody>tr>:nth-child(1){        
+    width: 400px;    
+
+}
+
+.box tbody>tr>:nth-child(2){        
+    width: 150px;
+}
+
+
+.box tbody>tr>:nth-child(3){        
+    width: 100px;    
+}
+
+.box tbody>tr>:nth-child(4){        
+    width: 80px;
+}
+
+td input, td button td select {
+    box-sizing:border-box;
+    display:block;
+    width:100%;
+  }
