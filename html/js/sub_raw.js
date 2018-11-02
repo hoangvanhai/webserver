@@ -88,11 +88,11 @@ function setDataRawRow(msg, row) {
     setTextLabel("bar_max_p" + row, msg["max"])    
 
     if(msg["status"] == "00") {
-        setTextLabel("data_raw_status_p" + row, "") 
+        setTextLabel("bar_p" + row, "") 
     } else if(msg["status"] == "01") {
-        setTextLabel("data_raw_status_p" + row, 'Đang hiệu chỉnh') 
+        setTextLabel("bar_p" + row, 'Đang hiệu chỉnh') 
     } else if(msg["status"] == "02") {
-        setTextLabel("data_raw_status_p" + row, "Lỗi") 
+        setTextLabel("bar_p" + row, "Lỗi") 
     }   
 }
 

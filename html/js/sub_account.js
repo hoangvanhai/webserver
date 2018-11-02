@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function(){
         setStatus('Trinh duyet khong ho tro ws')
     }
     setBack(localStorage.username_)
+    removeHtmlTag(localStorage.role_)
     setTextLabel("id_username", "Tài khoản: " + localStorage.username_)
     
     console.log("role = " + localStorage.role_)

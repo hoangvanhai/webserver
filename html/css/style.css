@@ -15,7 +15,7 @@
 .header {
     width: 100%;        
     color: rgb(114, 111, 111);
-    height: 80px;        
+    height: 100px;        
     border-top-width: 0px;
     border-bottom-width: 2px;
     border-left-width: 0px;
@@ -64,7 +64,8 @@
     /* width: 300px; */
     /* padding-top: 35px;    */
     display: block;
-    padding-top: 6px;
+    padding-top: 14px;
+    padding-bottom: 0px;
     padding-right: 2px;
     float: right;
     text-align: right;
@@ -79,7 +80,7 @@
 .username {    
     /* right: 0px; */
     width: 150px;
-    /* padding-top: 35px;    */
+    padding-top: 15px;   
     float: right;
     text-align: right;
     font-weight: bold;
@@ -91,7 +92,7 @@
 
 .logout {
     width: 30px;
-    /* padding-top: 35px;  */
+    padding-top: 16px; 
     padding-right: 4px;  
     float: right;
     text-align: right;    
@@ -239,19 +240,24 @@
 .progress {
     width: 100%;    
     background-color: grey;
+    text-align: center;    
+    color: white;    
 }
 
 #bar_p1, #bar_p2, #bar_p3, #bar_p4, #bar_p5, #bar_p6, #bar_p7, #bar_p8  {
-    width: 10%;
+    width: 0%;
     height: 30px;
-    background-color: green/* rgb(40, 250, 50); */
+    background-color: green;/* rgb(40, 250, 50); */
+    padding-top: 10px;
+    font-weight: bold;
+    
 }
 
 .barmin {
     float: left; 
     text-align: left; 
     width: 20px; 
-    margin-top: 6px;
+    margin-top: 10px;
     margin-left: 1px;
     color: white;
 }
@@ -260,7 +266,7 @@
     float: right; 
     text-align: right; 
     width: 80px; 
-    margin-top: 6px;
+    margin-top: 10px;
     margin-right: 2px;
     color: white;
 }
@@ -358,7 +364,7 @@ tbody>tr>:nth-child(2){
 }
 
 .box tbody>tr>:nth-child(2){        
-    width: 150px;
+    width: 130px;
 }
 
 
@@ -368,6 +374,14 @@ tbody>tr>:nth-child(2){
 
 .box tbody>tr>:nth-child(4){        
     width: 80px;
+}
+
+.set_tch tbody>tr>:nth-child(2){        
+    width: 30px;
+}
+
+.set_tt tbody>tr>:nth-child(3){        
+    width: 30px;
 }
 
 td input, td button td select {

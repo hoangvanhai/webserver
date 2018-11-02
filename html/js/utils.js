@@ -67,13 +67,16 @@ function setTextColor(val, warn) {
 }
 
 function setBarChartPercen(id, per, warn) {
+    select = document.getElementById(id);
     var percen = per
-    if(percen >= 100) percen = 100    
-    document.getElementById(id).style.width = percen + '%'     
+    if(percen >= 100)     
+    select.style.width =  '100%'     
+    else
+    select.style.width = percen + '%'     
     if(warn) {
-        document.getElementById(id).style.backgroundColor = 'red'
+        select.style.backgroundColor = 'red'
     } else {
-        document.getElementById(id).style.backgroundColor = 'green' /*'rgb(40, 250, 50)'*/
+        select.style.backgroundColor = 'rgb(40, 250, 50)'
     }
 }
 
@@ -99,7 +102,16 @@ function removeTag(id) {
 
 
 function removeHtmlTag(userrole) {
-    if(userrole == "user") {
-        
+    if(userrole != "admin" && userrole != "supperuser") {
+        removeTag("a_raw")
+        removeTag("a_subsystem")
+        removeTag("a_p1")
+        removeTag("a_p2")
+        removeTag("a_p3")
+        removeTag("a_p4")
+        removeTag("a_p5")
+        removeTag("a_p6")
+        removeTag("a_p7")
+        removeTag("a_p8")        
     }
 }

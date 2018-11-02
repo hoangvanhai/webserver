@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     setBack(localStorage.username_)
+    removeHtmlTag(localStorage.role_)
     setTextLabel("id_username", "Tài khoản: " + localStorage.username_)
 })
 
