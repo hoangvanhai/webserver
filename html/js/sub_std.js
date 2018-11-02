@@ -92,12 +92,14 @@ function setDataRawRow(msg, row) {
     setTextLabel("bar_max_p" + row, msg["max"])    
 
     if(msg["status"] == "00") {
-        setTextLabel("bar_p" + row, "") 
+        setTextBarColor("bar_p" + row, "", false) 
     } else if(msg["status"] == "01") {
-        setTextLabel("bar_p" + row, 'Đang hiệu chỉnh') 
+        setTextBarColor("bar_p" + row, 'Đang hiệu chỉnh', false) 
     } else if(msg["status"] == "02") {
-        setTextLabel("bar_p" + row, 'Lỗi') 
+        setTextBarColor("bar_p" + row, 'Lỗi', msg["alarm_en"] == true && final_value > alarm_value) 
     }
+
+    setTextBarColor("bar_p" + row, 'Lỗi', !(msg["alarm_en"] == true && final_value > alarm_value)) 
 }
 
 

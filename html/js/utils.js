@@ -20,6 +20,16 @@ function setTextLabelColor(id, val, warn) {
     }
 }
 
+function setTextBarColor(id, val, warn) {
+    if (warn == true) {
+        document.getElementById(id).innerHTML = 
+        '<span style="color:red">' + val + "</span>"
+    }else{
+        document.getElementById(id).innerHTML = 
+        '<span style="color:white">' + val + "</span>"
+    }
+}
+
 function getCheckbox(id){
     return document.getElementById(id).checked
 }

@@ -70,6 +70,35 @@ function onMessage(event) {
                     setComboIndex("system_ftp_logdur", "4")
                     break;
                 }
+
+
+                setText("system_ftp_ip2", smsg["serverip2"])
+                setText("system_ftp_username2", smsg["username2"])
+                setText("system_ftp_password2", smsg["password2"])              
+                switch(smsg["logdur2"]) {
+                    case 0.5 :
+                    setComboIndex("system_ftp_logdur2", "0.5")
+                    break;
+                    case 1 :
+                    setComboIndex("system_ftp_logdur2", "1")
+                    break;
+                    case 2 :
+                    setComboIndex("system_ftp_logdur2", "2")
+                    break;
+                    case 3 :
+                    setComboIndex("system_ftp_logdur2", "3")
+                    break;
+                    case 4 :
+                    setComboIndex("system_ftp_logdur2", "4")
+                    case 5 :
+                    setComboIndex("system_ftp_logdur2", "5")
+                    break;
+                    default:
+                    setComboIndex("system_ftp_logdur2", "5")
+                    break;
+                }
+
+
             } else if(msg["type"] == "set_system_info") {
                 if(msg["status"] == "success") {
                     setTextColor("Lưu tham số thành công", false)
@@ -119,6 +148,7 @@ function onUpdate() {
         }
 
         var logdurval= Number(getContent("system_ftp_logdur"))
+        var logdurval2= Number(getContent("system_ftp_logdur2"))
 
         msg = {
             type: 'control',
@@ -133,6 +163,11 @@ function onUpdate() {
                 username: getText("system_ftp_username"),
                 password: getText("system_ftp_password"),            
                 logdur: logdurval,
+
+                serverip2: getText("system_ftp_ip2"),
+                username2: getText("system_ftp_username2"),
+                password2: getText("system_ftp_password2"),            
+                logdur2: logdurval2,
             }        
         }
 

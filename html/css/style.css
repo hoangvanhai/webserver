@@ -64,7 +64,7 @@
     /* width: 300px; */
     /* padding-top: 35px;    */
     display: block;
-    padding-top: 14px;
+    padding-top: 10px;
     padding-bottom: 0px;
     padding-right: 2px;
     float: right;
@@ -79,8 +79,8 @@
 }
 .username {    
     /* right: 0px; */
-    width: 150px;
-    padding-top: 15px;   
+    /* width: 150px; */
+    padding-top: 10px;   
     float: right;
     text-align: right;
     font-weight: bold;
@@ -92,7 +92,7 @@
 
 .logout {
     width: 30px;
-    padding-top: 16px; 
+    padding-top: 11px; 
     padding-right: 4px;  
     float: right;
     text-align: right;    

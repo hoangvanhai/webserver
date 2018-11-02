@@ -48,6 +48,12 @@ function onMessage(event){
                 setTextLabel("id_status_ftp_ip", smsg["serverip"])
                 setTextLabel("id_status_ftp_username", smsg["username"])                
                 setTextLabel("id_status_ftp_logdur", smsg["logdur"] + " phút")
+                setTextLabel("id_status_ftp_ip2", smsg["serverip2"])
+                setTextLabel("id_status_ftp_username2", smsg["username2"])      
+                if(smsg["logdur2"] == 0.5)          
+                setTextLabel("id_status_ftp_logdur2", "30 giây")
+                else
+                setTextLabel("id_status_ftp_logdur2", smsg["logdur2"] + " phút")
             }
 
             if(msg["type"] == "realtime_data") {
