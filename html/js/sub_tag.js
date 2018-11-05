@@ -121,6 +121,11 @@ function setTagContent(tag, msg) {
     } else {
         setCheckbox("tsqt_baocao", false)
     }
+    if(msg["report2"] == true) {
+        setCheckbox("tsqt_baocao2", true)
+    } else {
+        setCheckbox("tsqt_baocao2", false)
+    }
     if(msg["final_type"] == 0) {
         setCheckbox("tc_chon_oxy", false)
         setCheckbox("tc_chon_nhietdo", false)
@@ -187,6 +192,7 @@ function onSaveTag() {
             tag_id: Number(localStorage.currTag_),
             data: {
                 report: getCheckbox("tsqt_baocao"),
+                report2: getCheckbox("tsqt_baocao2"),
                 sw: getText("tsqt_thongsodo"),
                 unit: getText("tsqt_donvitho"),
                 desc: getText("tsqt_motathongso"), 
