@@ -50,7 +50,7 @@ function onMessage(event){
                     window.location = "main_status.html"; // Redirecting to other page.
 
                 } else {
-                    setTextColor("id_login_status", "tài khoản hoặc mật khẩu không đúng", true)
+                    setTextColor("id_login_status", "Tài khoản hoặc mật khẩu không đúng", true)
                 }
             }
             

@@ -37,7 +37,7 @@ function onMessage(event) {
     try {        
         msg = JSON.parse(event.data)        
         if(msg != undefined) {
-            console.log(msg)
+            //console.log(msg)
             if(msg["type"] == "realtime_data") {
                 smsgdata =  msg["data"]
                 if(smsgdata != undefined) {
@@ -80,7 +80,9 @@ function setDataRawRow(msg, row) {
     } else {
         if(msg["alarm_en"] == true) {
             setBarChartPercen("bar_p" + row, 100 * inter_value / msg["max"], true)
-        }
+        } else {
+		setBarChartPercen("bar_p" + row, 100 * inter_value / msg["max"], false)
+	}
     }
     setTextLabel("bar_name_p" + row, msg["sw"])
     setTextLabel("bar_value_p" + row, msg["inter"].toFixed(2))
@@ -89,15 +91,14 @@ function setDataRawRow(msg, row) {
     setTextLabel("bar_min_p" + row, msg["min"])
     setTextLabel("bar_max_p" + row, msg["max"])    
 
-    // if(msg["status"] == "00") {
-    //     setTextBarColor("bar_p" + row, "", false) 
-    // } else if(msg["status"] == "01") {
-    //     setTextBarColor("bar_p" + row, 'Đang hiệu chỉnh', false) 
-    // } else if(msg["status"] == "02") {
-    //     setTextBarColor("bar_p" + row, "Lỗi", true) 
-    // }   
-
-    setTextBarColor("bar_p" + row, "Lỗi", true) 
+     if(msg["status"] == "00") {
+         setTextBarColor("bar_p" + row, "", false) 
+     } else if(msg["status"] == "01") {
+         setTextBarColor("bar_p" + row, 'Đang hiệu chỉnh', false) 
+     } else if(msg["status"] == "02") {
+         setTextBarColor("bar_p" + row, "Lỗi", !(msg["alarm_en"] == true && inter_value > alarm_value)) 
+     }   
+ 
 }
 
 

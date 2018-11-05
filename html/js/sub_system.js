@@ -90,6 +90,7 @@ function onMessage(event) {
                     break;
                     case 4 :
                     setComboIndex("system_ftp_logdur2", "4")
+		    break;
                     case 5 :
                     setComboIndex("system_ftp_logdur2", "5")
                     break;

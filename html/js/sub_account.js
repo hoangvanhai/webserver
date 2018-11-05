@@ -298,6 +298,7 @@ function loadUiInput() {
         setDisabledInput("btn_adduser")
         setDisabledInput("btn_resetpw")
         setDisabledInput("btn_delacc")
+	setDisabledInput("acc_type")
     } else if(localStorage.role_ == "admin") {
         setDisabledInput("btn_resetpw")
         // setDisabledInput("btn_delacc")

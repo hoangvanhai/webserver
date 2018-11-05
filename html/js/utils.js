@@ -79,9 +79,6 @@ function setTextColor(val, warn) {
 function setBarChartPercen(id, per, warn) {
     select = document.getElementById(id);
     var percen = per
-    if(percen >= 100)     
-    select.style.width =  '100%'     
-    else
     select.style.width = percen + '%'     
     if(warn) {
         select.style.backgroundColor = 'red'
