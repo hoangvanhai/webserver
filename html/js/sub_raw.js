@@ -68,36 +68,38 @@ function onMessage(event) {
 
 function setDataRawRow(msg, row) {
 
-    var inter_value = msg["inter"];
-    var alarm_value = msg["alarm"];
+    if(msg["sw"] != "") {
+        var inter_value = msg["inter"];
+        var alarm_value = msg["alarm"];
 
-    if(inter_value < 0) inter_value = 0
+        if(inter_value < 0) inter_value = 0
 
 
-    if(inter_value < alarm_value) {
-        setBarChartPercen("bar_p" + row, 100 * inter_value / msg["max"], false)
-        
-    } else {
-        if(msg["alarm_en"] == true) {
-            setBarChartPercen("bar_p" + row, 100 * inter_value / msg["max"], true)
+        if(inter_value < alarm_value) {
+            setBarChartPercen("bar_p" + row, 100 * inter_value / msg["max"], false)
+            
         } else {
-		setBarChartPercen("bar_p" + row, 100 * inter_value / msg["max"], false)
-	}
-    }
-    setTextLabel("bar_name_p" + row, msg["sw"])
-    setTextLabel("bar_value_p" + row, msg["inter"].toFixed(2))
-    setTextLabel("bar_unit_p" + row, msg["inter_unit"])        
-    
-    setTextLabel("bar_min_p" + row, msg["min"])
-    setTextLabel("bar_max_p" + row, msg["max"])    
+            if(msg["alarm_en"] == true) {
+                setBarChartPercen("bar_p" + row, 100 * inter_value / msg["max"], true)
+            } else {
+            setBarChartPercen("bar_p" + row, 100 * inter_value / msg["max"], false)
+        }
+        }
+        setTextLabel("bar_name_p" + row, msg["sw"])
+        setTextLabel("bar_value_p" + row, msg["inter"].toFixed(2))
+        setTextLabel("bar_unit_p" + row, msg["inter_unit"])        
 
-     if(msg["status"] == "00") {
-         setTextBarColor("data_raw_status_p" + row, "", false) 
-     } else if(msg["status"] == "01") {
-         setTextBarColor("data_raw_status_p" + row, 'Đang hiệu chỉnh', false) 
-     } else if(msg["status"] == "02") {
-         setTextBarColor("data_raw_status_p" + row, "Lỗi", true) 
-     }   
+        setTextLabel("bar_min_p" + row, msg["min"])
+        setTextLabel("bar_max_p" + row, msg["max"])    
+
+        if(msg["status"] == "00") {
+            setTextBarColor("data_raw_status_p" + row, "", false) 
+        } else if(msg["status"] == "01") {
+            setTextBarColor("data_raw_status_p" + row, 'Đang hiệu chỉnh', false) 
+        } else if(msg["status"] == "02") {
+            setTextBarColor("data_raw_status_p" + row, "Lỗi", true) 
+        }
+    }   
  
 }
 

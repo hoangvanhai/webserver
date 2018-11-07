@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function(){
 function onMessage(event) {    
     try {        
         msg = JSON.parse(event.data)   
-            
+    
         if(msg != undefined) {
             if(msg["type"] == "control" && 
             msg["subtype"] == "get_system_info") {
@@ -90,13 +90,25 @@ function onMessage(event) {
                     break;
                     case 4 :
                     setComboIndex("system_ftp_logdur2", "4")
-		    break;
+		            break;
                     case 5 :
                     setComboIndex("system_ftp_logdur2", "5")
                     break;
                     default:
                     setComboIndex("system_ftp_logdur2", "5")
                     break;
+                }
+
+                if(smsg["enable"] == true) {
+                    setCheckbox("system_ftp_active", true)
+                } else {
+                    setCheckbox("system_ftp_active", false)
+                }
+    
+                if(smsg["enable2"] == true) {
+                    setCheckbox("system_ftp_active2", true)
+                } else {
+                    setCheckbox("system_ftp_active2", false)
                 }
 
 
@@ -115,6 +127,8 @@ function onMessage(event) {
                     smsg["sec"])
                 }
             }
+
+
         }
     } catch(err) {        
         console.log("parser ", err)
@@ -160,11 +174,13 @@ function onUpdate() {
                 tinh: getText("system_tinh"),
                 coso: getText("system_coso"),
                 tram: getText("system_tram"),
+                enable: getCheckbox("system_ftp_active"),
                 serverip: getText("system_ftp_ip"),
                 username: getText("system_ftp_username"),
                 password: getText("system_ftp_password"),            
                 logdur: logdurval,
 
+                enable2: getCheckbox("system_ftp_active2"),
                 serverip2: getText("system_ftp_ip2"),
                 username2: getText("system_ftp_username2"),
                 password2: getText("system_ftp_password2"),            
@@ -195,7 +211,7 @@ function onReset() {
 
 
 function loadUiInput() {
-    if(localStorage.role_ != "supperuser" && 
+    if(localStorage.role_ != "service" && 
         localStorage.role_ != "admin") {
         setDisabledInput("btn_update")
         setDisabledInput("btn_reset")

@@ -158,7 +158,7 @@ function setTagContent(tag, msg) {
 }
 
 function loadUiInput() {
-    if(localStorage.role_ != "supperuser" && 
+    if(localStorage.role_ != "service" && 
         localStorage.role_ != "admin") {
         setDisabledInput("btn_savetag")
     }

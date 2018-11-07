@@ -109,7 +109,7 @@ function removeTag(id) {
 
 
 function removeHtmlTag(userrole) {
-    if(userrole != "admin" && userrole != "supperuser") {
+    if(userrole != "admin" && userrole != "service") {
         removeTag("a_raw")
         removeTag("a_subsystem")
         removeTag("a_p1")

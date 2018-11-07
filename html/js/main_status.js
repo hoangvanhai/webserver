@@ -45,6 +45,7 @@ function onMessage(event){
                 setTextLabel("id_status_tinh", smsg["tinh"])
                 setTextLabel("id_status_coso", smsg["coso"])
                 setTextLabel("id_status_tram", smsg["tram"])
+                
                 setTextLabel("id_status_ftp_ip", smsg["serverip"])
                 setTextLabel("id_status_ftp_username", smsg["username"])                
                 setTextLabel("id_status_ftp_logdur", smsg["logdur"] + " phút")
@@ -54,6 +55,18 @@ function onMessage(event){
                 setTextLabel("id_status_ftp_logdur2", "30 giây")
                 else
                 setTextLabel("id_status_ftp_logdur2", smsg["logdur2"] + " phút")
+
+                if(smsg["enable"] == true) {
+                    setTextLabel("id_status_ftp_status", "Đang hoạt động")
+                } else {
+                    setTextLabel("id_status_ftp_status", "Không hoạt động")
+                }
+
+                if(smsg["enable2"] == true) {
+                    setTextLabel("id_status_ftp_status2", "Đang hoạt động")
+                } else {
+                    setTextLabel("id_status_ftp_status2", "Không hoạt động")
+                }
             }
 
             if(msg["type"] == "realtime_data") {

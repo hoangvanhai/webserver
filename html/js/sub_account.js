@@ -302,7 +302,7 @@ function loadUiInput() {
     } else if(localStorage.role_ == "admin") {
         setDisabledInput("btn_resetpw")
         // setDisabledInput("btn_delacc")
-    } if(localStorage.role_ == "supperuser") {
+    } if(localStorage.role_ == "service") {
         setDisabledInput("btn_changepw")
     }
 }
