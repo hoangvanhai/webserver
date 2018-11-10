@@ -76,7 +76,7 @@ function setDataRawRow(msg, row) {
 
 
         if(inter_value < alarm_value) {
-            setBarChartPercen("bar_p" + row, 100 * inter_value / msg["max"], false)
+            setBarChartPercen("bar_p" + row, 100 * inter_value / msg["max"], false)            
             
         } else {
             if(msg["alarm_en"] == true) {
@@ -85,6 +85,7 @@ function setDataRawRow(msg, row) {
             setBarChartPercen("bar_p" + row, 100 * inter_value / msg["max"], false)
         }
         }
+
         setTextLabel("bar_name_p" + row, msg["sw"])
         setTextLabel("bar_value_p" + row, msg["inter"].toFixed(2))
         setTextLabel("bar_unit_p" + row, msg["inter_unit"])        

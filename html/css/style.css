@@ -249,6 +249,7 @@
 
 #bar_p1, #bar_p2, #bar_p3, #bar_p4, #bar_p5, #bar_p6, #bar_p7, #bar_p8  {
     width: 0%;
+    max-width: 100%;
     height: 30px;
     background-color: green;/* rgb(40, 250, 50); */
     padding-top: 10px;
