@@ -71,18 +71,18 @@ function setDataRawRow(msg, row) {
     if(msg["sw"] != "") {
         var inter_value = msg["inter"];
         var alarm_value = msg["alarm"];
-
-        if(inter_value < 0) inter_value = 0
+        
+        if(inter_value < msg["min"]) inter_value = msg["min"]
 
 
         if(inter_value < alarm_value) {
-            setBarChartPercen("bar_p" + row, 100 * inter_value / msg["max"], false)            
+            setBarChartPercen("bar_p" + row, 100 * (inter_value - msg["min"])/ (msg["max"] - msg["min"]), false)            
             
         } else {
             if(msg["alarm_en"] == true) {
-                setBarChartPercen("bar_p" + row, 100 * inter_value / msg["max"], true)
+                setBarChartPercen("bar_p" + row, 100 * (inter_value - msg["min"])/ (msg["max"] - msg["min"]), true)
             } else {
-            setBarChartPercen("bar_p" + row, 100 * inter_value / msg["max"], false)
+            setBarChartPercen("bar_p" + row, 100 * (inter_value - msg["min"])/ (msg["max"] - msg["min"]), false)
         }
         }
 

@@ -73,17 +73,17 @@ function setDataRawRow(msg, row) {
         var final_value = msg["final"];
         var alarm_value = msg["alarm"];
 
-        if(final_value < 0) final_value = 0
+        if(final_value < msg["min"]) final_value = msg["min"]
 
         
         if(final_value < alarm_value) {
             
-            setBarChartPercen("bar_p" + row, 100 * final_value / msg["max"], false)
+            setBarChartPercen("bar_p" + row, 100 * (final_value - msg["min"]) / (msg["max"] - msg["min"]), false)
         } else {
             if(msg["alarm_en"] == true)
-                setBarChartPercen("bar_p" + row, 100 * final_value / msg["max"], true)
+                setBarChartPercen("bar_p" + row, 100 * (final_value - msg["min"]) / (msg["max"] - msg["min"]), true)
         else
-        setBarChartPercen("bar_p" + row, 100 * final_value / msg["max"], false)
+        setBarChartPercen("bar_p" + row, 100 * (final_value - msg["min"]) / (msg["max"] - msg["min"]), false)
         }
 
 
