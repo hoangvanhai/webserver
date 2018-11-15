@@ -219,7 +219,7 @@ function onSaveTag() {
                 calib: getContent("tinhieu_baotri"),
                 error: getContent("tinhieu_loi"),
                 has_error: getCheckbox("tinhieu_chonloi"),
-                has_calib: getCheckbox("tinhieu_chonloi"),
+                has_calib: getCheckbox("tinhieu_chonbaotri"),
                 final_type: ftype,
                 cal_revert: getCheckbox("tc_chon_nghichdao"),
                 alarm_en: getCheckbox("daido_chophepcb")
