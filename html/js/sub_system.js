@@ -42,12 +42,13 @@ function onMessage(event) {
             if(msg["type"] == "control" && 
             msg["subtype"] == "get_system_info") {
                 smsg = msg["data"];
-                setTextLabel("system_ip", smsg["ipaddress"])
+                setTextLabel("system_ip", smsg["ipaddress"])                
                 setTextLabel("system_netmask", smsg["netmask"])
                 setText("system_tinh", smsg["tinh"])
                 setText("system_coso", smsg["coso"])
                 setText("system_tram", smsg["tram"])
                 setText("system_ftp_ip", smsg["serverip"])
+                setText("system_folder", smsg["prefix"])
                 setText("system_ftp_username", smsg["username"])
                 setText("system_ftp_password", smsg["password"])              
                 switch(smsg["logdur"]) {
@@ -73,6 +74,7 @@ function onMessage(event) {
 
 
                 setText("system_ftp_ip2", smsg["serverip2"])
+                setText("system_folder2", smsg["prefix2"])
                 setText("system_ftp_username2", smsg["username2"])
                 setText("system_ftp_password2", smsg["password2"])              
                 switch(smsg["logdur2"]) {
@@ -176,12 +178,14 @@ function onUpdate() {
                 tram: getText("system_tram"),
                 enable: getCheckbox("system_ftp_active"),
                 serverip: getText("system_ftp_ip"),
+                prefix: getText("system_folder"),
                 username: getText("system_ftp_username"),
                 password: getText("system_ftp_password"),            
                 logdur: logdurval,
 
                 enable2: getCheckbox("system_ftp_active2"),
                 serverip2: getText("system_ftp_ip2"),
+                prefix2: getText("system_folder2"),
                 username2: getText("system_ftp_username2"),
                 password2: getText("system_ftp_password2"),            
                 logdur2: logdurval2,
