@@ -116,6 +116,25 @@ function setTagContent(tag, msg) {
 
     setPinInputStatus();
 
+    // if(msg["tram"] >= 1) {
+    //     var rowlab = document.getElementById("lab_ntram");
+    //     rowlab.style.display = 'table-row';
+    //     var rowtram = document.getElementById("so_tram");
+    //     rowtram.style.display = 'table-row';
+        
+    //     console.log('display');
+    // } else {
+    //     var rowlab = document.getElementById("lab_ntram");
+    //     rowlab.style.display = 'none';
+    //     var rowtram = document.getElementById("so_tram");
+    //     rowtram.style.display = 'none';
+    //     console.log('hide');
+    // }
+
+    setComboIndex("so_tram", msg["tram"] - 1);
+    
+
+
     if(msg["report"] == true) {
         setCheckbox("tsqt_baocao", true)
     } else {
@@ -222,7 +241,8 @@ function onSaveTag() {
                 has_calib: getCheckbox("tinhieu_chonbaotri"),
                 final_type: ftype,
                 cal_revert: getCheckbox("tc_chon_nghichdao"),
-                alarm_en: getCheckbox("daido_chophepcb")
+                alarm_en: getCheckbox("daido_chophepcb"),
+                tram: Number(getContent("so_tram"))
             }        
         }
 

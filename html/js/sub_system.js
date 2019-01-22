@@ -47,6 +47,22 @@ function onMessage(event) {
                 setText("system_tinh", smsg["tinh"])
                 setText("system_coso", smsg["coso"])
                 setText("system_tram", smsg["tram"])
+                setText("system_tram_2", smsg["tram2"])
+                switch(smsg["ntram"]) {
+                    case 0:
+                    case 1: {
+                    setComboIndex("system_so_tram", "0")
+                    // var row = document.getElementById("tram_2");
+                    // row.style.display = 'none';
+                    }
+                    break;
+                    case 2: {
+                    setComboIndex("system_so_tram", "1")
+                    // var row = document.getElementById("tram_2");
+                    // row.style.display = 'table-row';
+                    }
+                    break;
+                }
                 setText("system_ftp_ip", smsg["serverip"])
                 setText("system_folder", smsg["prefix"])
                 setText("system_ftp_username", smsg["username"])
@@ -176,6 +192,8 @@ function onUpdate() {
                 tinh: getText("system_tinh"),
                 coso: getText("system_coso"),
                 tram: getText("system_tram"),
+                tram2: getText("system_tram_2"),
+                ntram: Number(getContent("system_so_tram")),
                 enable: getCheckbox("system_ftp_active"),
                 serverip: getText("system_ftp_ip"),
                 prefix: getText("system_folder"),
@@ -222,6 +240,19 @@ function loadUiInput() {
     }
 }
 
+
+function statOnchange() {
+    
+    // if(document.getElementById("system_so_tram").value == 1) {
+    //     var row = document.getElementById("tram_2");
+    //     row.style.display = 'none';
+    //     console.log("hidden")    
+    // } else {
+    //     var row = document.getElementById("tram_2");
+    //     row.style.display = 'table-row';
+    //     console.log("show")    
+    // }
+}
 
 
 
