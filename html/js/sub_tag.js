@@ -116,25 +116,18 @@ function setTagContent(tag, msg) {
 
     setPinInputStatus();
 
-    // if(msg["tram"] >= 1) {
-    //     var rowlab = document.getElementById("lab_ntram");
-    //     rowlab.style.display = 'table-row';
-    //     var rowtram = document.getElementById("so_tram");
-    //     rowtram.style.display = 'table-row';
-        
-    //     console.log('display');
-    // } else {
-    //     var rowlab = document.getElementById("lab_ntram");
-    //     rowlab.style.display = 'none';
-    //     var rowtram = document.getElementById("so_tram");
-    //     rowtram.style.display = 'none';
-    //     console.log('hide');
-    // }
+    if(msg["ntram"] > 1) {
+        var rowlab = document.getElementsByClassName("class_tag_tram");
+        rowlab[0].style.display = '';  
+        console.log("show ", msg["ntram"])      
+    } else {
+        var rowlab = document.getElementsByClassName("class_tag_tram");
+        rowlab[0].style.display = 'none';        
+        console.log("hide ", msg["ntram"])      
+    }
 
     setComboIndex("so_tram", msg["tram"] - 1);
     
-
-
     if(msg["report"] == true) {
         setCheckbox("tsqt_baocao", true)
     } else {

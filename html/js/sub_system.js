@@ -52,14 +52,14 @@ function onMessage(event) {
                     case 0:
                     case 1: {
                     setComboIndex("system_so_tram", "0")
-                    // var row = document.getElementById("tram_2");
-                    // row.style.display = 'none';
+                    var elements = document.getElementsByClassName('class_sub_system');
+                    elements[0].style.display = 'none';
                     }
                     break;
                     case 2: {
                     setComboIndex("system_so_tram", "1")
-                    // var row = document.getElementById("tram_2");
-                    // row.style.display = 'table-row';
+                    var elements = document.getElementsByClassName('class_sub_system');
+                    elements[0].style.display = '';            
                     }
                     break;
                 }
@@ -241,17 +241,17 @@ function loadUiInput() {
 }
 
 
-function statOnchange() {
-    
-    // if(document.getElementById("system_so_tram").value == 1) {
-    //     var row = document.getElementById("tram_2");
-    //     row.style.display = 'none';
-    //     console.log("hidden")    
-    // } else {
-    //     var row = document.getElementById("tram_2");
-    //     row.style.display = 'table-row';
-    //     console.log("show")    
-    // }
+function statOnchange() {    
+    if(document.getElementById("system_so_tram").value == 1) {
+        var elements = document.getElementsByClassName('class_sub_system');
+        elements[0].style.display = 'none';
+        console.log("hidden")    
+    } else {
+        var elements = document.getElementsByClassName('class_sub_system');
+        elements[0].style.display = '';
+
+        console.log("show")    
+    }
 }
 
 
